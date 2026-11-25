@@ -1,0 +1,5413 @@
+{
+ "fonte": "Central de Cybersegurança para SaaS e Apps v2.0 (08/10/2026)",
+ "controles": [
+  {
+   "id": "CORE-01",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "HTTPS e TLS",
+   "exigencia": "TLS moderno em todos os acessos; redirecionamento HTTP e HSTS após validação."
+  },
+  {
+   "id": "CORE-02",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Autenticação segura",
+   "exigencia": "Identidade validada no backend; conferir autenticidade de sessão ou token."
+  },
+  {
+   "id": "CORE-03",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Autorização por recurso",
+   "exigencia": "Autorizar cada leitura, escrita e exclusão; nunca confiar na interface."
+  },
+  {
+   "id": "CORE-04",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Isolamento multi-tenant",
+   "exigencia": "Impedir que clientes distintos compartilhem recursos sem autorização expressa."
+  },
+  {
+   "id": "CORE-05",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Proteção de sessão",
+   "exigencia": "Expiração, revogação, logout real e proteção contra reutilização."
+  },
+  {
+   "id": "CORE-06",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "MFA administrativo",
+   "exigencia": "Segundo fator resistente a phishing para contas privilegiadas."
+  },
+  {
+   "id": "CORE-07",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Banco não exposto",
+   "exigencia": "Restringir rede e portas administrativas; evitar acesso direto público."
+  },
+  {
+   "id": "CORE-08",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "RLS e grants no Supabase",
+   "exigencia": "Aplicar políticas por usuário/tenant e privilégios SQL mínimos."
+  },
+  {
+   "id": "CORE-09",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Gestão de segredos",
+   "exigencia": "Nunca expor chaves privadas no frontend, repositório ou logs."
+  },
+  {
+   "id": "CORE-10",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Entradas confiáveis",
+   "exigencia": "Validar no backend e parametrizar consultas; prevenir injeções."
+  },
+  {
+   "id": "CORE-11",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Rate limiting",
+   "exigencia": "Limitar abuso por rota, identidade e operação."
+  },
+  {
+   "id": "CORE-12",
+   "prioridade": "P1",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "WAF e anti-DDoS",
+   "exigencia": "Defender a borda e impedir bypass da origem quando aplicável."
+  },
+  {
+   "id": "CORE-13",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Segurança de arquivos",
+   "exigencia": "Validar upload, manter storage privado e autorizar download."
+  },
+  {
+   "id": "CORE-14",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Criptografia",
+   "exigencia": "Proteger trânsito, repouso e campos de maior risco."
+  },
+  {
+   "id": "CORE-15",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Auditoria",
+   "exigencia": "Registrar ações administrativas, autenticação e transações críticas."
+  },
+  {
+   "id": "CORE-16",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Backups restauráveis",
+   "exigencia": "Backup protegido e teste de restauração documentado."
+  },
+  {
+   "id": "CORE-17",
+   "prioridade": "P1",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Dependências",
+   "exigencia": "Analisar vulnerabilidades de bibliotecas e imagens."
+  },
+  {
+   "id": "CORE-18",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "CI/CD seguro",
+   "exigencia": "Proteger branch, revisão e implantação com credenciais temporárias."
+  },
+  {
+   "id": "CORE-19",
+   "prioridade": "P1",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Monitoramento",
+   "exigencia": "Detectar abuso, falhas, custos e atividade suspeita com resposta definida."
+  },
+  {
+   "id": "CORE-20",
+   "prioridade": "P0",
+   "dominio": "CORE",
+   "secao": "1. Controles fundamentais de lançamento",
+   "controle": "Teste de autorização",
+   "exigencia": "Demonstrar isolamento entre usuários e clientes e funções privilegiadas."
+  },
+  {
+   "id": "ID-01",
+   "prioridade": "P0",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "Provedor de identidade",
+   "exigencia": "Preferir Cognito ou Supabase Auth a autenticação improvisada."
+  },
+  {
+   "id": "ID-02",
+   "prioridade": "P0",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "Verificação de tokens",
+   "exigencia": "Validar assinatura, emissor, audiência, expiração e claims relevantes."
+  },
+  {
+   "id": "ID-03",
+   "prioridade": "P0",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "Identidade do usuário",
+   "exigencia": "Nunca confiar no ID enviado pelo dispositivo sem autenticação correspondente."
+  },
+  {
+   "id": "ID-04",
+   "prioridade": "P0",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "Armazenamento de senhas",
+   "exigencia": "Se gerenciado diretamente, usar Argon2id e parâmetros adequados; nunca texto puro."
+  },
+  {
+   "id": "ID-05",
+   "prioridade": "P0",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "Força bruta",
+   "exigencia": "Limitar tentativas, aplicar atrasos e identificar ataques distribuídos."
+  },
+  {
+   "id": "ID-06",
+   "prioridade": "P0",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "MFA dos operadores",
+   "exigencia": "Exigir MFA de administradores e de quem acessa produção."
+  },
+  {
+   "id": "ID-07",
+   "prioridade": "P1",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "MFA de clientes",
+   "exigencia": "Oferecer MFA e exigir proteção adicional em operações de risco."
+  },
+  {
+   "id": "ID-08",
+   "prioridade": "P1",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "Passkeys",
+   "exigencia": "Priorizar WebAuthn/FIDO2 quando viável para resistência a phishing."
+  },
+  {
+   "id": "ID-09",
+   "prioridade": "P0",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "Recuperação de senha",
+   "exigencia": "Tokens únicos e curtos, uso único e expiração no servidor."
+  },
+  {
+   "id": "ID-10",
+   "prioridade": "P0",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "Alteração de e-mail",
+   "exigencia": "Solicitar reautenticação ou confirmação segura."
+  },
+  {
+   "id": "ID-11",
+   "prioridade": "P1",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "Enumeração de usuários",
+   "exigencia": "Evitar respostas que revelem a existência de contas."
+  },
+  {
+   "id": "ID-12",
+   "prioridade": "P0",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "Escalada de privilégios",
+   "exigencia": "Proibir autoatribuição de funções como owner e admin."
+  },
+  {
+   "id": "ID-13",
+   "prioridade": "P0",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "Conta suspensa",
+   "exigencia": "Impedir operações depois da desativação, considerando latência de revogação."
+  },
+  {
+   "id": "ID-14",
+   "prioridade": "P1",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "Lista de dispositivos",
+   "exigencia": "Permitir consultar e encerrar sessões ativas."
+  },
+  {
+   "id": "ID-15",
+   "prioridade": "P1",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "Anomalias de acesso",
+   "exigencia": "Detectar alterações suspeitas de dispositivo, padrão e localização."
+  },
+  {
+   "id": "ID-16",
+   "prioridade": "P1",
+   "dominio": "ID",
+   "secao": "3. Identidade, login e usuários",
+   "controle": "OAuth/OIDC seguro",
+   "exigencia": "Verificar state, nonce quando aplicável, PKCE e redirect URI."
+  },
+  {
+   "id": "SES-01",
+   "prioridade": "P0",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "Cookie HttpOnly",
+   "exigencia": "Bloquear acesso por JavaScript a cookies de sessão quando aplicável."
+  },
+  {
+   "id": "SES-02",
+   "prioridade": "P0",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "Cookie Secure",
+   "exigencia": "Enviar cookies de sessão apenas por HTTPS."
+  },
+  {
+   "id": "SES-03",
+   "prioridade": "P0",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "SameSite",
+   "exigencia": "Definir Lax ou Strict de acordo com o fluxo."
+  },
+  {
+   "id": "SES-04",
+   "prioridade": "P1",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "Prefixo __Host-",
+   "exigencia": "Usar host-only, Secure e Path=/, sem Domain, quando adequado."
+  },
+  {
+   "id": "SES-05",
+   "prioridade": "P0",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "Prazo de validade",
+   "exigencia": "Definir expiração de tokens e sessões."
+  },
+  {
+   "id": "SES-06",
+   "prioridade": "P0",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "Logout efetivo",
+   "exigencia": "Revogar sessão e credenciais de renovação relevantes."
+  },
+  {
+   "id": "SES-07",
+   "prioridade": "P0",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "Refresh token",
+   "exigencia": "Rotacionar e detectar reuso conforme capacidade do provedor."
+  },
+  {
+   "id": "SES-08",
+   "prioridade": "P1",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "Ociosidade",
+   "exigencia": "Encerrar sessões inativas conforme sensibilidade."
+  },
+  {
+   "id": "SES-09",
+   "prioridade": "P1",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "Duração absoluta",
+   "exigencia": "Limitar sessões mesmo com atividade contínua."
+  },
+  {
+   "id": "SES-10",
+   "prioridade": "P0",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "Session fixation",
+   "exigencia": "Trocar identificador após login/elevação de privilégio quando necessário."
+  },
+  {
+   "id": "SES-11",
+   "prioridade": "P0",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "Token em URL ou log",
+   "exigencia": "Impedir exposição em histórico, query strings, telemetria e mensagens."
+  },
+  {
+   "id": "SES-12",
+   "prioridade": "P0",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "CSRF",
+   "exigencia": "Validar origem e usar antifalsificação apropriada para sessões baseadas em cookies."
+  },
+  {
+   "id": "SES-13",
+   "prioridade": "P0",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "JWT verificado",
+   "exigencia": "Não autorizar com JWT apenas decodificado, sem validação criptográfica."
+  },
+  {
+   "id": "SES-14",
+   "prioridade": "P1",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "Revogação antecipada",
+   "exigencia": "Bloquear credenciais comprometidas e reavaliar permissões críticas."
+  },
+  {
+   "id": "SES-15",
+   "prioridade": "P0",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "Cache compartilhado",
+   "exigencia": "Impedir armazenamento cruzado de páginas privadas e Set-Cookie."
+  },
+  {
+   "id": "SES-16",
+   "prioridade": "P1",
+   "dominio": "SES",
+   "secao": "4. Sessões, cookies e JWT",
+   "controle": "Reautenticação",
+   "exigencia": "Exigir nova prova de identidade para ações críticas."
+  },
+  {
+   "id": "ROT-01",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "Rota privada",
+   "exigencia": "Validar autenticação no servidor em toda rota protegida."
+  },
+  {
+   "id": "ROT-02",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "Autorização de objeto",
+   "exigencia": "Conferir a propriedade e o direito ao registro solicitado."
+  },
+  {
+   "id": "ROT-03",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "Autorização funcional",
+   "exigencia": "Rejeitar execução de métodos reservados a papéis superiores."
+  },
+  {
+   "id": "ROT-04",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "Isolamento tenant",
+   "exigencia": "Associar toda operação à organização corretamente autorizada."
+  },
+  {
+   "id": "ROT-05",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "Campos protegidos",
+   "exigencia": "Nunca permitir edição indevida de role, owner_id, balance e tenant_id."
+  },
+  {
+   "id": "ROT-06",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "Negação por padrão",
+   "exigencia": "Negar métodos e rotas não explicitamente permitidos."
+  },
+  {
+   "id": "ROT-07",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "GET protegido",
+   "exigencia": "Aplicar autorização também nas leituras de dados privados."
+  },
+  {
+   "id": "ROT-08",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "Escritas protegidas",
+   "exigencia": "Verificar autenticação, papel, objeto e estado para POST, PATCH e DELETE."
+  },
+  {
+   "id": "ROT-09",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "IDs manipulados",
+   "exigencia": "Trocar UUID ou slug não pode conceder acesso."
+  },
+  {
+   "id": "ROT-10",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "Resposta mínima",
+   "exigencia": "Não expor campos internos ou confidenciais desnecessários."
+  },
+  {
+   "id": "ROT-11",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "Admin APIs",
+   "exigencia": "Reforçar MFA, autorização, auditoria e reautenticação."
+  },
+  {
+   "id": "ROT-12",
+   "prioridade": "P1",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "APIs internas",
+   "exigencia": "Utilizar identidade de serviço e redes protegidas."
+  },
+  {
+   "id": "ROT-13",
+   "prioridade": "P1",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "Inventário de rotas",
+   "exigencia": "Manter lista de endpoints, métodos, escopo, permissões e proprietário."
+  },
+  {
+   "id": "ROT-14",
+   "prioridade": "P1",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "Versionamento",
+   "exigencia": "Remover versões vulneráveis ou exigir atualizações seguras."
+  },
+  {
+   "id": "ROT-15",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "Exportação",
+   "exigencia": "Filtrar relatórios e exports pelo escopo autorizado."
+  },
+  {
+   "id": "ROT-16",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "WebSocket",
+   "exigencia": "Autorizar assinatura de canais e alterações de permissão."
+  },
+  {
+   "id": "ROT-17",
+   "prioridade": "P0",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "RPC e Server Actions",
+   "exigencia": "Tratar ações invocáveis como APIs externas."
+  },
+  {
+   "id": "ROT-18",
+   "prioridade": "P1",
+   "dominio": "ROT",
+   "secao": "5. Rotas, endpoints e autorização",
+   "controle": "Busca e paginação",
+   "exigencia": "Limitar volume, custo e complexidade das consultas."
+  },
+  {
+   "id": "WEB-01",
+   "prioridade": "P0",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "TLS atual",
+   "exigencia": "Usar TLS 1.2/1.3 conforme política; priorizar TLS 1.3."
+  },
+  {
+   "id": "WEB-02",
+   "prioridade": "P0",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "Certificados válidos",
+   "exigencia": "Renovar automaticamente e impedir confiança em certificado inválido."
+  },
+  {
+   "id": "WEB-03",
+   "prioridade": "P1",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "HSTS",
+   "exigencia": "Aplicar depois de confirmar compatibilidade de domínios/subdomínios."
+  },
+  {
+   "id": "WEB-04",
+   "prioridade": "P0",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "Proteção contra XSS",
+   "exigencia": "Escaping contextual e sanitização de HTML não confiável."
+  },
+  {
+   "id": "WEB-05",
+   "prioridade": "P1",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "CSP",
+   "exigencia": "Restringir fontes de scripts; usar nonces/hashes quando necessário."
+  },
+  {
+   "id": "WEB-06",
+   "prioridade": "P0",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "Segredos no bundle",
+   "exigencia": "Não compilar tokens privilegiados e senhas no frontend."
+  },
+  {
+   "id": "WEB-07",
+   "prioridade": "P0",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "CORS",
+   "exigencia": "Restringir origens; lembrar que CORS não é autorização."
+  },
+  {
+   "id": "WEB-08",
+   "prioridade": "P1",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "Frame embedding",
+   "exigencia": "Usar frame-ancestors para proteger contra clickjacking."
+  },
+  {
+   "id": "WEB-09",
+   "prioridade": "P1",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "Referrer Policy",
+   "exigencia": "Evitar propagação de URLs privadas e parâmetros sensíveis."
+  },
+  {
+   "id": "WEB-10",
+   "prioridade": "P1",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "MIME sniffing",
+   "exigencia": "Aplicar X-Content-Type-Options: nosniff."
+  },
+  {
+   "id": "WEB-11",
+   "prioridade": "P0",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "Browser storage",
+   "exigencia": "Evitar tokens sensíveis em localStorage se arquitetura melhor estiver disponível."
+  },
+  {
+   "id": "WEB-12",
+   "prioridade": "P0",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "Cache privado",
+   "exigencia": "Evitar que proxies e CDNs armazenem dados particulares entre usuários."
+  },
+  {
+   "id": "WEB-13",
+   "prioridade": "P1",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "Scripts externos",
+   "exigencia": "Avaliar provedores, SDKs e dependências frontend."
+  },
+  {
+   "id": "WEB-14",
+   "prioridade": "P1",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "Markdown e HTML",
+   "exigencia": "Sanitizar saída de renderizadores e conteúdo gerado por IA."
+  },
+  {
+   "id": "WEB-15",
+   "prioridade": "P1",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "postMessage",
+   "exigencia": "Validar origin, schema e destinatário."
+  },
+  {
+   "id": "WEB-16",
+   "prioridade": "P2",
+   "dominio": "WEB",
+   "secao": "6. Frontend, browser e HTTPS",
+   "controle": "SRI",
+   "exigencia": "Aplicar integridade de sub-recursos externos estáticos quando apropriado."
+  },
+  {
+   "id": "API-01",
+   "prioridade": "P0",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Schemas de entrada",
+   "exigencia": "Validar tipo, formato, limite e campos permitidos no backend."
+  },
+  {
+   "id": "API-02",
+   "prioridade": "P0",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "SQL injection",
+   "exigencia": "Usar consultas parametrizadas e ORMs corretamente."
+  },
+  {
+   "id": "API-03",
+   "prioridade": "P0",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "NoSQL injection",
+   "exigencia": "Proibir operadores arbitrários fornecidos pelo cliente."
+  },
+  {
+   "id": "API-04",
+   "prioridade": "P0",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Command injection",
+   "exigencia": "Não compor comandos shell com entradas não confiáveis."
+  },
+  {
+   "id": "API-05",
+   "prioridade": "P0",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "SSRF",
+   "exigencia": "Restringir destinos, redirecionamentos, metadados cloud e acesso à rede interna."
+  },
+  {
+   "id": "API-06",
+   "prioridade": "P0",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Mass assignment",
+   "exigencia": "Mapear explicitamente campos que cada papel pode editar."
+  },
+  {
+   "id": "API-07",
+   "prioridade": "P0",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Webhook autêntico",
+   "exigencia": "Verificar assinatura, timestamp e proteção contra replay."
+  },
+  {
+   "id": "API-08",
+   "prioridade": "P0",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Idempotência",
+   "exigencia": "Impedir repetição de pagamentos, pedidos e outras mutações críticas."
+  },
+  {
+   "id": "API-09",
+   "prioridade": "P0",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Rate limiting",
+   "exigencia": "Limitar login, OTP, recuperação, IA, exportações e processamento."
+  },
+  {
+   "id": "API-10",
+   "prioridade": "P0",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Quotas",
+   "exigencia": "Restringir recursos, chamadas, tokens, armazenamento e custos por cliente."
+  },
+  {
+   "id": "API-11",
+   "prioridade": "P0",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Erros protegidos",
+   "exigencia": "Não retornar stack trace, SQL, credenciais e configurações sensíveis."
+  },
+  {
+   "id": "API-12",
+   "prioridade": "P1",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Timeouts",
+   "exigencia": "Definir limites para chamadas a serviços externos e banco."
+  },
+  {
+   "id": "API-13",
+   "prioridade": "P1",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Payload limits",
+   "exigencia": "Limitar tamanho de JSON, upload, profundidade e complexidade."
+  },
+  {
+   "id": "API-14",
+   "prioridade": "P1",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Desserialização",
+   "exigencia": "Evitar execução ou alocação descontrolada ao decodificar objetos."
+  },
+  {
+   "id": "API-15",
+   "prioridade": "P0",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Fluxos financeiros",
+   "exigencia": "Conferir saldo, destinatário e transições com transações seguras."
+  },
+  {
+   "id": "API-16",
+   "prioridade": "P1",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Workers e filas",
+   "exigencia": "Validar payloads, identidades de serviço e reprocessamento."
+  },
+  {
+   "id": "API-17",
+   "prioridade": "P1",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Respostas externas",
+   "exigencia": "Tratar dados de outros sistemas como não confiáveis."
+  },
+  {
+   "id": "API-18",
+   "prioridade": "P1",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "GraphQL",
+   "exigencia": "Limitar profundidade, complexidade e acesso por resolver."
+  },
+  {
+   "id": "API-19",
+   "prioridade": "P1",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Credenciais de terceiros",
+   "exigencia": "Aplicar escopo mínimo, rotação e limite de gastos."
+  },
+  {
+   "id": "API-20",
+   "prioridade": "P0",
+   "dominio": "API",
+   "secao": "7. Backend, APIs e serviços",
+   "controle": "Concorrência",
+   "exigencia": "Evitar condições de corrida em estoques, saldos e permissões."
+  },
+  {
+   "id": "AWS-01",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "Conta root",
+   "exigencia": "MFA forte, credenciais de emergência e uso excepcional."
+  },
+  {
+   "id": "AWS-02",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "IAM mínimo",
+   "exigencia": "Permissões menores necessárias para pessoas e aplicações."
+  },
+  {
+   "id": "AWS-03",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "Roles temporárias",
+   "exigencia": "Preferir STS e federação a chaves permanentes."
+  },
+  {
+   "id": "AWS-04",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "VPC",
+   "exigencia": "Separar segmentos de borda, aplicação e dados."
+  },
+  {
+   "id": "AWS-05",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "Security Groups",
+   "exigencia": "Permitir apenas portas e origens exigidas."
+  },
+  {
+   "id": "AWS-06",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "RDS privado",
+   "exigencia": "Evitar interface pública do banco."
+  },
+  {
+   "id": "AWS-07",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "TLS no RDS",
+   "exigencia": "Criptografar e validar certificado de conexão ao banco."
+  },
+  {
+   "id": "AWS-08",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "Criptografia RDS",
+   "exigencia": "Proteger dados, snapshots e réplicas em repouso."
+  },
+  {
+   "id": "AWS-09",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "Segredos RDS",
+   "exigencia": "Armazenar no Secrets Manager e controlar rotação/acesso."
+  },
+  {
+   "id": "AWS-10",
+   "prioridade": "P1",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "RDS Proxy",
+   "exigencia": "Considerar pool seguro e escala em ambientes serverless."
+  },
+  {
+   "id": "AWS-11",
+   "prioridade": "P1",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "Multi-AZ",
+   "exigencia": "Adequar redundância às metas de disponibilidade."
+  },
+  {
+   "id": "AWS-12",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "PITR",
+   "exigencia": "Habilitar recuperação em ponto no tempo quando exigida."
+  },
+  {
+   "id": "AWS-13",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "S3 Block Public Access",
+   "exigencia": "Bloquear publicação acidental de buckets privados."
+  },
+  {
+   "id": "AWS-14",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "Bucket policies",
+   "exigencia": "Restringir identidade, recurso, caminho e ações."
+  },
+  {
+   "id": "AWS-15",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "CloudTrail",
+   "exigencia": "Habilitar trilha de gestão e eventos de dados conforme risco."
+  },
+  {
+   "id": "AWS-16",
+   "prioridade": "P1",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "GuardDuty",
+   "exigencia": "Monitorar atividades suspeitas em contas e regiões aplicáveis."
+  },
+  {
+   "id": "AWS-17",
+   "prioridade": "P1",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "Security Hub",
+   "exigencia": "Centralizar achados e conformidade."
+  },
+  {
+   "id": "AWS-18",
+   "prioridade": "P1",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "AWS Config",
+   "exigencia": "Detectar desvios de configuração."
+  },
+  {
+   "id": "AWS-19",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "AWS WAF",
+   "exigencia": "Aplicar regras gerenciadas, limites e proteção por rota."
+  },
+  {
+   "id": "AWS-20",
+   "prioridade": "P1",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "Controle de egress",
+   "exigencia": "Limitar saídas de serviços que processam conteúdo externo."
+  },
+  {
+   "id": "AWS-21",
+   "prioridade": "P1",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "Organizations",
+   "exigencia": "Segregar produção, desenvolvimento e segurança por conta quando viável."
+  },
+  {
+   "id": "AWS-22",
+   "prioridade": "P1",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "SCP",
+   "exigencia": "Impor guardrails organizacionais contra ações perigosas."
+  },
+  {
+   "id": "AWS-23",
+   "prioridade": "P1",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "CloudWatch",
+   "exigencia": "Alertar sobre erros, abusos, latência e mudanças relevantes."
+  },
+  {
+   "id": "AWS-24",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "CI/CD federado",
+   "exigencia": "Implantar via OIDC/roles com credenciais efêmeras."
+  },
+  {
+   "id": "AWS-25",
+   "prioridade": "P0",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "DynamoDB IAM",
+   "exigencia": "Controlar acesso por principal e chaves de partição quando adequado."
+  },
+  {
+   "id": "AWS-26",
+   "prioridade": "P1",
+   "dominio": "AWS",
+   "secao": "8. Infraestrutura AWS: proteção e operações",
+   "controle": "Custos e abuso",
+   "exigencia": "Monitorar gasto inesperado e limitar operações financeiramente custosas."
+  },
+  {
+   "id": "SUP-01",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "RLS em tabelas expostas",
+   "exigencia": "Habilitar RLS nas tabelas protegidas visíveis à API."
+  },
+  {
+   "id": "SUP-02",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Policies por operação",
+   "exigencia": "Definir SELECT, INSERT, UPDATE e DELETE conforme necessidade."
+  },
+  {
+   "id": "SUP-03",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Grants mínimos",
+   "exigencia": "Revisar acesso anon e authenticated por schema, tabela e função."
+  },
+  {
+   "id": "SUP-04",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Tenant isolation",
+   "exigencia": "Limitar linhas e relacionamentos por organização autorizada."
+  },
+  {
+   "id": "SUP-05",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Chave publicável",
+   "exigencia": "Permitir no cliente somente a chave pública, com RLS e grants corretos."
+  },
+  {
+   "id": "SUP-06",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Secret keys",
+   "exigencia": "Manter credenciais privilegiadas no backend."
+  },
+  {
+   "id": "SUP-07",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "service_role",
+   "exigencia": "Isolar porque contorna RLS em operações privilegiadas."
+  },
+  {
+   "id": "SUP-08",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "JWT válido",
+   "exigencia": "Verificar identidade e claims antes de decisões sensíveis."
+  },
+  {
+   "id": "SUP-09",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Auth com SSR",
+   "exigencia": "Usar getClaims para validação; não autorizar pelo getSession isolado."
+  },
+  {
+   "id": "SUP-10",
+   "prioridade": "P1",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "getUser",
+   "exigencia": "Consultar o Auth quando dados atuais do usuário forem necessários."
+  },
+  {
+   "id": "SUP-11",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Views",
+   "exigencia": "Auditar security_invoker e impedir bypass indevido de RLS."
+  },
+  {
+   "id": "SUP-12",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Funções SQL RPC",
+   "exigencia": "Revisar SECURITY DEFINER, search_path e EXECUTE."
+  },
+  {
+   "id": "SUP-13",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Buckets privados",
+   "exigencia": "Não publicar documentos confidenciais."
+  },
+  {
+   "id": "SUP-14",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Storage policies",
+   "exigencia": "Autorizar operações em storage.objects por dono e tenant."
+  },
+  {
+   "id": "SUP-15",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Realtime authorization",
+   "exigencia": "Impedir inscrição em canais de outras organizações."
+  },
+  {
+   "id": "SUP-16",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Edge Functions",
+   "exigencia": "Validar identidade e permissão em todos os fluxos."
+  },
+  {
+   "id": "SUP-17",
+   "prioridade": "P1",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "OTP e login",
+   "exigencia": "Configurar expiração e proteção contra abuso."
+  },
+  {
+   "id": "SUP-18",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "MFA no painel",
+   "exigencia": "Exigir MFA para usuários privilegiados do projeto."
+  },
+  {
+   "id": "SUP-19",
+   "prioridade": "P1",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Security Advisor",
+   "exigencia": "Triar e resolver alertas relevantes."
+  },
+  {
+   "id": "SUP-20",
+   "prioridade": "P1",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "SSL enforcement",
+   "exigencia": "Exigir conexões seguras ao PostgreSQL."
+  },
+  {
+   "id": "SUP-21",
+   "prioridade": "P1",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Network restrictions",
+   "exigencia": "Restringir conexões diretas quando possível."
+  },
+  {
+   "id": "SUP-22",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Backup PostgreSQL",
+   "exigencia": "Confirmar retenção, PITR e procedimento testado."
+  },
+  {
+   "id": "SUP-23",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Backup de objetos",
+   "exigencia": "Recuperar Storage separadamente dos backups do PostgreSQL."
+  },
+  {
+   "id": "SUP-24",
+   "prioridade": "P1",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Migrações versionadas",
+   "exigencia": "Revisar schema, grants, policies e funções em cada mudança."
+  },
+  {
+   "id": "SUP-25",
+   "prioridade": "P0",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Ambientes isolados",
+   "exigencia": "Separar projetos, segredos e dados de dev e produção."
+  },
+  {
+   "id": "SUP-26",
+   "prioridade": "P1",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Auditoria",
+   "exigencia": "Observar acessos, políticas e ações administrativas."
+  },
+  {
+   "id": "SUP-27",
+   "prioridade": "P1",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Rotação de chaves",
+   "exigencia": "Ter processo para chaves comprometidas."
+  },
+  {
+   "id": "SUP-28",
+   "prioridade": "P1",
+   "dominio": "SUP",
+   "secao": "9. Supabase: Auth, RLS, Storage e Realtime",
+   "controle": "Data API mínima",
+   "exigencia": "Desabilitar Data API quando a arquitetura não exigir acesso direto."
+  },
+  {
+   "id": "DB-01",
+   "prioridade": "P0",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Conta mínima",
+   "exigencia": "Aplicação não usa superusuário para consultas comuns."
+  },
+  {
+   "id": "DB-02",
+   "prioridade": "P0",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Rede privada",
+   "exigencia": "Restringir acesso direto e administrativo."
+  },
+  {
+   "id": "DB-03",
+   "prioridade": "P0",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Conexão TLS",
+   "exigencia": "Proteger tráfego e conferir certificados."
+  },
+  {
+   "id": "DB-04",
+   "prioridade": "P0",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Dados em repouso",
+   "exigencia": "Criptografar volumes, snapshots e backups."
+  },
+  {
+   "id": "DB-05",
+   "prioridade": "P0",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Ambientes separados",
+   "exigencia": "Não compartilhar banco de produção com testes."
+  },
+  {
+   "id": "DB-06",
+   "prioridade": "P0",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Isolamento de tenants",
+   "exigencia": "Verificar propriedade dos registros e vínculos."
+  },
+  {
+   "id": "DB-07",
+   "prioridade": "P0",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Constraints",
+   "exigencia": "Impor integridade com UNIQUE, CHECK, FK e demais restrições."
+  },
+  {
+   "id": "DB-08",
+   "prioridade": "P0",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Transações",
+   "exigencia": "Evitar gravação parcial em operações críticas."
+  },
+  {
+   "id": "DB-09",
+   "prioridade": "P1",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Concorrência",
+   "exigencia": "Aplicar locks, versionamento ou mutações atômicas."
+  },
+  {
+   "id": "DB-10",
+   "prioridade": "P1",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Consultas limitadas",
+   "exigencia": "Evitar consultas que saturam recursos e conexões."
+  },
+  {
+   "id": "DB-11",
+   "prioridade": "P0",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Cópias automáticas",
+   "exigencia": "Backups protegidos, atualizados e verificáveis."
+  },
+  {
+   "id": "DB-12",
+   "prioridade": "P0",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Isolamento do backup",
+   "exigencia": "Impedir exclusão simultânea de produção e todas as cópias."
+  },
+  {
+   "id": "DB-13",
+   "prioridade": "P1",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Auditoria SQL",
+   "exigencia": "Registrar operações privilegiadas e alterações críticas."
+  },
+  {
+   "id": "DB-14",
+   "prioridade": "P0",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Campos confidenciais",
+   "exigencia": "Aplicar criptografia adicional conforme sensibilidade."
+  },
+  {
+   "id": "DB-15",
+   "prioridade": "P0",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Dados de teste",
+   "exigencia": "Não copiar dados reais sem anonimização e controles adequados."
+  },
+  {
+   "id": "DB-16",
+   "prioridade": "P1",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Retenção",
+   "exigencia": "Eliminar dados e cópias conforme obrigações."
+  },
+  {
+   "id": "DB-17",
+   "prioridade": "P0",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Migrações seguras",
+   "exigencia": "Versionar, ensaiar e planejar recuperação."
+  },
+  {
+   "id": "DB-18",
+   "prioridade": "P1",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Réplicas",
+   "exigencia": "Manter criptografia e permissões equivalentes."
+  },
+  {
+   "id": "DB-19",
+   "prioridade": "P1",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Exclusão de tenant",
+   "exigencia": "Remover dados, arquivos e referências conforme política."
+  },
+  {
+   "id": "DB-20",
+   "prioridade": "P1",
+   "dominio": "DB",
+   "secao": "10. Bancos de dados: controles universais",
+   "controle": "Monitoramento DB",
+   "exigencia": "Alertar sobre conexões, consultas e acessos anormais."
+  },
+  {
+   "id": "FIL-01",
+   "prioridade": "P0",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Armazenamento privado",
+   "exigencia": "Dados sigilosos não ficam em buckets públicos."
+  },
+  {
+   "id": "FIL-02",
+   "prioridade": "P0",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Download autorizado",
+   "exigencia": "Validar a permissão antes de entregar bytes ou URL."
+  },
+  {
+   "id": "FIL-03",
+   "prioridade": "P0",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "URLs assinadas",
+   "exigencia": "Escopo e validade mínimos para links temporários."
+  },
+  {
+   "id": "FIL-04",
+   "prioridade": "P0",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Formato real",
+   "exigencia": "Conferir tipo de mídia, assinatura e extensão permitida."
+  },
+  {
+   "id": "FIL-05",
+   "prioridade": "P0",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Tamanho e quota",
+   "exigencia": "Restringir arquivo individual, quantidade e uso total."
+  },
+  {
+   "id": "FIL-06",
+   "prioridade": "P1",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Antimalware",
+   "exigencia": "Analisar arquivos potencialmente perigosos antes do consumo."
+  },
+  {
+   "id": "FIL-07",
+   "prioridade": "P0",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Execução de upload",
+   "exigencia": "Nunca executar como código o material enviado pelo usuário."
+  },
+  {
+   "id": "FIL-08",
+   "prioridade": "P0",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Path traversal",
+   "exigencia": "Gerar identificadores seguros e validar caminhos."
+  },
+  {
+   "id": "FIL-09",
+   "prioridade": "P1",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Metadados",
+   "exigencia": "Remover metadados privados quando necessário."
+  },
+  {
+   "id": "FIL-10",
+   "prioridade": "P1",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Indexação",
+   "exigencia": "Impedir indexação de documentos privados."
+  },
+  {
+   "id": "FIL-11",
+   "prioridade": "P0",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Tenant isolation",
+   "exigencia": "Negar listagem, leitura, substituição ou exclusão entre clientes."
+  },
+  {
+   "id": "FIL-12",
+   "prioridade": "P1",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Arquivo compactado",
+   "exigencia": "Detectar decompression bomb, paths internos e formatos malformados."
+  },
+  {
+   "id": "FIL-13",
+   "prioridade": "P1",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Ciclo de vida",
+   "exigencia": "Definir retenção, versionamento e exclusão."
+  },
+  {
+   "id": "FIL-14",
+   "prioridade": "P1",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Auditoria de arquivos",
+   "exigencia": "Registrar exportações e compartilhamentos sensíveis."
+  },
+  {
+   "id": "FIL-15",
+   "prioridade": "P1",
+   "dominio": "FIL",
+   "secao": "11. Uploads, arquivos e downloads",
+   "controle": "Recuperação de objetos",
+   "exigencia": "Manter cópias e restauração também do storage."
+  },
+  {
+   "id": "INF-01",
+   "prioridade": "P0",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Firewall",
+   "exigencia": "Negar entradas não necessárias."
+  },
+  {
+   "id": "INF-02",
+   "prioridade": "P0",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Administração remota",
+   "exigencia": "Restringir SSH e acessos administrativos com identidade forte."
+  },
+  {
+   "id": "INF-03",
+   "prioridade": "P0",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Portas internas",
+   "exigencia": "Não expor PostgreSQL, Redis, Docker ou painéis de gestão."
+  },
+  {
+   "id": "INF-04",
+   "prioridade": "P0",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Patches",
+   "exigencia": "Manter sistemas e componentes suportados e corrigidos."
+  },
+  {
+   "id": "INF-05",
+   "prioridade": "P0",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Contêiner não root",
+   "exigencia": "Evitar root e restringir capabilities e recursos."
+  },
+  {
+   "id": "INF-06",
+   "prioridade": "P0",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Segredos em contêiner",
+   "exigencia": "Não inserir credenciais na imagem ou no repositório."
+  },
+  {
+   "id": "INF-07",
+   "prioridade": "P1",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Filesystem",
+   "exigencia": "Usar montagens mínimas e somente leitura quando possível."
+  },
+  {
+   "id": "INF-08",
+   "prioridade": "P1",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Segmentação",
+   "exigencia": "Separar camadas expostas e internas."
+  },
+  {
+   "id": "INF-09",
+   "prioridade": "P1",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Saídas externas",
+   "exigencia": "Restringir tráfego de saída de serviços de risco."
+  },
+  {
+   "id": "INF-10",
+   "prioridade": "P0",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Painéis internos",
+   "exigencia": "Proteger EasyPanel, consoles e dashboards com MFA e acesso restrito."
+  },
+  {
+   "id": "INF-11",
+   "prioridade": "P1",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Domínio DNS",
+   "exigencia": "Restringir conta de domínio e gestão de DNS."
+  },
+  {
+   "id": "INF-12",
+   "prioridade": "P1",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "DNSSEC",
+   "exigencia": "Aplicar quando compatível com a zona e provedor."
+  },
+  {
+   "id": "INF-13",
+   "prioridade": "P1",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Subdomínios órfãos",
+   "exigencia": "Remover apontamentos que permitam takeover."
+  },
+  {
+   "id": "INF-14",
+   "prioridade": "P1",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "DDoS",
+   "exigencia": "Preparar absorção, mitigação e runbooks."
+  },
+  {
+   "id": "INF-15",
+   "prioridade": "P1",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Bypass da CDN",
+   "exigencia": "Proteger IP/hostname direto da origem."
+  },
+  {
+   "id": "INF-16",
+   "prioridade": "P1",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Hardening",
+   "exigencia": "Desativar serviços e interfaces desnecessárias."
+  },
+  {
+   "id": "INF-17",
+   "prioridade": "P1",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Limites de processo",
+   "exigencia": "Restringir CPU, memória, conexões e execução."
+  },
+  {
+   "id": "INF-18",
+   "prioridade": "P1",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Segregação de funções",
+   "exigencia": "Diferenciar privilégios de deploy, operação, backup e root."
+  },
+  {
+   "id": "INF-19",
+   "prioridade": "P2",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Privilégio temporário",
+   "exigencia": "Just-in-time access em funções administrativas."
+  },
+  {
+   "id": "INF-20",
+   "prioridade": "P1",
+   "dominio": "INF",
+   "secao": "12. Servidores, rede, VPS e contêineres",
+   "controle": "Segurança de e-mail",
+   "exigencia": "Habilitar SPF, DKIM e DMARC do domínio."
+  },
+  {
+   "id": "DEV-01",
+   "prioridade": "P0",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Acesso ao Git",
+   "exigencia": "Restringir repositórios e projetos sensíveis."
+  },
+  {
+   "id": "DEV-02",
+   "prioridade": "P0",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "MFA da equipe",
+   "exigencia": "Proteger contas que acessam código e ambientes."
+  },
+  {
+   "id": "DEV-03",
+   "prioridade": "P0",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Secret scanning",
+   "exigencia": "Bloquear publicação de credenciais."
+  },
+  {
+   "id": "DEV-04",
+   "prioridade": "P0",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "SAST",
+   "exigencia": "Executar análise estática na mudança de código."
+  },
+  {
+   "id": "DEV-05",
+   "prioridade": "P0",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "SCA",
+   "exigencia": "Monitorar bibliotecas e transitivas vulneráveis."
+  },
+  {
+   "id": "DEV-06",
+   "prioridade": "P1",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "DAST",
+   "exigencia": "Examinar aplicação em ambiente autorizado."
+  },
+  {
+   "id": "DEV-07",
+   "prioridade": "P1",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "SBOM",
+   "exigencia": "Manter inventário das dependências."
+  },
+  {
+   "id": "DEV-08",
+   "prioridade": "P0",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Branch protection",
+   "exigencia": "Exigir aprovações e checks para produção."
+  },
+  {
+   "id": "DEV-09",
+   "prioridade": "P0",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Revisão humana",
+   "exigencia": "Validar alterações sensíveis por outra pessoa."
+  },
+  {
+   "id": "DEV-10",
+   "prioridade": "P0",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "CI/CD isolado",
+   "exigencia": "Separar execução não confiável de segredos de produção."
+  },
+  {
+   "id": "DEV-11",
+   "prioridade": "P0",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "OIDC para deploy",
+   "exigencia": "Usar credenciais curtas e federadas."
+  },
+  {
+   "id": "DEV-12",
+   "prioridade": "P1",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Containers analisados",
+   "exigencia": "Scan de imagens e bases mínimas."
+  },
+  {
+   "id": "DEV-13",
+   "prioridade": "P1",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Artefatos assinados",
+   "exigencia": "Verificar procedência e integridade de builds."
+  },
+  {
+   "id": "DEV-14",
+   "prioridade": "P0",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Infra as Code",
+   "exigencia": "Versionar redes, políticas, recursos e secrets references."
+  },
+  {
+   "id": "DEV-15",
+   "prioridade": "P1",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Policy as Code",
+   "exigencia": "Bloquear recursos inseguros na pipeline."
+  },
+  {
+   "id": "DEV-16",
+   "prioridade": "P0",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Testes de autorização",
+   "exigencia": "Executar por papel, usuário, tenant e estado."
+  },
+  {
+   "id": "DEV-17",
+   "prioridade": "P1",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Threat modeling",
+   "exigencia": "Avaliar ameaças de recursos novos."
+  },
+  {
+   "id": "DEV-18",
+   "prioridade": "P1",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Patching de dependências",
+   "exigencia": "Acompanhar CVEs e compromissos de correção."
+  },
+  {
+   "id": "DEV-19",
+   "prioridade": "P1",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Ambiente temporário",
+   "exigencia": "Nunca expor dados de produção em preview inseguro."
+  },
+  {
+   "id": "DEV-20",
+   "prioridade": "P0",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Aprovação de migrações",
+   "exigencia": "Revisar mudanças irreversíveis e de privilégio."
+  },
+  {
+   "id": "DEV-21",
+   "prioridade": "P1",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Código gerado por IA",
+   "exigencia": "Revisar e testar como qualquer código não confiável."
+  },
+  {
+   "id": "DEV-22",
+   "prioridade": "P1",
+   "dominio": "DEV",
+   "secao": "13. DevSecOps e cadeia de fornecimento",
+   "controle": "Rollback de release",
+   "exigencia": "Preparar retorno com compatibilidade de schema."
+  },
+  {
+   "id": "MON-01",
+   "prioridade": "P0",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Eventos de login",
+   "exigencia": "Registrar êxito, falha, MFA e tentativas suspeitas."
+  },
+  {
+   "id": "MON-02",
+   "prioridade": "P0",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Acessos negados",
+   "exigencia": "Monitorar falhas anormais de autorização."
+  },
+  {
+   "id": "MON-03",
+   "prioridade": "P0",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Auditoria administrativa",
+   "exigencia": "Registrar permissões, papéis e configurações."
+  },
+  {
+   "id": "MON-04",
+   "prioridade": "P0",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Integridade do log",
+   "exigencia": "Proteger contra alteração e exclusão indevidas."
+  },
+  {
+   "id": "MON-05",
+   "prioridade": "P0",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Minimização no log",
+   "exigencia": "Nunca armazenar segredos e tokens completos."
+  },
+  {
+   "id": "MON-06",
+   "prioridade": "P1",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Logs estruturados",
+   "exigencia": "Incluir correlação, tempo, recurso e tenant quando correto."
+  },
+  {
+   "id": "MON-07",
+   "prioridade": "P1",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Alerta de abuso de login",
+   "exigencia": "Detectar padrões de força bruta e credential stuffing."
+  },
+  {
+   "id": "MON-08",
+   "prioridade": "P1",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Mudanças sensíveis",
+   "exigencia": "Alertar alterações de acesso e infraestrutura."
+  },
+  {
+   "id": "MON-09",
+   "prioridade": "P1",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Exfiltração",
+   "exigencia": "Detectar exportações e leituras em volume anormal."
+  },
+  {
+   "id": "MON-10",
+   "prioridade": "P1",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Métricas API",
+   "exigencia": "Observar latência, tráfego e erros."
+  },
+  {
+   "id": "MON-11",
+   "prioridade": "P1",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Integrações",
+   "exigencia": "Detectar falhas de webhooks, filas e serviços de terceiros."
+  },
+  {
+   "id": "MON-12",
+   "prioridade": "P1",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Uso financeiro",
+   "exigencia": "Alertar picos de cloud, IA e pagamentos."
+  },
+  {
+   "id": "MON-13",
+   "prioridade": "P0",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Plano de incidentes",
+   "exigencia": "Documentar contenção, análise, recuperação e comunicação."
+  },
+  {
+   "id": "MON-14",
+   "prioridade": "P0",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Revogação emergencial",
+   "exigencia": "Rotacionar chaves, bloquear acesso e interromper recursos."
+  },
+  {
+   "id": "MON-15",
+   "prioridade": "P1",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Evidências",
+   "exigencia": "Preservar eventos para análise técnica sem criar novos vazamentos."
+  },
+  {
+   "id": "MON-16",
+   "prioridade": "P1",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Exercícios",
+   "exigencia": "Simular sequestro de sessão, ransomware e chave comprometida."
+  },
+  {
+   "id": "MON-17",
+   "prioridade": "P1",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Responsáveis",
+   "exigencia": "Associar alertas a pessoas e decisões."
+  },
+  {
+   "id": "MON-18",
+   "prioridade": "P1",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Retenção de logs",
+   "exigencia": "Definir prazo e confidencialidade."
+  },
+  {
+   "id": "MON-19",
+   "prioridade": "P1",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Cobertura",
+   "exigencia": "Escalonar incidentes críticos fora do horário comercial, se exigido."
+  },
+  {
+   "id": "MON-20",
+   "prioridade": "P1",
+   "dominio": "MON",
+   "secao": "14. Logs, alertas e resposta a incidentes",
+   "controle": "Pós-morte técnico",
+   "exigencia": "Documentar causa raiz e testar correções."
+  },
+  {
+   "id": "PRIV-01",
+   "prioridade": "P0",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Mapa de dados",
+   "exigencia": "Identificar coleta, processamento, compartilhamento e armazenamento."
+  },
+  {
+   "id": "PRIV-02",
+   "prioridade": "P0",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Base legal",
+   "exigencia": "Documentar fundamento apropriado por finalidade."
+  },
+  {
+   "id": "PRIV-03",
+   "prioridade": "P0",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Minimização",
+   "exigencia": "Coletar somente o indispensável."
+  },
+  {
+   "id": "PRIV-04",
+   "prioridade": "P0",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Finalidade",
+   "exigencia": "Evitar desvio de uso sem base adequada."
+  },
+  {
+   "id": "PRIV-05",
+   "prioridade": "P0",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Acesso a dados",
+   "exigencia": "Restringir leitura e exportação por função."
+  },
+  {
+   "id": "PRIV-06",
+   "prioridade": "P1",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Transparência",
+   "exigencia": "Publicar política clara e atualizada."
+  },
+  {
+   "id": "PRIV-07",
+   "prioridade": "P1",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Direitos dos titulares",
+   "exigencia": "Possuir fluxos para solicitações aplicáveis."
+  },
+  {
+   "id": "PRIV-08",
+   "prioridade": "P0",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Retenção",
+   "exigencia": "Eliminar dados quando a retenção deixar de ser necessária e legalmente exigida."
+  },
+  {
+   "id": "PRIV-09",
+   "prioridade": "P1",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Terceiros",
+   "exigencia": "Avaliar contratos e operadores de dados."
+  },
+  {
+   "id": "PRIV-10",
+   "prioridade": "P1",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Transferência internacional",
+   "exigencia": "Avaliar base e mecanismos legais correspondentes."
+  },
+  {
+   "id": "PRIV-11",
+   "prioridade": "P0",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Comunicação de incidentes",
+   "exigencia": "Avaliar risco e cumprimento das regras da ANPD."
+  },
+  {
+   "id": "PRIV-12",
+   "prioridade": "P1",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Registros de decisão",
+   "exigencia": "Documentar conformidade e tratamento de risco."
+  },
+  {
+   "id": "PRIV-13",
+   "prioridade": "P1",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "RIPD",
+   "exigencia": "Elaborar relatório de impacto quando aplicável."
+  },
+  {
+   "id": "PRIV-14",
+   "prioridade": "P1",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Privacy by design",
+   "exigencia": "Incluir privacidade em projetos e mudanças."
+  },
+  {
+   "id": "PRIV-15",
+   "prioridade": "P1",
+   "dominio": "PRIV",
+   "secao": "15. LGPD e privacidade",
+   "controle": "Analytics e logs",
+   "exigencia": "Minimizar coleta involuntária de informações pessoais."
+  },
+  {
+   "id": "AI-01",
+   "prioridade": "P0",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Prompt injection",
+   "exigencia": "Tratar arquivos, sites e conteúdo recuperado como dados não confiáveis."
+  },
+  {
+   "id": "AI-02",
+   "prioridade": "P0",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Permissão fora do LLM",
+   "exigencia": "Não usar instruções de prompt como controle de autorização."
+  },
+  {
+   "id": "AI-03",
+   "prioridade": "P0",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Tools com escopo",
+   "exigencia": "Restringir cada ferramenta ao mínimo necessário."
+  },
+  {
+   "id": "AI-04",
+   "prioridade": "P0",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Isolamento tenant",
+   "exigencia": "Filtrar consultas e ações de agentes por cliente."
+  },
+  {
+   "id": "AI-05",
+   "prioridade": "P0",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "RAG autorizado",
+   "exigencia": "Consultar apenas documentos permitidos ao usuário."
+  },
+  {
+   "id": "AI-06",
+   "prioridade": "P0",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Chaves de modelos",
+   "exigencia": "Manter credenciais dos provedores no servidor."
+  },
+  {
+   "id": "AI-07",
+   "prioridade": "P0",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Quotas de tokens",
+   "exigencia": "Limitar consumo por usuário, tenant e modelo."
+  },
+  {
+   "id": "AI-08",
+   "prioridade": "P0",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Teto de custos",
+   "exigencia": "Impedir loops e chamadas ilimitadas."
+  },
+  {
+   "id": "AI-09",
+   "prioridade": "P0",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Saída validada",
+   "exigencia": "Nunca executar SQL/comandos gerados sem validação independente."
+  },
+  {
+   "id": "AI-10",
+   "prioridade": "P0",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Aprovação humana",
+   "exigencia": "Requerer confirmação para ações irreversíveis e de alto risco."
+  },
+  {
+   "id": "AI-11",
+   "prioridade": "P1",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Redação de dados",
+   "exigencia": "Mascarar informações antes de envio quando possível."
+  },
+  {
+   "id": "AI-12",
+   "prioridade": "P1",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Retenção por provedores",
+   "exigencia": "Verificar uso, armazenamento e termos das APIs externas."
+  },
+  {
+   "id": "AI-13",
+   "prioridade": "P1",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Auditoria de agentes",
+   "exigencia": "Registrar ferramenta, autorização, custo e resultado."
+  },
+  {
+   "id": "AI-14",
+   "prioridade": "P1",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "MCP e plugins",
+   "exigencia": "Validar servidores, permissões e fontes conectadas."
+  },
+  {
+   "id": "AI-15",
+   "prioridade": "P1",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "HTML gerado",
+   "exigencia": "Sanitizar links e conteúdo exibido de modelos."
+  },
+  {
+   "id": "AI-16",
+   "prioridade": "P1",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Prompt sem segredos",
+   "exigencia": "Nunca inserir senhas e chaves em system prompt."
+  },
+  {
+   "id": "AI-17",
+   "prioridade": "P1",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Sandbox",
+   "exigencia": "Isolar execução de código, parser e arquivos."
+  },
+  {
+   "id": "AI-18",
+   "prioridade": "P1",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Cache de contexto",
+   "exigencia": "Impedir vazamento entre contas, embeddings e memória."
+  },
+  {
+   "id": "AI-19",
+   "prioridade": "P1",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Loop de agente",
+   "exigencia": "Limitar ações, duração e recursos."
+  },
+  {
+   "id": "AI-20",
+   "prioridade": "P2",
+   "dominio": "AI",
+   "secao": "16. Segurança de IA, LLM e agentes",
+   "controle": "Red teaming",
+   "exigencia": "Testar injeção indireta, exfiltração e abuso de ferramentas."
+  },
+  {
+   "id": "MOB-01",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Login seguro",
+   "exigencia": "Verificar identidade no servidor em cada operação sensível."
+  },
+  {
+   "id": "MOB-02",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Autorização API",
+   "exigencia": "Controlar usuário, recurso, função e tenant."
+  },
+  {
+   "id": "MOB-03",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "TLS",
+   "exigencia": "Proteger conexões e validar certificados."
+  },
+  {
+   "id": "MOB-04",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Segredos locais",
+   "exigencia": "Utilizar Keychain e Keystore conforme o sistema."
+  },
+  {
+   "id": "MOB-05",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Chaves no binário",
+   "exigencia": "Não embutir credenciais privilegiadas em APK/AAB/IPA."
+  },
+  {
+   "id": "MOB-06",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Sessão móvel",
+   "exigencia": "Expiração, renovação e revogação."
+  },
+  {
+   "id": "MOB-07",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Logout local e remoto",
+   "exigencia": "Limpar estado e revogar acesso."
+  },
+  {
+   "id": "MOB-08",
+   "prioridade": "P1",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Biometria",
+   "exigencia": "Usar APIs oficiais e controles adicionais em operações críticas."
+  },
+  {
+   "id": "MOB-09",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Cache offline",
+   "exigencia": "Proteger dados locais e controlar retenção."
+  },
+  {
+   "id": "MOB-10",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Troca de conta",
+   "exigencia": "Não exibir ou reenviar dados de usuário anterior."
+  },
+  {
+   "id": "MOB-11",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Backup do telefone",
+   "exigencia": "Evitar backup indevido de tokens e documentos privados."
+  },
+  {
+   "id": "MOB-12",
+   "prioridade": "P1",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Root/jailbreak",
+   "exigencia": "Usar sinais de risco com decisão proporcional."
+  },
+  {
+   "id": "MOB-13",
+   "prioridade": "P1",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Integridade de app",
+   "exigencia": "Avaliar Play Integrity e App Attest nos pontos de risco."
+  },
+  {
+   "id": "MOB-14",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Deep links",
+   "exigencia": "Validar identidade, caminho, destino e autorização."
+  },
+  {
+   "id": "MOB-15",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "WebView",
+   "exigencia": "Isolar conteúdo e bridges com funções nativas."
+  },
+  {
+   "id": "MOB-16",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Push",
+   "exigencia": "Não enviar informações secretas em payloads."
+  },
+  {
+   "id": "MOB-17",
+   "prioridade": "P1",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Captura de tela",
+   "exigencia": "Mitigar exposições conforme a plataforma, sem presumir bloqueio total."
+  },
+  {
+   "id": "MOB-18",
+   "prioridade": "P1",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Clipboard",
+   "exigencia": "Não copiar ou reter dados secretos sem necessidade."
+  },
+  {
+   "id": "MOB-19",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Permissões do aparelho",
+   "exigencia": "Solicitar mínimo e lidar com revogação."
+  },
+  {
+   "id": "MOB-20",
+   "prioridade": "P1",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Logs locais",
+   "exigencia": "Minimizar dados pessoais e nunca armazenar tokens completos."
+  },
+  {
+   "id": "MOB-21",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Arquivos mobile",
+   "exigencia": "Validar formato, tamanho e autorização."
+  },
+  {
+   "id": "MOB-22",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Sincronização",
+   "exigencia": "Resolver conflitos e segregar contas."
+  },
+  {
+   "id": "MOB-23",
+   "prioridade": "P1",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Versões antigas",
+   "exigencia": "Bloquear releases com vulnerabilidades críticas."
+  },
+  {
+   "id": "MOB-24",
+   "prioridade": "P1",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Obfuscação",
+   "exigencia": "Usar como defesa complementar, não como autorização."
+  },
+  {
+   "id": "MOB-25",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Operações financeiras",
+   "exigencia": "Nunca confiar em valores calculados exclusivamente no app."
+  },
+  {
+   "id": "MOB-26",
+   "prioridade": "P1",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "SDKs externos",
+   "exigencia": "Auditar permissões e coleta de terceiros."
+  },
+  {
+   "id": "MOB-27",
+   "prioridade": "P1",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Privacidade local",
+   "exigencia": "Reter somente dados necessários."
+  },
+  {
+   "id": "MOB-28",
+   "prioridade": "P1",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Suspensão e retorno",
+   "exigencia": "Proteger estado quando aplicativo entra em background."
+  },
+  {
+   "id": "MOB-29",
+   "prioridade": "P1",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Atualização assinada",
+   "exigencia": "Distribuir binários íntegros."
+  },
+  {
+   "id": "MOB-30",
+   "prioridade": "P0",
+   "dominio": "MOB",
+   "secao": "22. Segurança transversal de aplicativos Mobile",
+   "controle": "Falha segura",
+   "exigencia": "Negar operação se autenticação ou autorização falhar."
+  },
+  {
+   "id": "AND-01",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Manifest",
+   "exigencia": "Auditar permissões, serviços e componentes declarados."
+  },
+  {
+   "id": "AND-02",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "android:exported",
+   "exigencia": "Exportar apenas os componentes que precisam ser públicos."
+  },
+  {
+   "id": "AND-03",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Content Providers",
+   "exigencia": "Restringir leitura e escrita de dados."
+  },
+  {
+   "id": "AND-04",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Intents externas",
+   "exigencia": "Validar entradas e origem quando relevante."
+  },
+  {
+   "id": "AND-05",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "PendingIntent",
+   "exigencia": "Configurar mutabilidade e alvo de forma segura."
+  },
+  {
+   "id": "AND-06",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "App Links",
+   "exigencia": "Associar e verificar domínio e aplicativo."
+  },
+  {
+   "id": "AND-07",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Deep Link Hijack",
+   "exigencia": "Não expor credenciais em esquemas não verificados."
+  },
+  {
+   "id": "AND-08",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "WebView navegável",
+   "exigencia": "Bloquear esquemas e domínios não permitidos."
+  },
+  {
+   "id": "AND-09",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "JavaScriptInterface",
+   "exigencia": "Não oferecer funções nativas a conteúdo remoto não confiável."
+  },
+  {
+   "id": "AND-10",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Acesso a arquivos no WebView",
+   "exigencia": "Desativar capacidades desnecessárias e acessos cruzados."
+  },
+  {
+   "id": "AND-11",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Network Security Config",
+   "exigencia": "Evitar cleartext e configurar confiança TLS."
+  },
+  {
+   "id": "AND-12",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Android Keystore",
+   "exigencia": "Proteger chaves e segredos por recursos do sistema."
+  },
+  {
+   "id": "AND-13",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "StrongBox e TEE",
+   "exigencia": "Usar proteção em hardware quando disponível."
+  },
+  {
+   "id": "AND-14",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Backup rules",
+   "exigencia": "Excluir credenciais e dados confidenciais quando apropriado."
+  },
+  {
+   "id": "AND-15",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Release sem debug",
+   "exigencia": "Desativar debug e componentes de teste inseguros."
+  },
+  {
+   "id": "AND-16",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "R8",
+   "exigencia": "Reduzir/obfuscar como defesa adicional."
+  },
+  {
+   "id": "AND-17",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Play Integrity",
+   "exigencia": "Validar provas no backend e tratar falsos positivos."
+  },
+  {
+   "id": "AND-18",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Assinatura do app",
+   "exigencia": "Proteger chaves e o fluxo de publicação."
+  },
+  {
+   "id": "AND-19",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "APK alternativo",
+   "exigencia": "Controlar distribuição fora da Play Store se suportada."
+  },
+  {
+   "id": "AND-20",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "FLAG_SECURE",
+   "exigencia": "Avaliar proteção de telas sensíveis."
+  },
+  {
+   "id": "AND-21",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Tapjacking",
+   "exigencia": "Mitigar abuso por sobreposição em ações críticas."
+  },
+  {
+   "id": "AND-22",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Acessibilidade",
+   "exigencia": "Considerar ameaças sem bloquear acessibilidade legítima."
+  },
+  {
+   "id": "AND-23",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Notificações",
+   "exigencia": "Limitar informações visíveis na tela bloqueada."
+  },
+  {
+   "id": "AND-24",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Room/SQLite",
+   "exigencia": "Proteger dados e testar migrações."
+  },
+  {
+   "id": "AND-25",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "WorkManager",
+   "exigencia": "Tarefas resilientes e idempotentes."
+  },
+  {
+   "id": "AND-26",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Foreground services",
+   "exigencia": "Respeitar restrições de execução e bateria."
+  },
+  {
+   "id": "AND-27",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "ANR",
+   "exigencia": "Não bloquear thread de UI."
+  },
+  {
+   "id": "AND-28",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Memory leaks",
+   "exigencia": "Detectar referências retidas e crescimento de memória."
+  },
+  {
+   "id": "AND-29",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Fragmentação",
+   "exigencia": "Testar fabricantes, versões e dimensões."
+  },
+  {
+   "id": "AND-30",
+   "prioridade": "P0",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Troca de conta",
+   "exigencia": "Limpar caches e jobs vinculados à identidade anterior."
+  },
+  {
+   "id": "AND-31",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Permissão revogada",
+   "exigencia": "Tratar cancelamento/negação em tempo de execução."
+  },
+  {
+   "id": "AND-32",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Reinstalação",
+   "exigencia": "Tratar restauração e chaves locais incompatíveis."
+  },
+  {
+   "id": "AND-33",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Analytics e SDKs",
+   "exigencia": "Auditar dados coletados e permissões."
+  },
+  {
+   "id": "AND-34",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "JNI/NDK",
+   "exigencia": "Revisar erros de memória e bibliotecas nativas."
+  },
+  {
+   "id": "AND-35",
+   "prioridade": "P1",
+   "dominio": "AND",
+   "secao": "23. Android: plataforma e vulnerabilidades",
+   "controle": "Suporte do SO",
+   "exigencia": "Definir versões mínimas ainda seguras."
+  },
+  {
+   "id": "IOS-01",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Keychain",
+   "exigencia": "Guardar credenciais usando accessibility classes adequadas."
+  },
+  {
+   "id": "IOS-02",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Secure Enclave",
+   "exigencia": "Proteger chaves críticas em hardware quando apropriado."
+  },
+  {
+   "id": "IOS-03",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Data Protection",
+   "exigencia": "Definir acesso a arquivos conforme bloqueio e sensibilidade."
+  },
+  {
+   "id": "IOS-04",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "ATS",
+   "exigencia": "Preservar App Transport Security e limitar exceções."
+  },
+  {
+   "id": "IOS-05",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "TLS confiável",
+   "exigencia": "Verificar certificados e confiança dos servidores."
+  },
+  {
+   "id": "IOS-06",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Universal Links",
+   "exigencia": "Validar associação de domínio e parâmetros."
+  },
+  {
+   "id": "IOS-07",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "URL Schemes",
+   "exigencia": "Não aceitar comandos privilegiados de esquemas inseguros."
+  },
+  {
+   "id": "IOS-08",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "WKWebView",
+   "exigencia": "Restringir navegação e interfaces nativas."
+  },
+  {
+   "id": "IOS-09",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Message handlers",
+   "exigencia": "Validar conteúdo e origem antes de executar ações."
+  },
+  {
+   "id": "IOS-10",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "App Attest",
+   "exigencia": "Verificar atestação no backend nas funções de alto risco."
+  },
+  {
+   "id": "IOS-11",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "DeviceCheck",
+   "exigencia": "Utilizar sinais antifraude complementares."
+  },
+  {
+   "id": "IOS-12",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Face ID/Touch ID",
+   "exigencia": "Utilizar LocalAuthentication com fallback seguro."
+  },
+  {
+   "id": "IOS-13",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Multitarefa",
+   "exigencia": "Proteger prévias no alternador de apps."
+  },
+  {
+   "id": "IOS-14",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Captura de tela",
+   "exigencia": "Mitigar exposição conforme APIs, sem prometer bloqueio universal."
+  },
+  {
+   "id": "IOS-15",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Push confidencial",
+   "exigencia": "Evitar segredos nas notificações."
+  },
+  {
+   "id": "IOS-16",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Permissões",
+   "exigencia": "Solicitar câmera, fotos e localização somente quando necessárias."
+  },
+  {
+   "id": "IOS-17",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Privacy Manifest",
+   "exigencia": "Declarar coleta e APIs exigidas quando aplicável."
+  },
+  {
+   "id": "IOS-18",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "ATT",
+   "exigencia": "Cumprir regras de consentimento relacionadas a rastreamento."
+  },
+  {
+   "id": "IOS-19",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "App Groups",
+   "exigencia": "Isolar dados compartilhados entre extensões."
+  },
+  {
+   "id": "IOS-20",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Entitlements",
+   "exigencia": "Ativar apenas capacidades necessárias."
+  },
+  {
+   "id": "IOS-21",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "iCloud backup",
+   "exigencia": "Controlar dados locais incluídos em backup."
+  },
+  {
+   "id": "IOS-22",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Background Tasks",
+   "exigencia": "Tratar cancelamento e suspensão pelo sistema."
+  },
+  {
+   "id": "IOS-23",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "App lifecycle",
+   "exigencia": "Recuperar estado após interrupção e fechamento."
+  },
+  {
+   "id": "IOS-24",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Jetsam",
+   "exigencia": "Investigar encerramento por pressão de memória."
+  },
+  {
+   "id": "IOS-25",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Thread principal",
+   "exigencia": "Manter interface responsiva."
+  },
+  {
+   "id": "IOS-26",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Swift concurrency",
+   "exigencia": "Mitigar data races e cancelamentos incorretos."
+  },
+  {
+   "id": "IOS-27",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Core Data/SQLite/SwiftData",
+   "exigencia": "Proteger dados e migrar sem corrupção."
+  },
+  {
+   "id": "IOS-28",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Crash reports",
+   "exigencia": "Simbolicar e analisar falhas por versão."
+  },
+  {
+   "id": "IOS-29",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "TestFlight",
+   "exigencia": "Validar em dispositivos reais antes da loja."
+  },
+  {
+   "id": "IOS-30",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Distribuição",
+   "exigencia": "Proteger certificados e perfis do App Store Connect."
+  },
+  {
+   "id": "IOS-31",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Extensões",
+   "exigencia": "Proteger widgets e Share Extensions."
+  },
+  {
+   "id": "IOS-32",
+   "prioridade": "P0",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Troca de conta",
+   "exigencia": "Limpar dados específicos do usuário antigo."
+  },
+  {
+   "id": "IOS-33",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Jailbreak",
+   "exigencia": "Utilizar indicador de risco complementar."
+  },
+  {
+   "id": "IOS-34",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Migrações locais",
+   "exigencia": "Evitar quebra em atualizações de esquema."
+  },
+  {
+   "id": "IOS-35",
+   "prioridade": "P1",
+   "dominio": "IOS",
+   "secao": "24. iOS e iPadOS: plataforma e confiabilidade",
+   "controle": "Compatibilidade iOS",
+   "exigencia": "Testar iPhone, iPad e versões suportadas."
+  },
+  {
+   "id": "DESK-01",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Assinatura",
+   "exigencia": "Assinar binário e instalador conforme o sistema."
+  },
+  {
+   "id": "DESK-02",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Origem oficial",
+   "exigencia": "Distribuir apenas por canais confiáveis."
+  },
+  {
+   "id": "DESK-03",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Integridade",
+   "exigencia": "Verificar assinatura e hash de pacote."
+  },
+  {
+   "id": "DESK-04",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Atualizador",
+   "exigencia": "Autenticar manifesto e pacote antes de aplicar."
+  },
+  {
+   "id": "DESK-05",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Atualização atômica",
+   "exigencia": "Evitar instalação parcial."
+  },
+  {
+   "id": "DESK-06",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Rollback",
+   "exigencia": "Prever retorno compatível com dados persistidos."
+  },
+  {
+   "id": "DESK-07",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Secrets locais",
+   "exigencia": "Usar DPAPI, Keychain ou secret service apropriado."
+  },
+  {
+   "id": "DESK-08",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Arquivos privados",
+   "exigencia": "Aplicar permissões de usuário e isolamento."
+  },
+  {
+   "id": "DESK-09",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Configurações",
+   "exigencia": "Não gravar tokens e senhas em JSON/YAML em claro."
+  },
+  {
+   "id": "DESK-10",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Comandos do SO",
+   "exigencia": "Não concatenar argumentos não confiáveis em shell."
+  },
+  {
+   "id": "DESK-11",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Argument injection",
+   "exigencia": "Validar todos os parâmetros externos."
+  },
+  {
+   "id": "DESK-12",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Path traversal",
+   "exigencia": "Verificar caminhos ao gravar e extrair arquivos."
+  },
+  {
+   "id": "DESK-13",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Symlink attacks",
+   "exigencia": "Evitar trocas de destino e TOCTOU em arquivos sensíveis."
+  },
+  {
+   "id": "DESK-14",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Library hijack",
+   "exigencia": "Restringir fontes de DLLs e bibliotecas."
+  },
+  {
+   "id": "DESK-15",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "IPC",
+   "exigencia": "Autenticar chamadas entre processos."
+  },
+  {
+   "id": "DESK-16",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Serviço local",
+   "exigencia": "Proteger portas localhost e sockets."
+  },
+  {
+   "id": "DESK-17",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Privilégios",
+   "exigencia": "Evitar UAC/sudo para ações corriqueiras."
+  },
+  {
+   "id": "DESK-18",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Elevação controlada",
+   "exigencia": "Validar pedidos feitos a processos privilegiados."
+  },
+  {
+   "id": "DESK-19",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "WebView",
+   "exigencia": "Isolar conteúdo web de recursos do SO."
+  },
+  {
+   "id": "DESK-20",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Protocolos externos",
+   "exigencia": "Validar URLs e targets antes de abrir."
+  },
+  {
+   "id": "DESK-21",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Memória nativa",
+   "exigencia": "Mitigar use-after-free e buffers inseguros."
+  },
+  {
+   "id": "DESK-22",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Logs locais",
+   "exigencia": "Não persistir tokens e dados privados desnecessários."
+  },
+  {
+   "id": "DESK-23",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Clipboard",
+   "exigencia": "Evitar manter credenciais sem necessidade."
+  },
+  {
+   "id": "DESK-24",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Início automático",
+   "exigencia": "Documentar e restringir autostart."
+  },
+  {
+   "id": "DESK-25",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Background/tray",
+   "exigencia": "Encerrar processos e sessões quando apropriado."
+  },
+  {
+   "id": "DESK-26",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Logout no desktop",
+   "exigencia": "Apagar caches e credenciais da conta."
+  },
+  {
+   "id": "DESK-27",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Múltiplas instâncias",
+   "exigencia": "Evitar escrita concorrente e corrupção."
+  },
+  {
+   "id": "DESK-28",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Instalador seguro",
+   "exigencia": "Proteger locais temporários e arquivos privilegiados."
+  },
+  {
+   "id": "DESK-29",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25. Desktop: Windows, macOS e Linux",
+   "controle": "Desinstalação",
+   "exigencia": "Remover serviços e tratar dados locais."
+  },
+  {
+   "id": "DESK-30",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Crash dumps",
+   "exigencia": "Proteger dumps contra exposição de dados."
+  },
+  {
+   "id": "DESK-31",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Atualização do SO",
+   "exigencia": "Testar compatibilidade após patches."
+  },
+  {
+   "id": "DESK-32",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Plugins",
+   "exigencia": "Isolar extensões e suas permissões."
+  },
+  {
+   "id": "DESK-33",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Antivírus/EDR",
+   "exigencia": "Testar distribuição e minimizar falsos positivos."
+  },
+  {
+   "id": "DESK-34",
+   "prioridade": "P1",
+   "dominio": "DESK",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Instalação offline",
+   "exigencia": "Definir comportamento seguro sem conectividade."
+  },
+  {
+   "id": "DESK-35",
+   "prioridade": "P0",
+   "dominio": "DESK",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Cache multi-tenant EXE, MSI e MSIX e o mecanismo de atualização CONTROLE / RISCO",
+   "exigencia": "Impedir vazamento via dados locais e temporários. devem compor a mesma cadeia de confiança. EXIGÊNCIA / EVIDÊNCIA"
+  },
+  {
+   "id": "WIN-01",
+   "prioridade": "P0",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Authenticode",
+   "exigencia": "Assinar EXE/MSI/MSIX distribuídos conforme formato."
+  },
+  {
+   "id": "WIN-02",
+   "prioridade": "P0",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "MSIX",
+   "exigencia": "Validar pacote assinado e integridade quando utilizado."
+  },
+  {
+   "id": "WIN-03",
+   "prioridade": "P1",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "SmartScreen",
+   "exigencia": "Criar reputação legítima; nunca pedir desativação de proteção."
+  },
+  {
+   "id": "WIN-04",
+   "prioridade": "P0",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "DPAPI",
+   "exigencia": "Proteger dados locais com APIs criptográficas do Windows."
+  },
+  {
+   "id": "WIN-05",
+   "prioridade": "P0",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "NTFS ACL",
+   "exigencia": "Restringir acesso a arquivos e diretórios privados."
+  },
+  {
+   "id": "WIN-06",
+   "prioridade": "P0",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "DLL Search Order",
+   "exigencia": "Evitar busca em diretórios controlados por terceiros."
+  },
+  {
+   "id": "WIN-07",
+   "prioridade": "P0",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "UAC",
+   "exigencia": "Separar componente elevado do processo normal."
+  },
+  {
+   "id": "WIN-08",
+   "prioridade": "P1",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Registro",
+   "exigencia": "Não guardar segredos em claro no registry."
+  },
+  {
+   "id": "WIN-09",
+   "prioridade": "P1",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Windows Services",
+   "exigencia": "Utilizar contas de serviço mínimas."
+  },
+  {
+   "id": "WIN-10",
+   "prioridade": "P0",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Named Pipes",
+   "exigencia": "Aplicar ACL e validação de cliente."
+  },
+  {
+   "id": "WIN-11",
+   "prioridade": "P0",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "localhost",
+   "exigencia": "Prevenir chamadas indevidas feitas por navegadores e outros processos."
+  },
+  {
+   "id": "WIN-12",
+   "prioridade": "P1",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Microsoft Defender",
+   "exigencia": "Verificar instalador e binários."
+  },
+  {
+   "id": "WIN-13",
+   "prioridade": "P1",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Mitigações nativas",
+   "exigencia": "Ativar ASLR, DEP e CFG quando disponíveis."
+  },
+  {
+   "id": "WIN-14",
+   "prioridade": "P1",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Event Log",
+   "exigencia": "Registrar eventos com dados mínimos."
+  },
+  {
+   "id": "WIN-15",
+   "prioridade": "P1",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Hibernação",
+   "exigencia": "Restaurar sessão e jobs após despertar."
+  },
+  {
+   "id": "WIN-16",
+   "prioridade": "P1",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "DPI",
+   "exigencia": "Testar escalonamento e monitores de tamanhos diversos."
+  },
+  {
+   "id": "WIN-17",
+   "prioridade": "P1",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Windows Update",
+   "exigencia": "Verificar compatibilidade regularmente."
+  },
+  {
+   "id": "WIN-18",
+   "prioridade": "P1",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Instalador temporário",
+   "exigencia": "Evitar execução privilegiada com arquivos manipuláveis."
+  },
+  {
+   "id": "WIN-19",
+   "prioridade": "P1",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Usuários locais",
+   "exigencia": "Impedir leitura de dados entre contas do Windows."
+  },
+  {
+   "id": "WIN-20",
+   "prioridade": "P0",
+   "dominio": "WIN",
+   "secao": "25.2. Windows: EXE, MSI e MSIX",
+   "controle": "Servidor de atualização",
+   "exigencia": "Proteger assinatura, metadados e artefatos."
+  },
+  {
+   "id": "MAC-01",
+   "prioridade": "P0",
+   "dominio": "MAC",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Developer ID",
+   "exigencia": "Assinar distribuições macOS elegíveis."
+  },
+  {
+   "id": "MAC-02",
+   "prioridade": "P0",
+   "dominio": "MAC",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Notarization",
+   "exigencia": "Notarizar aplicativos macOS distribuídos fora da loja, conforme requisitos."
+  },
+  {
+   "id": "MAC-03",
+   "prioridade": "P0",
+   "dominio": "MAC",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Hardened Runtime",
+   "exigencia": "Minimizar exceções de runtime."
+  },
+  {
+   "id": "MAC-04",
+   "prioridade": "P1",
+   "dominio": "MAC",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "App Sandbox",
+   "exigencia": "Aplicar quando compatível e exigido."
+  },
+  {
+   "id": "MAC-05",
+   "prioridade": "P0",
+   "dominio": "MAC",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "macOS Keychain",
+   "exigencia": "Guardar credenciais com acessibilidade e ACL adequadas."
+  },
+  {
+   "id": "MAC-06",
+   "prioridade": "P1",
+   "dominio": "MAC",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Entitlements",
+   "exigencia": "Não solicitar capacidades desnecessárias."
+  },
+  {
+   "id": "MAC-07",
+   "prioridade": "P1",
+   "dominio": "MAC",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Gatekeeper",
+   "exigencia": "Respeitar validações de distribuição."
+  },
+  {
+   "id": "MAC-08",
+   "prioridade": "P1",
+   "dominio": "MAC",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "TCC",
+   "exigencia": "Respeitar autorizações de câmera, microfone e arquivos."
+  },
+  {
+   "id": "MAC-09",
+   "prioridade": "P1",
+   "dominio": "MAC",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Arquiteturas",
+   "exigencia": "Testar Apple Silicon e Intel quando suportadas."
+  },
+  {
+   "id": "MAC-10",
+   "prioridade": "P1",
+   "dominio": "MAC",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "LaunchAgents",
+   "exigencia": "Controlar persistência e integridade de componentes."
+  },
+  {
+   "id": "LIN-01",
+   "prioridade": "P0",
+   "dominio": "LIN",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Permissões POSIX",
+   "exigencia": "Definir usuário, grupo e modo corretamente."
+  },
+  {
+   "id": "LIN-02",
+   "prioridade": "P0",
+   "dominio": "LIN",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Execução sem root",
+   "exigencia": "Evitar sudo para funções comuns."
+  },
+  {
+   "id": "LIN-03",
+   "prioridade": "P1",
+   "dominio": "LIN",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "AppArmor/SELinux",
+   "exigencia": "Adotar confinamento quando viável."
+  },
+  {
+   "id": "LIN-04",
+   "prioridade": "P1",
+   "dominio": "LIN",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Flatpak",
+   "exigencia": "Restringir sandbox e permissões de portals."
+  },
+  {
+   "id": "LIN-05",
+   "prioridade": "P1",
+   "dominio": "LIN",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Pacotes Linux",
+   "exigencia": "Verificar origem e integridade de AppImage, deb ou rpm."
+  },
+  {
+   "id": "LIN-06",
+   "prioridade": "P1",
+   "dominio": "LIN",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "systemd hardening",
+   "exigencia": "Aplicar restrições e contas mínimas."
+  },
+  {
+   "id": "LIN-07",
+   "prioridade": "P0",
+   "dominio": "LIN",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Unix sockets",
+   "exigencia": "Proteger por permissões e identidade de cliente."
+  },
+  {
+   "id": "LIN-08",
+   "prioridade": "P1",
+   "dominio": "LIN",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Bibliotecas dinâmicas",
+   "exigencia": "Evitar diretórios de carregamento não confiáveis."
+  },
+  {
+   "id": "LIN-09",
+   "prioridade": "P1",
+   "dominio": "LIN",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Variáveis de ambiente",
+   "exigencia": "Nunca confiar em PATH e outros valores controlados pelo usuário."
+  },
+  {
+   "id": "LIN-10",
+   "prioridade": "P1",
+   "dominio": "LIN",
+   "secao": "25.3. macOS e Linux: assinatura, isolamento e permissões",
+   "controle": "Distribuições",
+   "exigencia": "Testar versões, bibliotecas e drivers diferentes."
+  },
+  {
+   "id": "TEC-01",
+   "prioridade": "P0",
+   "dominio": "TEC",
+   "secao": "26. Riscos por framework e runtime",
+   "controle": "React Native",
+   "exigencia": "Proteger bridges, deep links, tokens, Secure Storage e SDKs; monitorar renderização, estado e atualizações nativas."
+  },
+  {
+   "id": "TEC-02",
+   "prioridade": "P0",
+   "dominio": "TEC",
+   "secao": "26. Riscos por framework e runtime",
+   "controle": "Expo",
+   "exigencia": "Revisar SecureStore, permissões, builds e OTA; compatibilizar JavaScript com módulos nativos."
+  },
+  {
+   "id": "TEC-03",
+   "prioridade": "P0",
+   "dominio": "TEC",
+   "secao": "26. Riscos por framework e runtime",
+   "controle": "Flutter",
+   "exigencia": "Auditar plugins e Method Channels, armazenamento local; testar widgets, isolates e memória."
+  },
+  {
+   "id": "TEC-04",
+   "prioridade": "P0",
+   "dominio": "TEC",
+   "secao": "26. Riscos por framework e runtime",
+   "controle": "Kotlin Android",
+   "exigencia": "Manifest, intents, WebView, Keystore e lifecycle; testar coroutines, ANR e migração Room."
+  },
+  {
+   "id": "TEC-05",
+   "prioridade": "P0",
+   "dominio": "TEC",
+   "secao": "26. Riscos por framework e runtime",
+   "controle": "Swift/SwiftUI",
+   "exigencia": "Keychain, ATS, App Attest e entitlements; testar concorrência e ciclo de vida."
+  },
+  {
+   "id": "TEC-06",
+   "prioridade": "P0",
+   "dominio": "TEC",
+   "secao": "26. Riscos por framework e runtime",
+   "controle": "Electron",
+   "exigencia": "Context isolation, sandbox, preload, IPC e NodeIntegration; avaliar vazamentos e auto-update."
+  },
+  {
+   "id": "TEC-07",
+   "prioridade": "P0",
+   "dominio": "TEC",
+   "secao": "26. Riscos por framework e runtime",
+   "controle": "Tauri 2",
+   "exigencia": "Capabilities, plugins Rust e atualizações assinadas; validar comandos e argumentos."
+  },
+  {
+   "id": "TEC-08",
+   "prioridade": "P0",
+   "dominio": "TEC",
+   "secao": "26. Riscos por framework e runtime",
+   "controle": ".NET/WPF/WinUI",
+   "exigencia": "DPAPI, registry, permissões, serviços e assinatura; testar UI thread e Windows."
+  },
+  {
+   "id": "TEC-09",
+   "prioridade": "P0",
+   "dominio": "TEC",
+   "secao": "26. Riscos por framework e runtime",
+   "controle": "Qt/C++",
+   "exigencia": "Tratar segurança de memória e DLLs; testar concorrência e crashes nativos."
+  },
+  {
+   "id": "TEC-10",
+   "prioridade": "P1",
+   "dominio": "TEC",
+   "secao": "26. Riscos por framework e runtime",
+   "controle": "Rust Desktop",
+   "exigencia": "Revisar FFI, comandos e unsafe; detectar deadlock e erros de lógica."
+  },
+  {
+   "id": "TEC-11",
+   "prioridade": "P0",
+   "dominio": "TEC",
+   "secao": "26. Riscos por framework e runtime",
+   "controle": "Capacitor/Ionic",
+   "exigencia": "Controlar plugins, WebView, permissões e mensagens entre web e sistema."
+  },
+  {
+   "id": "TEC-12",
+   "prioridade": "P1",
+   "dominio": "TEC",
+   "secao": "26. Riscos por framework e runtime",
+   "controle": "PWA",
+   "exigencia": "Revisar Service Worker, cache, origem, sessão e estado offline."
+  },
+  {
+   "id": "BUG-01",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Race condition",
+   "exigencia": "Operações simultâneas produzem estado inválido; usar atomicidade e locks/versionamento."
+  },
+  {
+   "id": "BUG-02",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Double submit",
+   "exigencia": "Evitar cobranças ou envios duplicados com idempotência no servidor."
+  },
+  {
+   "id": "BUG-03",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Bug de autorização",
+   "exigencia": "Testar todas as combinações permitidas e proibidas de papéis e objetos."
+  },
+  {
+   "id": "BUG-04",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Cache cruzado",
+   "exigencia": "Associar cache ao escopo exato de usuário e tenant."
+  },
+  {
+   "id": "BUG-05",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Sync incorreta",
+   "exigencia": "Resolver conflitos e evitar sobrescrita silenciosa."
+  },
+  {
+   "id": "BUG-06",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Upgrade interrompido",
+   "exigencia": "Usar atualização transacional e recuperação."
+  },
+  {
+   "id": "BUG-07",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Migração quebrada",
+   "exigencia": "Ensaiar upgrade com cópias anonimizadas e rollback."
+  },
+  {
+   "id": "BUG-08",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Validação parcial",
+   "exigencia": "Usar contratos de entrada e saída consistentes."
+  },
+  {
+   "id": "BUG-09",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Erro inseguro",
+   "exigencia": "Falhar de modo fechado sem expor contexto sensível."
+  },
+  {
+   "id": "BUG-10",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Memory leak",
+   "exigencia": "Executar testes de duração e análise de heap."
+  },
+  {
+   "id": "BUG-11",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Deadlock",
+   "exigencia": "Monitorar locks e impor timeouts e hierarquia."
+  },
+  {
+   "id": "BUG-12",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "UI Freeze/ANR",
+   "exigencia": "Evitar bloqueio da thread principal."
+  },
+  {
+   "id": "BUG-13",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Crash loop",
+   "exigencia": "Parar reinicializações infinitas e oferecer recuperação."
+  },
+  {
+   "id": "BUG-14",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Estado nulo inesperado",
+   "exigencia": "Tratar valores ausentes e validar schema."
+  },
+  {
+   "id": "BUG-15",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Overflow/Underflow",
+   "exigencia": "Controlar limites e usar tipos apropriados."
+  },
+  {
+   "id": "BUG-16",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Precisão monetária",
+   "exigencia": "Utilizar decimal ou inteiros em unidade monetária mínima."
+  },
+  {
+   "id": "BUG-17",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Fusos horários",
+   "exigencia": "Guardar instantes canônicos e converter conforme o contexto."
+  },
+  {
+   "id": "BUG-18",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Relógio adulterado",
+   "exigencia": "Usar relógio confiável no servidor para decisões sensíveis."
+  },
+  {
+   "id": "BUG-19",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Rollback transacional",
+   "exigencia": "Garantir que erros não gerem estados parciais."
+  },
+  {
+   "id": "BUG-20",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Lost update",
+   "exigencia": "Conferir versão do registro antes de gravar."
+  },
+  {
+   "id": "BUG-21",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Retry sem limite",
+   "exigencia": "Usar tentativas finitas e backoff com jitter."
+  },
+  {
+   "id": "BUG-22",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Timeout ausente",
+   "exigencia": "Limitar espera por serviços dependentes."
+  },
+  {
+   "id": "BUG-23",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Confirmação prematura",
+   "exigencia": "Exibir sucesso apenas com resposta efetiva do backend."
+  },
+  {
+   "id": "BUG-24",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Versão incompatível",
+   "exigencia": "Manter contratos de API e política de cliente mínimo."
+  },
+  {
+   "id": "BUG-25",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Dependência quebrada",
+   "exigencia": "Fixar/testar versões e acompanhar regressões."
+  },
+  {
+   "id": "BUG-26",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Falha silenciosa",
+   "exigencia": "Observar erros operacionais e reconciliar transações."
+  },
+  {
+   "id": "BUG-27",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Reprocessamento de eventos",
+   "exigencia": "Projetar webhooks e filas para ao menos uma entrega sem duplicação de efeitos."
+  },
+  {
+   "id": "BUG-28",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "UI desatualizada",
+   "exigencia": "Distinguir pendente, confirmado e rejeitado."
+  },
+  {
+   "id": "BUG-29",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Exclusão indevida",
+   "exigencia": "Verificar objeto e autorização imediatamente antes da ação."
+  },
+  {
+   "id": "BUG-30",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Corrupção de arquivos",
+   "exigencia": "Usar gravação temporária e troca atômica."
+  },
+  {
+   "id": "BUG-31",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Unicode e encoding",
+   "exigencia": "Tratar normalização e nomes internacionais."
+  },
+  {
+   "id": "BUG-32",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Parser de arquivo",
+   "exigencia": "Isolar parse de XML, PDF, imagens e formatos malformados."
+  },
+  {
+   "id": "BUG-33",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Paginação incorreta",
+   "exigencia": "Usar ordenação estável/cursor para evitar perda ou duplicação."
+  },
+  {
+   "id": "BUG-34",
+   "prioridade": "P0",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Troca de tenant",
+   "exigencia": "Limpar estado e revalidar autorização da organização."
+  },
+  {
+   "id": "BUG-35",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Feature flag",
+   "exigencia": "Usar defaults seguros e desligamento rápido."
+  },
+  {
+   "id": "BUG-36",
+   "prioridade": "P1",
+   "dominio": "BUG",
+   "secao": "27. Bugs e causas de vulnerabilidades",
+   "controle": "Falha de recuperação",
+   "exigencia": "Ensaiar retomada após exceção, crash e queda de energia."
+  },
+  {
+   "id": "UX-01",
+   "prioridade": "P0",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Exclusão segura",
+   "exigencia": "Confirmar exatamente o recurso e o efeito destrutivo."
+  },
+  {
+   "id": "UX-02",
+   "prioridade": "P0",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Revisão financeira",
+   "exigencia": "Exibir destinatário, valor e custos antes de efetivar."
+  },
+  {
+   "id": "UX-03",
+   "prioridade": "P0",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Sucesso verdadeiro",
+   "exigencia": "Somente confirmar após commit/resposta válida."
+  },
+  {
+   "id": "UX-04",
+   "prioridade": "P0",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Duplo clique",
+   "exigencia": "Evitar efeitos repetidos no servidor, além do bloqueio visual."
+  },
+  {
+   "id": "UX-05",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Estado de loading",
+   "exigencia": "Indicar progresso e lidar com espera prolongada."
+  },
+  {
+   "id": "UX-06",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Erros úteis",
+   "exigencia": "Orientar sem divulgar stack trace ou dados privados."
+  },
+  {
+   "id": "UX-07",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Recuperação amigável",
+   "exigencia": "Permitir nova tentativa segura em operações reversíveis."
+  },
+  {
+   "id": "UX-08",
+   "prioridade": "P0",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Formulário resiliente",
+   "exigencia": "Preservar rascunho não sensível sem duplicar envio."
+  },
+  {
+   "id": "UX-09",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Acessibilidade",
+   "exigencia": "Suportar leitor de tela, teclado, contraste e toque."
+  },
+  {
+   "id": "UX-10",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Contraste",
+   "exigencia": "Garantir leitura em diferentes ambientes."
+  },
+  {
+   "id": "UX-11",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Dark/light mode",
+   "exigencia": "Manter controles visíveis e estados legíveis."
+  },
+  {
+   "id": "UX-12",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Fonte ampliada",
+   "exigencia": "Ajustar layout sem esconder ações."
+  },
+  {
+   "id": "UX-13",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Responsividade",
+   "exigencia": "Testar monitores, orientação e redimensionamento."
+  },
+  {
+   "id": "UX-14",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Navegação pós-logout",
+   "exigencia": "Impedir acesso a conteúdo privado via histórico/cache."
+  },
+  {
+   "id": "UX-15",
+   "prioridade": "P0",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Identidade ativa",
+   "exigencia": "Indicar claramente usuário e tenant ativos."
+  },
+  {
+   "id": "UX-16",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Permissões de dispositivo",
+   "exigencia": "Explicar necessidade e tratar recusa."
+  },
+  {
+   "id": "UX-17",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Biometria falhou",
+   "exigencia": "Oferecer recuperação segura quando permitida."
+  },
+  {
+   "id": "UX-18",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Sessão expirada",
+   "exigencia": "Solicitar login mantendo somente rascunhos autorizados."
+  },
+  {
+   "id": "UX-19",
+   "prioridade": "P0",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Dados confidenciais",
+   "exigencia": "Mascarar campos e evitar apresentação desnecessária."
+  },
+  {
+   "id": "UX-20",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Estado da conexão",
+   "exigencia": "Diferenciar offline, timeout e falha do servidor."
+  },
+  {
+   "id": "UX-21",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Dados antigos",
+   "exigencia": "Exibir quando informação não foi sincronizada."
+  },
+  {
+   "id": "UX-22",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Operações pendentes",
+   "exigencia": "Mostrar fila, estado e conflitos."
+  },
+  {
+   "id": "UX-23",
+   "prioridade": "P0",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Permissão refletida",
+   "exigencia": "Interface não simula autorização inexistente."
+  },
+  {
+   "id": "UX-24",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Desfazer",
+   "exigencia": "Oferecer reversão quando tecnicamente segura."
+  },
+  {
+   "id": "UX-25",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Releases",
+   "exigencia": "Explicar atualizações obrigatórias e mudanças críticas."
+  },
+  {
+   "id": "UX-26",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Notificações privadas",
+   "exigencia": "Não mostrar conteúdo sensível indevidamente."
+  },
+  {
+   "id": "UX-27",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Recuperação de acesso",
+   "exigencia": "Oferecer fluxo claro e resistente a engenharia social."
+  },
+  {
+   "id": "UX-28",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Localização",
+   "exigencia": "Tratar moeda, número, idioma e fuso corretamente."
+  },
+  {
+   "id": "UX-29",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "28. UX segura e prevenção de erros",
+   "controle": "Tela vazia",
+   "exigencia": "Prevenir white screen sem feedback."
+  },
+  {
+   "id": "UX-30",
+   "prioridade": "P1",
+   "dominio": "UX",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Consistência de transação REGRA DE NEGÓCIO Nenhuma operação foi Servidor ainda não confirmou; Estado validado no backend; Consultar estado real antes Exibir motivo seguro e orientação e conflito gerar dados duplicados, corrupção CONTROLE / RISCO",
+   "exigencia": "Manter significado e estado dos controles nas plataformas. iniciada. não mostrar sucesso. identificador de operação registrado. de repetir para evitar duplicidade. de recuperação. ou confusão de identidade. EXIGÊNCIA / EVIDÊNCIA"
+  },
+  {
+   "id": "OFF-01",
+   "prioridade": "P0",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Cache local",
+   "exigencia": "Proteger dados sensíveis e limitar retenção."
+  },
+  {
+   "id": "OFF-02",
+   "prioridade": "P0",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Fila persistente",
+   "exigencia": "Preservar operações pendentes após crash."
+  },
+  {
+   "id": "OFF-03",
+   "prioridade": "P0",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Idempotência offline",
+   "exigencia": "Não repetir transação crítica ao reconectar."
+  },
+  {
+   "id": "OFF-04",
+   "prioridade": "P0",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Conflitos",
+   "exigencia": "Detectar múltiplas edições e definir estratégia de resolução."
+  },
+  {
+   "id": "OFF-05",
+   "prioridade": "P0",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Token expirado",
+   "exigencia": "Não sincronizar dados privados sem autorização atual."
+  },
+  {
+   "id": "OFF-06",
+   "prioridade": "P0",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Troca de usuário",
+   "exigencia": "Associar fila à identidade correta."
+  },
+  {
+   "id": "OFF-07",
+   "prioridade": "P1",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Reconexão gradual",
+   "exigencia": "Usar backoff, jitter e limites."
+  },
+  {
+   "id": "OFF-08",
+   "prioridade": "P1",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Dado obsoleto",
+   "exigencia": "Exibir estado de desatualização."
+  },
+  {
+   "id": "OFF-09",
+   "prioridade": "P1",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Upload parcial",
+   "exigencia": "Retomar ou recomeçar com integridade verificada."
+  },
+  {
+   "id": "OFF-10",
+   "prioridade": "P0",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Financeiro offline",
+   "exigencia": "Nunca considerar movimento confirmado só pelo estado local."
+  },
+  {
+   "id": "OFF-11",
+   "prioridade": "P1",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Disco cheio",
+   "exigencia": "Tratar espaço insuficiente sem corromper dados."
+  },
+  {
+   "id": "OFF-12",
+   "prioridade": "P1",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Upgrade offline",
+   "exigencia": "Manter compatibilidade e testes de migração."
+  },
+  {
+   "id": "OFF-13",
+   "prioridade": "P1",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Horário do aparelho",
+   "exigencia": "Não confiar nele para autorização e contabilidade."
+  },
+  {
+   "id": "OFF-14",
+   "prioridade": "P0",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Exclusões",
+   "exigencia": "Não ressuscitar registros removidos durante sync."
+  },
+  {
+   "id": "OFF-15",
+   "prioridade": "P1",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Recuperação do cache",
+   "exigencia": "Recriar estado local após corrupção."
+  },
+  {
+   "id": "OFF-16",
+   "prioridade": "P1",
+   "dominio": "OFF",
+   "secao": "29. Offline, sincronização e conflito",
+   "controle": "Status das operações",
+   "exigencia": "Separar pendente, confirmado, rejeitado e desconhecido."
+  },
+  {
+   "id": "TST-01",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Rota anônima",
+   "exigencia": "Rota privada deve negar acesso sem login."
+  },
+  {
+   "id": "TST-02",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Token expirado",
+   "exigencia": "Credencial vencida não pode autorizar."
+  },
+  {
+   "id": "TST-03",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "JWT adulterado",
+   "exigencia": "Assinatura alterada deve ser rejeitada."
+  },
+  {
+   "id": "TST-04",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Token de outra audiência",
+   "exigencia": "API deve rejeitar credencial de outro serviço."
+  },
+  {
+   "id": "TST-05",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Sessão revogada",
+   "exigencia": "Acesso negado conforme política explícita de revogação."
+  },
+  {
+   "id": "TST-06",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Leitura cruzada",
+   "exigencia": "Usuário A não consulta registro de B."
+  },
+  {
+   "id": "TST-07",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Escrita cruzada",
+   "exigencia": "Usuário A não altera registro de B."
+  },
+  {
+   "id": "TST-08",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Exclusão cruzada",
+   "exigencia": "Usuário A não remove registro de B."
+  },
+  {
+   "id": "TST-09",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Operação admin",
+   "exigencia": "Usuário comum não executa função administrativa."
+  },
+  {
+   "id": "TST-10",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Alteração de role",
+   "exigencia": "A elevação indevida de privilégios falha."
+  },
+  {
+   "id": "TST-11",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Tenant ID falsificado",
+   "exigencia": "Troca de parâmetro não muda autorização."
+  },
+  {
+   "id": "TST-12",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Arquivo privado",
+   "exigencia": "Download de outro usuário é negado."
+  },
+  {
+   "id": "TST-13",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Tipo de arquivo",
+   "exigencia": "Formato proibido é rejeitado."
+  },
+  {
+   "id": "TST-14",
+   "prioridade": "P1",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Payload grande",
+   "exigencia": "Requisição é interrompida sem degradação sistêmica."
+  },
+  {
+   "id": "TST-15",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Entrada SQL hostil",
+   "exigencia": "Consultas continuam parametrizadas e protegidas."
+  },
+  {
+   "id": "TST-16",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "HTML não confiável",
+   "exigencia": "Script não executa no navegador."
+  },
+  {
+   "id": "TST-17",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Pagamento duplicado",
+   "exigencia": "Repetição não cria cobrança extra."
+  },
+  {
+   "id": "TST-18",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Webhook inválido",
+   "exigencia": "Evento sem assinatura válida é rejeitado."
+  },
+  {
+   "id": "TST-19",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Repetição de webhook",
+   "exigencia": "Não produz novos efeitos."
+  },
+  {
+   "id": "TST-20",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Login repetitivo",
+   "exigencia": "Rate limit e alertas funcionam."
+  },
+  {
+   "id": "TST-21",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "SSRF",
+   "exigencia": "URL externa não alcança redes privadas e metadados."
+  },
+  {
+   "id": "TST-22",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Supabase anon",
+   "exigencia": "Chave pública não expõe tabelas privadas."
+  },
+  {
+   "id": "TST-23",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Supabase tenant",
+   "exigencia": "JWT de A não dá acesso aos registros de B."
+  },
+  {
+   "id": "TST-24",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Realtime privado",
+   "exigencia": "Inscrição indevida em canal é bloqueada."
+  },
+  {
+   "id": "TST-25",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Relatório adulterado",
+   "exigencia": "Filtros não extraem dados de outra empresa."
+  },
+  {
+   "id": "TST-26",
+   "prioridade": "P1",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Exportação anormal",
+   "exigencia": "Quota, autenticação e auditoria atuam."
+  },
+  {
+   "id": "TST-27",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Cache pós-logout",
+   "exigencia": "Nenhuma resposta de outra sessão é apresentada."
+  },
+  {
+   "id": "TST-28",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Reset reutilizado",
+   "exigencia": "Token de recuperação já consumido falha."
+  },
+  {
+   "id": "TST-29",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Conta desativada",
+   "exigencia": "Acesso interrompido no prazo definido."
+  },
+  {
+   "id": "TST-30",
+   "prioridade": "P1",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Banco indisponível",
+   "exigencia": "Erro é controlado e não expõe credenciais."
+  },
+  {
+   "id": "TST-31",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Perda de dados",
+   "exigencia": "Backup restaura dentro de RPO/RTO acordados."
+  },
+  {
+   "id": "TST-32",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Chave vazada",
+   "exigencia": "Runbook de rotação e contenção funciona."
+  },
+  {
+   "id": "TST-33",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Prompt malicioso",
+   "exigencia": "Agente não executa ação sem autorização independente."
+  },
+  {
+   "id": "TST-34",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Abuso de IA",
+   "exigencia": "Cotas e alertas impedem consumo descontrolado."
+  },
+  {
+   "id": "TST-35",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Role alterada",
+   "exigencia": "Permissão ativa é reavaliada no intervalo estabelecido."
+  },
+  {
+   "id": "TST-36",
+   "prioridade": "P0",
+   "dominio": "TST",
+   "secao": "17. Matriz de testes de invasão e aceite",
+   "controle": "Restore isolado",
+   "exigencia": "Cópia restaurada mantém integridade verificável."
+  },
+  {
+   "id": "QA-01",
+   "prioridade": "P0",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Unitários",
+   "exigencia": "Regras e funções de negócio testadas com JUnit, XCTest, Jest, Vitest ou equivalentes."
+  },
+  {
+   "id": "QA-02",
+   "prioridade": "P0",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Integração",
+   "exigencia": "Validar banco, APIs, fila, storage e terceiros."
+  },
+  {
+   "id": "QA-03",
+   "prioridade": "P0",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "End-to-end",
+   "exigencia": "Validar fluxo real com Playwright, Maestro, Espresso e XCUITest."
+  },
+  {
+   "id": "QA-04",
+   "prioridade": "P1",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Contrato API",
+   "exigencia": "Conferir compatibilidade entre cliente e servidor."
+  },
+  {
+   "id": "QA-05",
+   "prioridade": "P0",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Regressão",
+   "exigencia": "Impedir que correção quebre fluxos existentes."
+  },
+  {
+   "id": "QA-06",
+   "prioridade": "P0",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Autorização",
+   "exigencia": "Testar acesso positivo e negativo por tenant/role."
+  },
+  {
+   "id": "QA-07",
+   "prioridade": "P0",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "SAST",
+   "exigencia": "Analisar vulnerabilidades no código-fonte."
+  },
+  {
+   "id": "QA-08",
+   "prioridade": "P1",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "DAST",
+   "exigencia": "Testar aplicação em execução em ambiente controlado."
+  },
+  {
+   "id": "QA-09",
+   "prioridade": "P1",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Mobile security testing",
+   "exigencia": "Executar verificações alinhadas ao MASTG; revisar falsos positivos."
+  },
+  {
+   "id": "QA-10",
+   "prioridade": "P1",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Fuzzing",
+   "exigencia": "Enviar entradas malformadas e inesperadas a parsers."
+  },
+  {
+   "id": "QA-11",
+   "prioridade": "P1",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Property-based testing",
+   "exigencia": "Verificar invariantes com muitos casos gerados."
+  },
+  {
+   "id": "QA-12",
+   "prioridade": "P1",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Performance",
+   "exigencia": "Medir latência, CPU, energia e memória."
+  },
+  {
+   "id": "QA-13",
+   "prioridade": "P1",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Carga e stress",
+   "exigencia": "Validar degradação segura em concorrência elevada."
+  },
+  {
+   "id": "QA-14",
+   "prioridade": "P1",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Soak testing",
+   "exigencia": "Detectar memory leaks após execução prolongada."
+  },
+  {
+   "id": "QA-15",
+   "prioridade": "P1",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Failure testing",
+   "exigencia": "Simular queda de rede, fila, serviço e processo."
+  },
+  {
+   "id": "QA-16",
+   "prioridade": "P0",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Upgrade e rollback",
+   "exigencia": "Testar migração, interrupção e retorno."
+  },
+  {
+   "id": "QA-17",
+   "prioridade": "P0",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Restauração",
+   "exigencia": "Recuperar backup em ambiente isolado."
+  },
+  {
+   "id": "QA-18",
+   "prioridade": "P1",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Acessibilidade",
+   "exigencia": "Testar TalkBack, VoiceOver, teclado e Narrator."
+  },
+  {
+   "id": "QA-19",
+   "prioridade": "P1",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Regressão visual",
+   "exigencia": "Comparar layouts, fontes e responsividade."
+  },
+  {
+   "id": "QA-20",
+   "prioridade": "P1",
+   "dominio": "QA",
+   "secao": "30. Tipos de testes: qualidade, AppSec e resiliência",
+   "controle": "Pentest independente",
+   "exigencia": "Executar avaliação autorizada por especialista."
+  },
+  {
+   "id": "LAB-01",
+   "prioridade": "P0",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Android sem internet",
+   "exigencia": "Cadastro interrompido não gera perda ou duplicidade."
+  },
+  {
+   "id": "LAB-02",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Android sem câmera",
+   "exigencia": "Permissão negada não causa crash."
+  },
+  {
+   "id": "LAB-03",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Android processo encerrado",
+   "exigencia": "Estado retorna de maneira segura."
+  },
+  {
+   "id": "LAB-04",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Android troca de rede",
+   "exigencia": "Reconexão sem envio duplicado."
+  },
+  {
+   "id": "LAB-05",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Android baixo desempenho",
+   "exigencia": "Sem ANR persistente nem travamento principal."
+  },
+  {
+   "id": "LAB-06",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Android gira tela",
+   "exigencia": "Rascunho e operação conservam integridade."
+  },
+  {
+   "id": "LAB-07",
+   "prioridade": "P0",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Android deep link hostil",
+   "exigencia": "Nenhuma função privilegiada por parâmetro."
+  },
+  {
+   "id": "LAB-08",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "iOS sem Face ID",
+   "exigencia": "Fluxo alternativo apropriado."
+  },
+  {
+   "id": "LAB-09",
+   "prioridade": "P0",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "iOS suspenso durante envio",
+   "exigencia": "Retomada e estado consistentes."
+  },
+  {
+   "id": "LAB-10",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "iOS sob pressão de memória",
+   "exigencia": "Sem corrupção após encerramento."
+  },
+  {
+   "id": "LAB-11",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "iOS reinstalado",
+   "exigencia": "Credenciais e caches tratados conforme política."
+  },
+  {
+   "id": "LAB-12",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "iOS bloqueado",
+   "exigencia": "Classes de proteção e background corretos."
+  },
+  {
+   "id": "LAB-13",
+   "prioridade": "P0",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "iOS Universal Link inválido",
+   "exigencia": "Operação privilegiada não é executada."
+  },
+  {
+   "id": "LAB-14",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Windows sem admin",
+   "exigencia": "Aplicativo opera sem elevação indevida."
+  },
+  {
+   "id": "LAB-15",
+   "prioridade": "P0",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Windows upgrade interrompido",
+   "exigencia": "Release anterior recuperada."
+  },
+  {
+   "id": "LAB-16",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Windows antivírus restringe",
+   "exigencia": "Falha controlada e diagnosticável."
+  },
+  {
+   "id": "LAB-17",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Windows app duplo",
+   "exigencia": "Não corrompe dados locais."
+  },
+  {
+   "id": "LAB-18",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Windows arquivo config inválido",
+   "exigencia": "Recuperação sem revelar segredos."
+  },
+  {
+   "id": "LAB-19",
+   "prioridade": "P0",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "macOS assinatura inválida",
+   "exigencia": "Distribuição não burla Gatekeeper."
+  },
+  {
+   "id": "LAB-20",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "macOS permissão revogada",
+   "exigencia": "Funcionalidade falha com segurança."
+  },
+  {
+   "id": "LAB-21",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Linux sem permissão",
+   "exigencia": "Nenhuma escrita parcial indevida."
+  },
+  {
+   "id": "LAB-22",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Linux biblioteca ausente",
+   "exigencia": "Erro identificável e fluxo seguro."
+  },
+  {
+   "id": "LAB-23",
+   "prioridade": "P0",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Logout A/login B",
+   "exigencia": "Nenhum dado local/cached de A é exposto a B."
+  },
+  {
+   "id": "LAB-24",
+   "prioridade": "P0",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Pagamento API indisponível",
+   "exigencia": "Nenhuma cobrança duplicada ou falso sucesso."
+  },
+  {
+   "id": "LAB-25",
+   "prioridade": "P0",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Banco fora do ar",
+   "exigencia": "Falha segura, sem confirmação falsa."
+  },
+  {
+   "id": "LAB-26",
+   "prioridade": "P1",
+   "dominio": "LAB",
+   "secao": "30.2. Cenários físicos e de plataforma",
+   "controle": "Contrato API alterado",
+   "exigencia": "Clientes oficialmente suportados continuam funcionais."
+  },
+  {
+   "id": "REL-01",
+   "prioridade": "P0",
+   "dominio": "REL",
+   "secao": "31. Release gates por plataforma",
+   "controle": "Zero P0 explorável",
+   "exigencia": "Corrigir ou mitigar de modo verificável vulnerabilidades críticas."
+  },
+  {
+   "id": "REL-02",
+   "prioridade": "P0",
+   "dominio": "REL",
+   "secao": "31. Release gates por plataforma",
+   "controle": "Autorização aprovada",
+   "exigencia": "Testes de isolamento de usuários, tenants e roles."
+  },
+  {
+   "id": "REL-03",
+   "prioridade": "P0",
+   "dominio": "REL",
+   "secao": "31. Release gates por plataforma",
+   "controle": "Suite automatizada",
+   "exigencia": "Unidade, integração, E2E e regressão aprovados."
+  },
+  {
+   "id": "REL-04",
+   "prioridade": "P1",
+   "dominio": "REL",
+   "secao": "31. Release gates por plataforma",
+   "controle": "Crashes triados",
+   "exigencia": "Nenhuma regressão relevante de estabilidade."
+  },
+  {
+   "id": "REL-05",
+   "prioridade": "P0",
+   "dominio": "REL",
+   "secao": "31. Release gates por plataforma",
+   "controle": "Restauração comprovada",
+   "exigencia": "Backup testado e objetivos atendidos."
+  },
+  {
+   "id": "REL-06",
+   "prioridade": "P0",
+   "dominio": "REL",
+   "secao": "31. Release gates por plataforma",
+   "controle": "Contrato cliente/API",
+   "exigencia": "Versões ainda suportadas operam corretamente."
+  },
+  {
+   "id": "REL-07",
+   "prioridade": "P0",
+   "dominio": "REL",
+   "secao": "31. Release gates por plataforma",
+   "controle": "Android release",
+   "exigencia": "Manifest, assinatura, permissões e build sem debug."
+  },
+  {
+   "id": "REL-08",
+   "prioridade": "P1",
+   "dominio": "REL",
+   "secao": "31. Release gates por plataforma",
+   "controle": "Android vitals",
+   "exigencia": "ANR, lifecycle e aparelhos representativos testados."
+  },
+  {
+   "id": "REL-09",
+   "prioridade": "P0",
+   "dominio": "REL",
+   "secao": "31. Release gates por plataforma",
+   "controle": "iOS release",
+   "exigencia": "Entitlements, Keychain, ATS, privacidade e assinatura."
+  },
+  {
+   "id": "REL-10",
+   "prioridade": "P1",
+   "dominio": "REL",
+   "secao": "31. Release gates por plataforma",
+   "controle": "iOS beta",
+   "exigencia": "TestFlight e dispositivos reais validados."
+  },
+  {
+   "id": "REL-11",
+   "prioridade": "P0",
+   "dominio": "REL",
+   "secao": "31. Release gates por plataforma",
+   "controle": "Desktop assinado",
+   "exigencia": "EXE, pacote e instalador íntegros."
+  },
+  {
+   "id": "REL-12",
+   "prioridade": "P0",
+   "dominio": "REL",
+   "secao": "31. Release gates por plataforma",
+   "controle": "Atualizador testado",
+   "exigencia": "Interrupção, verificação, rollback e migrações."
+  },
+  {
+   "id": "REL-13",
+   "prioridade": "P0",
+   "dominio": "REL",
+   "secao": "31. Release gates por plataforma",
+   "controle": "Privilégios desktop",
+   "exigencia": "IPC, bibliotecas, filesystem e elevação revisados."
+  },
+  {
+   "id": "POL-01",
+   "prioridade": "P0",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Exploração crítica",
+   "exigencia": "Bloquear lançamento até mitigação efetiva."
+  },
+  {
+   "id": "POL-02",
+   "prioridade": "P0",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Falha entre tenants",
+   "exigencia": "Bloquear publicação."
+  },
+  {
+   "id": "POL-03",
+   "prioridade": "P0",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Dupla cobrança",
+   "exigencia": "Bloquear publicação."
+  },
+  {
+   "id": "POL-04",
+   "prioridade": "P0",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Perda irreversível de dados",
+   "exigencia": "Bloquear publicação."
+  },
+  {
+   "id": "POL-05",
+   "prioridade": "P1",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Crash no fluxo principal",
+   "exigencia": "Corrigir antes de liberação ampla."
+  },
+  {
+   "id": "POL-06",
+   "prioridade": "P2",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Bug puramente visual",
+   "exigencia": "Priorizar conforme impacto de uso e acessibilidade."
+  },
+  {
+   "id": "POL-07",
+   "prioridade": "P0",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Atualização sem assinatura",
+   "exigencia": "Bloquear distribuição."
+  },
+  {
+   "id": "POL-08",
+   "prioridade": "P0",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Backup sem teste",
+   "exigencia": "Não considerar plano de recuperação validado."
+  },
+  {
+   "id": "POL-09",
+   "prioridade": "P0",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Testes automáticos falham",
+   "exigencia": "Bloquear deploy automático até análise formal."
+  },
+  {
+   "id": "POL-10",
+   "prioridade": "P0",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Incidente em produção",
+   "exigencia": "Decidir contenção, rollback e comunicação."
+  },
+  {
+   "id": "POL-11",
+   "prioridade": "P1",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Indicador de crash",
+   "exigencia": "Acompanhar usuários e sessões sem crashes."
+  },
+  {
+   "id": "POL-12",
+   "prioridade": "P1",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Indicador de ANR/hangs",
+   "exigencia": "Acompanhar desempenho por versão e plataforma."
+  },
+  {
+   "id": "POL-13",
+   "prioridade": "P1",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Vulnerabilidades abertas",
+   "exigencia": "Registrar severidade, idade, responsável e mitigação."
+  },
+  {
+   "id": "POL-14",
+   "prioridade": "P1",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Transações falhas",
+   "exigencia": "Monitorar erro, reconciliação e duplicidade."
+  },
+  {
+   "id": "POL-15",
+   "prioridade": "P1",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Sincronização",
+   "exigencia": "Monitorar sucesso e conflitos offline."
+  },
+  {
+   "id": "POL-16",
+   "prioridade": "P1",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Upgrade",
+   "exigencia": "Medir porcentagem de atualizações bem-sucedidas."
+  },
+  {
+   "id": "POL-17",
+   "prioridade": "P1",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Detecção e resolução",
+   "exigencia": "Medir tempo de detectar e corrigir incidentes."
+  },
+  {
+   "id": "POL-18",
+   "prioridade": "P1",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "RPO/RTO",
+   "exigencia": "Verificar metas de continuidade após testes de restauração."
+  },
+  {
+   "id": "POL-19",
+   "prioridade": "P1",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Regressão",
+   "exigencia": "Acompanhar problemas introduzidos por releases."
+  },
+  {
+   "id": "POL-20",
+   "prioridade": "P1",
+   "dominio": "POL",
+   "secao": "33. Política de publicação e manutenção",
+   "controle": "Cobertura funcional",
+   "exigencia": "Medir testes para invariantes e regras críticas."
+  }
+ ]
+}

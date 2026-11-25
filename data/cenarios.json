@@ -1,0 +1,3776 @@
+{
+ "fonte": "Manual de Caça a Bugs e Confiabilidade v1.0 (08/10/2026)",
+ "cenarios": [
+  {
+   "id": "DISC-001",
+   "prioridade": "P1",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Bug não reproduzível",
+   "como_provocar": "Repetir cenário com versão, tenant, usuário, horário, estado e rede anotados.",
+   "esperado": "Passos determinísticos ou hipótese documentada e evidência suficiente."
+  },
+  {
+   "id": "DISC-002",
+   "prioridade": "P1",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Erro intermitente",
+   "como_provocar": "Executar muitas iterações registrando seeds, IDs de correlação e latência.",
+   "esperado": "Frequência medida; gatilho e variação isolados."
+  },
+  {
+   "id": "DISC-003",
+   "prioridade": "P0",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Produção diferente do staging",
+   "como_provocar": "Comparar flags, variáveis, migrações, permissões e versões sem expor segredos.",
+   "esperado": "Desvios rastreados e classificados como risco de ambiente."
+  },
+  {
+   "id": "DISC-004",
+   "prioridade": "P1",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Erro após deploy",
+   "como_provocar": "Relacionar primeira ocorrência com commits, versões e mudanças de schema.",
+   "esperado": "Regressão e janela do defeito identificadas."
+  },
+  {
+   "id": "DISC-005",
+   "prioridade": "P1",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Bug relatado sem detalhes",
+   "como_provocar": "Solicitar fluxo exato, resultado esperado, tela, horário e versão.",
+   "esperado": "Ticket acionável sem dados pessoais desnecessários."
+  },
+  {
+   "id": "DISC-006",
+   "prioridade": "P0",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Erro em um único tenant",
+   "como_provocar": "Comparar configurações, volume, roles e histórico do tenant de teste.",
+   "esperado": "Diferença explicada, sem acessar dados reais sem autorização."
+  },
+  {
+   "id": "DISC-007",
+   "prioridade": "P1",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Bug só em dispositivo real",
+   "como_provocar": "Comparar emulador e dispositivo físico, sistema e fabricante.",
+   "esperado": "Matriz de reprodução registra divergências."
+  },
+  {
+   "id": "DISC-008",
+   "prioridade": "P1",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Erro só em carga",
+   "como_provocar": "Reproduzir com tráfego sintético, rampa e limites conhecidos.",
+   "esperado": "Ponto de degradação e mecanismo de falha medidos."
+  },
+  {
+   "id": "DISC-009",
+   "prioridade": "P1",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Erro após reinício",
+   "como_provocar": "Executar fluxo, reiniciar app/serviço e retomar estado.",
+   "esperado": "Persistência e recuperação consistentes."
+  },
+  {
+   "id": "DISC-010",
+   "prioridade": "P1",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Bug regressivo",
+   "como_provocar": "Executar o mesmo teste na última versão estável e na candidata.",
+   "esperado": "Versão introdutora do defeito identificada."
+  },
+  {
+   "id": "DISC-011",
+   "prioridade": "P1",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Sinal não é causa",
+   "como_provocar": "Correlacionar logs, traces, banco e cadeia de dependências.",
+   "esperado": "Causa raiz sustentada por evidência, não suposição."
+  },
+  {
+   "id": "DISC-012",
+   "prioridade": "P0",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Correção sem teste",
+   "como_provocar": "Exigir teste que falha antes da correção e passa depois.",
+   "esperado": "Defeito não retorna silenciosamente."
+  },
+  {
+   "id": "DISC-013",
+   "prioridade": "P1",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Pânico em produção",
+   "como_provocar": "Simular incidente com owner, freeze de deploy e rollback ensaiado.",
+   "esperado": "Decisões rastreáveis e procedimento operacional acionável."
+  },
+  {
+   "id": "DISC-014",
+   "prioridade": "P0",
+   "modulo": "DISC",
+   "secao": "01. Descoberta, reprodução e triagem",
+   "bug": "Logs confidenciais",
+   "como_provocar": "Inspecionar dumps, screenshots, headers e payloads de relatório.",
+   "esperado": "Evidência útil, com tokens e dados privados removidos."
+  },
+  {
+   "id": "WEB-001",
+   "prioridade": "P1",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Página em branco",
+   "como_provocar": "Abrir rota diretamente, atualizar e usar histórico após login.",
+   "esperado": "Rota carrega ou mostra erro recuperável, nunca branco definitivo."
+  },
+  {
+   "id": "WEB-002",
+   "prioridade": "P1",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Back/forward inconsistente",
+   "como_provocar": "Navegar entre listagem e detalhe usando botões do navegador.",
+   "esperado": "Estado e URL representam a tela correta."
+  },
+  {
+   "id": "WEB-003",
+   "prioridade": "P1",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Formulário perde dados",
+   "como_provocar": "Preencher formulário, simular erro 500 e voltar ao estado anterior.",
+   "esperado": "Campos recuperáveis preservados; segredos tratados conforme política."
+  },
+  {
+   "id": "WEB-004",
+   "prioridade": "P0",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Submit duplicado",
+   "como_provocar": "Clicar duas vezes, pressionar Enter e disparar retry em paralelo.",
+   "esperado": "Uma única alteração lógica confirmada no servidor."
+  },
+  {
+   "id": "WEB-005",
+   "prioridade": "P1",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Scroll/click bloqueados",
+   "como_provocar": "Abrir modal, fechar via Escape, toque e navegação.",
+   "esperado": "Focus e scrolling restaurados; ações não ficam bloqueadas."
+  },
+  {
+   "id": "WEB-006",
+   "prioridade": "P1",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Layout quebra em zoom",
+   "como_provocar": "Testar 200% de zoom e largura estreita em browser desktop.",
+   "esperado": "Controles essenciais continuam disponíveis e legíveis."
+  },
+  {
+   "id": "WEB-007",
+   "prioridade": "P1",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Tema quebra formulário",
+   "como_provocar": "Alternar dark/light e alto contraste no meio do fluxo.",
+   "esperado": "Campos, foco e erros continuam visíveis."
+  },
+  {
+   "id": "WEB-008",
+   "prioridade": "P1",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Hydration mismatch",
+   "como_provocar": "Recarregar páginas SSR com datas, idioma e valores dinâmicos.",
+   "esperado": "Sem divergência indevida entre HTML do servidor e cliente."
+  },
+  {
+   "id": "WEB-009",
+   "prioridade": "P1",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Evento de navegação perdido",
+   "como_provocar": "Clicar rapidamente em duas rotas enquanto dados são carregados.",
+   "esperado": "Última rota selecionada vence; dados antigos não reaparecem."
+  },
+  {
+   "id": "WEB-010",
+   "prioridade": "P1",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Busca com resposta fora de ordem",
+   "como_provocar": "Digitar termos sucessivos sob rede lenta.",
+   "esperado": "Somente resultado do termo atual é exibido."
+  },
+  {
+   "id": "WEB-011",
+   "prioridade": "P2",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Filtro sem reset de página",
+   "como_provocar": "Ir para a última página e aplicar filtro restritivo.",
+   "esperado": "Paginação volta a página válida, sem lista falsa vazia."
+  },
+  {
+   "id": "WEB-012",
+   "prioridade": "P1",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Upload sem feedback",
+   "como_provocar": "Enviar arquivo grande em rede degradada.",
+   "esperado": "Progresso e falhas são exibidos; estado não fica eternamente pendente."
+  },
+  {
+   "id": "WEB-013",
+   "prioridade": "P0",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Links externos mal interpretados",
+   "como_provocar": "Abrir URLs externas e links internos com parâmetros especiais.",
+   "esperado": "Destino e contexto validados; sem execução inesperada."
+  },
+  {
+   "id": "WEB-014",
+   "prioridade": "P0",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Campos ocultos acessíveis",
+   "como_provocar": "Modificar campos somente pela DevTools em conta de teste.",
+   "esperado": "Backend ignora ou rejeita campos não autorizados."
+  },
+  {
+   "id": "WEB-015",
+   "prioridade": "P1",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Service Worker antigo",
+   "como_provocar": "Atualizar aplicação com aba e cache antigos ativos.",
+   "esperado": "Versão e cache convergem sem ativos incompatíveis."
+  },
+  {
+   "id": "WEB-016",
+   "prioridade": "P0",
+   "modulo": "WEB",
+   "secao": "02. Web: navegação, HTML, CSS e estado",
+   "bug": "Três abas concorrentes",
+   "como_provocar": "Editar mesmo registro em duas abas e sair da terceira.",
+   "esperado": "Conflitos e encerramento de sessão tratados corretamente."
+  },
+  {
+   "id": "UX-001",
+   "prioridade": "P0",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Sucesso falso",
+   "como_provocar": "Simular timeout do servidor após clicar em confirmar.",
+   "esperado": "UI não afirma sucesso sem comprovante válido da operação."
+  },
+  {
+   "id": "UX-002",
+   "prioridade": "P0",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Exclusão equivocada",
+   "como_provocar": "Selecionar um item, alterar filtro e acionar excluir.",
+   "esperado": "Confirmação e backend apontam o item certo."
+  },
+  {
+   "id": "UX-003",
+   "prioridade": "P1",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Alerta sem solução",
+   "como_provocar": "Provocar 400/403/409/500 e avaliar mensagem e ação possível.",
+   "esperado": "Mensagem útil, segura e recuperável quando aplicável."
+  },
+  {
+   "id": "UX-004",
+   "prioridade": "P1",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Botão sem estado",
+   "como_provocar": "Forçar latência em ações importantes.",
+   "esperado": "Há feedback pendente, prevenção de duplicidade e timeout."
+  },
+  {
+   "id": "UX-005",
+   "prioridade": "P1",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Foco perdido",
+   "como_provocar": "Abrir/fechar diálogo usando teclado e leitor de tela.",
+   "esperado": "Foco permanece previsível e acionável."
+  },
+  {
+   "id": "UX-006",
+   "prioridade": "P1",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Texto truncado",
+   "como_provocar": "Testar zoom, tradução longa e fonte ampliada.",
+   "esperado": "Informação crítica não desaparece nem muda significado."
+  },
+  {
+   "id": "UX-007",
+   "prioridade": "P1",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Erro só por cor",
+   "como_provocar": "Testar daltonismo e modos de contraste.",
+   "esperado": "Estados têm texto/ícone além da cor."
+  },
+  {
+   "id": "UX-008",
+   "prioridade": "P1",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Leitor de tela não anuncia",
+   "como_provocar": "Completar formulário com erro sem usar mouse.",
+   "esperado": "Rótulos e mensagens associadas e anunciadas."
+  },
+  {
+   "id": "UX-009",
+   "prioridade": "P1",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Teclado preso em modal",
+   "como_provocar": "Usar Tab, Shift+Tab e Escape.",
+   "esperado": "Navegação de foco correta; sem armadilha indevida."
+  },
+  {
+   "id": "UX-010",
+   "prioridade": "P0",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Inconsistência monetária",
+   "como_provocar": "Alternar localidade e exibir montantes de teste.",
+   "esperado": "Separadores, moedas e arredondamento corretos."
+  },
+  {
+   "id": "UX-011",
+   "prioridade": "P0",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Conta ativa ambígua",
+   "como_provocar": "Trocar tenant e testar ação destrutiva.",
+   "esperado": "Organização atual clara antes da ação."
+  },
+  {
+   "id": "UX-012",
+   "prioridade": "P1",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Offline disfarçado",
+   "como_provocar": "Desativar rede com dados em cache visíveis.",
+   "esperado": "UI sinaliza offline, idade dos dados e ações pendentes."
+  },
+  {
+   "id": "UX-013",
+   "prioridade": "P1",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Estado vazio incorreto",
+   "como_provocar": "Aplicar filtro sem resultados vs erro de API.",
+   "esperado": "Diferencia vazio legítimo, carregamento e falha."
+  },
+  {
+   "id": "UX-014",
+   "prioridade": "P0",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Confirmação insuficiente",
+   "como_provocar": "Executar transferência em conta de teste.",
+   "esperado": "Resumo mostra destinatário, valor e estado antes do envio."
+  },
+  {
+   "id": "UX-015",
+   "prioridade": "P1",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Interrupção no fluxo",
+   "como_provocar": "Trocar de janela ou bloquear aparelho durante formulário.",
+   "esperado": "Retomada consistente sem perda inesperada."
+  },
+  {
+   "id": "UX-016",
+   "prioridade": "P1",
+   "modulo": "UX",
+   "secao": "03. UX, acessibilidade e percepção de estado",
+   "bug": "Desfazer enganoso",
+   "como_provocar": "Acionar desfazer após operação irreversível.",
+   "esperado": "UI não promete reversão impossível; explica limites."
+  },
+  {
+   "id": "FRONT-001",
+   "prioridade": "P1",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "Estado stale",
+   "como_provocar": "Iniciar atualização, trocar rapidamente de entidade e aguardar resposta.",
+   "esperado": "Resposta anterior não sobrescreve entidade atual."
+  },
+  {
+   "id": "FRONT-002",
+   "prioridade": "P1",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "UseEffect em loop",
+   "como_provocar": "Reproduzir mudança de props que aciona efeito e renderizações repetidas.",
+   "esperado": "Requisições e renderizações permanecem finitas."
+  },
+  {
+   "id": "FRONT-003",
+   "prioridade": "P1",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "Component desmontado",
+   "como_provocar": "Sair da tela antes de requisição resolver.",
+   "esperado": "Cancelamento/limpeza sem efeitos colaterais indevidos."
+  },
+  {
+   "id": "FRONT-004",
+   "prioridade": "P0",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "SSR com segredo",
+   "como_provocar": "Inspecionar HTML inicial, props serializados e bundles de produção.",
+   "esperado": "Nenhuma credencial privilegiada ou dado privado de outra conta."
+  },
+  {
+   "id": "FRONT-005",
+   "prioridade": "P0",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "Cache global multi-tenant",
+   "como_provocar": "Trocar organização sem atualizar o navegador.",
+   "esperado": "Chaves de cache incluem contexto autorizado e invalidam corretamente."
+  },
+  {
+   "id": "FRONT-006",
+   "prioridade": "P0",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "Optimistic UI sem rollback",
+   "como_provocar": "Alterar estado, forçar falha do servidor.",
+   "esperado": "Interface reverte ou marca pendência; nada fica falsamente salvo."
+  },
+  {
+   "id": "FRONT-007",
+   "prioridade": "P1",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "Form data inválida",
+   "como_provocar": "Enviar campos omitidos, null, NaN, strings enormes e Unicode.",
+   "esperado": "Backend valida todos os casos; UI exibe erro adequado."
+  },
+  {
+   "id": "FRONT-008",
+   "prioridade": "P0",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "XSS por conteúdo",
+   "como_provocar": "Exibir conteúdo HTML/Markdown sintético não confiável.",
+   "esperado": "Conteúdo renderizado sem executar código arbitrário."
+  },
+  {
+   "id": "FRONT-009",
+   "prioridade": "P0",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "Rotas protegidas por UI",
+   "como_provocar": "Visitar endereço administrativo diretamente e por API.",
+   "esperado": "Servidor nega acesso não autorizado mesmo sem menu visível."
+  },
+  {
+   "id": "FRONT-010",
+   "prioridade": "P1",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "PWA offline stale",
+   "como_provocar": "Instalar PWA, entrar offline e trocar versão.",
+   "esperado": "Conteúdo atualiza de forma controlada; sem mistura de bundles."
+  },
+  {
+   "id": "FRONT-011",
+   "prioridade": "P0",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "Storage entre contas",
+   "como_provocar": "Entrar A, sair, entrar B e consultar localStorage/IndexedDB.",
+   "esperado": "Sem dados privados ou cache de A disponível para B."
+  },
+  {
+   "id": "FRONT-012",
+   "prioridade": "P1",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "Erro de locale no SSR",
+   "como_provocar": "Alterar fuso/idioma entre cliente e servidor.",
+   "esperado": "Datas e números convergem sem desvio crítico."
+  },
+  {
+   "id": "FRONT-013",
+   "prioridade": "P1",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "Renderização de listas",
+   "como_provocar": "Adicionar e reordenar linhas com valores similares.",
+   "esperado": "Componentes representam IDs corretos, sem estado misturado."
+  },
+  {
+   "id": "FRONT-014",
+   "prioridade": "P0",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "Hidratação de sessão",
+   "como_provocar": "Abrir diretamente uma rota após sessão expirar.",
+   "esperado": "Sem flash de dados sensíveis nem autorização apenas client-side."
+  },
+  {
+   "id": "FRONT-015",
+   "prioridade": "P1",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "Erro de chunk antigo",
+   "como_provocar": "Implantar versão nova com aba antiga aberta.",
+   "esperado": "Falha de chunk tratada; atualização sem perda indevida."
+  },
+  {
+   "id": "FRONT-016",
+   "prioridade": "P1",
+   "modulo": "FRONT",
+   "secao": "04. Frontend JS, React, Next.js e PWA",
+   "bug": "CSP quebra feature",
+   "como_provocar": "Ativar CSP restritiva em staging e percorrer telas críticas.",
+   "esperado": "Scripts legítimos funcionam sem relaxar políticas desnecessárias."
+  },
+  {
+   "id": "AUTH-001",
+   "prioridade": "P0",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Sessão expirada",
+   "como_provocar": "Manter janela aberta até o vencimento e tentar salvar alteração.",
+   "esperado": "Reautenticação segura; operação não é atribuída a sessão inválida."
+  },
+  {
+   "id": "AUTH-002",
+   "prioridade": "P0",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Logout incompleto",
+   "como_provocar": "Sair e reenviar chamada API com credencial de teste antiga.",
+   "esperado": "Revogação respeita política de segurança documentada."
+  },
+  {
+   "id": "AUTH-003",
+   "prioridade": "P0",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Conta desativada",
+   "como_provocar": "Desativar usuário ainda autenticado e tentar operação sensível.",
+   "esperado": "Servidor recusa segundo latência de revogação estipulada."
+  },
+  {
+   "id": "AUTH-004",
+   "prioridade": "P0",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Alteração de role",
+   "como_provocar": "Reduzir papel admin para viewer durante sessão ativa.",
+   "esperado": "Próxima ação sensível verifica privilégios atuais."
+  },
+  {
+   "id": "AUTH-005",
+   "prioridade": "P0",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Tentativa IDOR",
+   "como_provocar": "Trocar ID de documento de A pelo de B em request próprio.",
+   "esperado": "Leitura/escrita cruzada negada."
+  },
+  {
+   "id": "AUTH-006",
+   "prioridade": "P0",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Troca de tenant",
+   "como_provocar": "Alternar organização sem reiniciar cliente e repetir operação.",
+   "esperado": "Dados, cache e permissões são atualizados conjuntamente."
+  },
+  {
+   "id": "AUTH-007",
+   "prioridade": "P1",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Refresh simultâneo",
+   "como_provocar": "Disparar várias chamadas ao expirar access token.",
+   "esperado": "Renovação coordenada; sem logout em cascata ou token perdido."
+  },
+  {
+   "id": "AUTH-008",
+   "prioridade": "P1",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Login em duas sessões",
+   "como_provocar": "Criar sessões em dois dispositivos e revogar uma.",
+   "esperado": "Política de revogação aplicada sem encerrar sessão errada."
+  },
+  {
+   "id": "AUTH-009",
+   "prioridade": "P0",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Redefinição repetida",
+   "como_provocar": "Usar link de redefinição já consumido.",
+   "esperado": "Token não pode ser reutilizado."
+  },
+  {
+   "id": "AUTH-010",
+   "prioridade": "P1",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Enumeração de conta",
+   "como_provocar": "Comparar mensagens para e-mails existentes e fictícios.",
+   "esperado": "Não revela existência de contas indevidamente."
+  },
+  {
+   "id": "AUTH-011",
+   "prioridade": "P0",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "MFA interrompido",
+   "como_provocar": "Fechar app durante verificação MFA e tentar operação protegida.",
+   "esperado": "Autenticação permanece incompleta até prova válida."
+  },
+  {
+   "id": "AUTH-012",
+   "prioridade": "P0",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Cookie em cross-site",
+   "como_provocar": "Executar ação com contexto cross-site em ambiente autorizado.",
+   "esperado": "Proteções CSRF e SameSite conforme arquitetura."
+  },
+  {
+   "id": "AUTH-013",
+   "prioridade": "P0",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Impersonação administrativa",
+   "como_provocar": "Iniciar e encerrar acesso assistido a conta de teste.",
+   "esperado": "Consentimento/justificativa, escopo e trilha auditável."
+  },
+  {
+   "id": "AUTH-014",
+   "prioridade": "P1",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Conta sem e-mail verificado",
+   "como_provocar": "Tentar ações que exigem confirmação de titularidade.",
+   "esperado": "Ações críticas bloqueadas até condição exigida."
+  },
+  {
+   "id": "AUTH-015",
+   "prioridade": "P0",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Revogação de convite",
+   "como_provocar": "Aceitar convite que acabou de ser cancelado.",
+   "esperado": "Convite inválido e acesso não concedido."
+  },
+  {
+   "id": "AUTH-016",
+   "prioridade": "P0",
+   "modulo": "AUTH",
+   "secao": "05. Usuários, autenticação, sessão e autorização",
+   "bug": "Permissão em função RPC",
+   "como_provocar": "Invocar RPC/Server Action sem passar pelo frontend.",
+   "esperado": "Backend ou banco aplica regra de autorização independente."
+  },
+  {
+   "id": "API-001",
+   "prioridade": "P1",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "JSON inválido",
+   "como_provocar": "Enviar sintaxe quebrada e campos extras em ambiente de teste.",
+   "esperado": "Resposta 4xx previsível; nenhuma mutação."
+  },
+  {
+   "id": "API-002",
+   "prioridade": "P0",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "Tipos inesperados",
+   "como_provocar": "Trocar string por array, objeto, boolean e null.",
+   "esperado": "Schemas recusam entradas inválidas, sem stack trace público."
+  },
+  {
+   "id": "API-003",
+   "prioridade": "P1",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "Parâmetro repetido",
+   "como_provocar": "Enviar mesmo parâmetro duas vezes com valores diferentes.",
+   "esperado": "Parse consistente e seguro; validação não pode ser contornada."
+  },
+  {
+   "id": "API-004",
+   "prioridade": "P0",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "Cabeçalho ausente",
+   "como_provocar": "Omitir Authorization, Content-Type e outros necessários.",
+   "esperado": "Erro explícito sem crash ou comportamento permissivo."
+  },
+  {
+   "id": "API-005",
+   "prioridade": "P1",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "Resposta fora de ordem",
+   "como_provocar": "Simular latências distintas em chamadas paralelas.",
+   "esperado": "Cliente aplica resposta à operação correta."
+  },
+  {
+   "id": "API-006",
+   "prioridade": "P0",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "Timeout após commit",
+   "como_provocar": "Forçar perda da resposta depois de gravar pedido de teste.",
+   "esperado": "Retry não cria segunda operação; consulta estado por ID."
+  },
+  {
+   "id": "API-007",
+   "prioridade": "P1",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "Paginação sob inclusão",
+   "como_provocar": "Inserir novos registros enquanto lista é paginada.",
+   "esperado": "Sem omissões críticas ou mistura entre tenants."
+  },
+  {
+   "id": "API-008",
+   "prioridade": "P1",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "GraphQL complexo",
+   "como_provocar": "Criar query profundamente aninhada em staging.",
+   "esperado": "Limites de complexidade e recursos aplicados."
+  },
+  {
+   "id": "API-009",
+   "prioridade": "P1",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "WebSocket reconectar",
+   "como_provocar": "Cortar socket durante envio e reconectar.",
+   "esperado": "Estado revalidado; mensagens duplicadas tratadas."
+  },
+  {
+   "id": "API-010",
+   "prioridade": "P0",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "WebSocket logout",
+   "como_provocar": "Encerrar sessão com socket ainda conectado.",
+   "esperado": "Inscrições privadas e autorizações atualizadas ou encerradas."
+  },
+  {
+   "id": "API-011",
+   "prioridade": "P0",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "Webhook repetido",
+   "como_provocar": "Entregar evento válido duas vezes.",
+   "esperado": "Processamento idempotente; resultado único."
+  },
+  {
+   "id": "API-012",
+   "prioridade": "P0",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "Webhook fora de ordem",
+   "como_provocar": "Entregar evento de cancelamento antes de pagamento.",
+   "esperado": "Estado final consistente por versão/ID e regras de negócio."
+  },
+  {
+   "id": "API-013",
+   "prioridade": "P0",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "Assinatura de webhook",
+   "como_provocar": "Enviar evento sintético com assinatura incorreta.",
+   "esperado": "Evento recusado e registrado sem execução."
+  },
+  {
+   "id": "API-014",
+   "prioridade": "P1",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "Rate limit errado",
+   "como_provocar": "Exceder quota com vários usuários e clientes de teste.",
+   "esperado": "Limites por identidade e recurso, sem bloquear contas alheias."
+  },
+  {
+   "id": "API-015",
+   "prioridade": "P1",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "API antiga",
+   "como_provocar": "Executar cliente suportado contra endpoint versionado recente.",
+   "esperado": "Compatibilidade preservada ou migração explícita."
+  },
+  {
+   "id": "API-016",
+   "prioridade": "P0",
+   "modulo": "API",
+   "secao": "06. APIs REST, GraphQL, WebSocket e webhooks",
+   "bug": "Erros 500 mascarados",
+   "como_provocar": "Gerar exceção controlada no ambiente de teste.",
+   "esperado": "Sem segredos expostos; correlation ID rastreável."
+  },
+  {
+   "id": "BACK-001",
+   "prioridade": "P0",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Regra só no client",
+   "como_provocar": "Enviar valor inválido diretamente pela API em conta de teste.",
+   "esperado": "Validação de negócio realizada no servidor."
+  },
+  {
+   "id": "BACK-002",
+   "prioridade": "P0",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Saldo negativo indevido",
+   "como_provocar": "Disparar dois débitos simultâneos sobre mesmo saldo sintético.",
+   "esperado": "Invariantes financeiros preservados atomicamente."
+  },
+  {
+   "id": "BACK-003",
+   "prioridade": "P0",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Transição inválida",
+   "como_provocar": "Mudar pedido de cancelado para pago sem evento válido.",
+   "esperado": "Máquina de estados recusa transição."
+  },
+  {
+   "id": "BACK-004",
+   "prioridade": "P0",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Job duplicado",
+   "como_provocar": "Entregar a mesma mensagem duas vezes ao worker.",
+   "esperado": "Efeito de negócio ocorre uma única vez."
+  },
+  {
+   "id": "BACK-005",
+   "prioridade": "P0",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Job fora de ordem",
+   "como_provocar": "Trocar ordem dos eventos de atualização.",
+   "esperado": "Versão/estado evita regressão indevida."
+  },
+  {
+   "id": "BACK-006",
+   "prioridade": "P0",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Worker morre após gravar",
+   "como_provocar": "Encerrar worker após commit e antes de ack em staging.",
+   "esperado": "Reentrega não duplica efeito."
+  },
+  {
+   "id": "BACK-007",
+   "prioridade": "P1",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Retries sem backoff",
+   "como_provocar": "Simular serviço externo indisponível.",
+   "esperado": "Tentativas com limite, jitter e DLQ quando aplicável."
+  },
+  {
+   "id": "BACK-008",
+   "prioridade": "P1",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Timeout sem cancelamento",
+   "como_provocar": "Simular dependência travada.",
+   "esperado": "Request termina e recursos são liberados."
+  },
+  {
+   "id": "BACK-009",
+   "prioridade": "P0",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Falha em etapa 3 de 4",
+   "como_provocar": "Injetar exceção após múltiplas gravações.",
+   "esperado": "Rollback, compensação ou estado recuperável garantido."
+  },
+  {
+   "id": "BACK-010",
+   "prioridade": "P0",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Fuso horário",
+   "como_provocar": "Testar horário de verão, meia-noite e UTC.",
+   "esperado": "Regras de vencimento baseadas em instantes corretos."
+  },
+  {
+   "id": "BACK-011",
+   "prioridade": "P0",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Arredondamento monetário",
+   "como_provocar": "Testar centavos, descontos e milhares de itens.",
+   "esperado": "Uso de decimal/inteiros com política financeira correta."
+  },
+  {
+   "id": "BACK-012",
+   "prioridade": "P0",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Limite de quota",
+   "como_provocar": "Disparar consumo paralelo de limite de tokens/requests.",
+   "esperado": "Quota respeitada mesmo sob concorrência."
+  },
+  {
+   "id": "BACK-013",
+   "prioridade": "P1",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Cache de configuração",
+   "como_provocar": "Mudar limite por tenant durante operação.",
+   "esperado": "Valores atualizados dentro de política prevista."
+  },
+  {
+   "id": "BACK-014",
+   "prioridade": "P0",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Retry de integração externa",
+   "como_provocar": "Injetar perda de resposta e reexecução do fluxo.",
+   "esperado": "Idempotência ou reconciliação evita duplicidade."
+  },
+  {
+   "id": "BACK-015",
+   "prioridade": "P0",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Vazamento em erro",
+   "como_provocar": "Forçar exceção de ORM e observar API e logs.",
+   "esperado": "Sem credenciais, stack privado ou payloads sensíveis em resposta."
+  },
+  {
+   "id": "BACK-016",
+   "prioridade": "P1",
+   "modulo": "BACK",
+   "secao": "07. Backend, jobs e regras de negócio",
+   "bug": "Shutdown em processamento",
+   "como_provocar": "Reiniciar worker com fila ocupada.",
+   "esperado": "Mensagens não desaparecem; retomada segura."
+  },
+  {
+   "id": "DB-001",
+   "prioridade": "P0",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Lost update",
+   "como_provocar": "Dois clientes leem e alteram mesmo registro em paralelo.",
+   "esperado": "Conflito detectado ou serialização correta."
+  },
+  {
+   "id": "DB-002",
+   "prioridade": "P0",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Phantom/nonrepeatable",
+   "como_provocar": "Ler dados durante transações concorrentes sob isolamento configurado.",
+   "esperado": "Invariantes preservados pelo nível de isolamento e estratégia escolhidos."
+  },
+  {
+   "id": "DB-003",
+   "prioridade": "P1",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Deadlock de transação",
+   "como_provocar": "Executar atualizações em ordem invertida em dois workers.",
+   "esperado": "Deadlock detectado; retry seguro e limitado."
+  },
+  {
+   "id": "DB-004",
+   "prioridade": "P0",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Constraint ausente",
+   "como_provocar": "Inserir duplicatas ou referências inválidas com SQL de teste.",
+   "esperado": "Constraints impedem estado proibido."
+  },
+  {
+   "id": "DB-005",
+   "prioridade": "P0",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "NULL inesperado",
+   "como_provocar": "Inserir dados ausentes em campos de regra obrigatória.",
+   "esperado": "Banco ou serviço rejeita antes de persistir inconsistência."
+  },
+  {
+   "id": "DB-006",
+   "prioridade": "P0",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Migração forward",
+   "como_provocar": "Aplicar migração em snapshot anonimizado do schema anterior.",
+   "esperado": "Dados e índices preservados; versão nova opera."
+  },
+  {
+   "id": "DB-007",
+   "prioridade": "P0",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Compatibilidade N/N-1",
+   "como_provocar": "Rodar clientes/serviços antigos durante migração expand/contract.",
+   "esperado": "Sem erro de coluna ausente ou perda de escrita."
+  },
+  {
+   "id": "DB-008",
+   "prioridade": "P0",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Rollback de migration",
+   "como_provocar": "Simular falha no meio da mudança de schema.",
+   "esperado": "Estado documentadamente recuperável; sem migração parcial oculta."
+  },
+  {
+   "id": "DB-009",
+   "prioridade": "P1",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Índice ausente",
+   "como_provocar": "Executar consultas reais em dados sintéticos volumosos.",
+   "esperado": "Planos e latência dentro do orçamento definido."
+  },
+  {
+   "id": "DB-010",
+   "prioridade": "P1",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Pool exaurido",
+   "como_provocar": "Gerar concorrência maior que conexões disponíveis.",
+   "esperado": "Fila/timeouts controlados; sem queda generalizada."
+  },
+  {
+   "id": "DB-011",
+   "prioridade": "P1",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Consulta sem paginação",
+   "como_provocar": "Solicitar exportação/lista extremamente volumosa.",
+   "esperado": "Limite, streaming e orçamento de memória aplicados."
+  },
+  {
+   "id": "DB-012",
+   "prioridade": "P0",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Timezone no banco",
+   "como_provocar": "Gravar instantes em várias zonas e consultar ordenação.",
+   "esperado": "Sem deslocamento indevido em comparações."
+  },
+  {
+   "id": "DB-013",
+   "prioridade": "P0",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Precisão de decimal",
+   "como_provocar": "Gravar montantes fracionários e executar somatórios.",
+   "esperado": "Precisão garantida conforme domínio."
+  },
+  {
+   "id": "DB-014",
+   "prioridade": "P2",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Sequência após rollback",
+   "como_provocar": "Executar transação falha que gera ID sequencial.",
+   "esperado": "Sistema não presume sequência sem lacunas."
+  },
+  {
+   "id": "DB-015",
+   "prioridade": "P0",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Restore íntegro",
+   "como_provocar": "Restaurar snapshot em ambiente isolado e rodar invariantes.",
+   "esperado": "Dados relacionais e schema validados após restauração."
+  },
+  {
+   "id": "DB-016",
+   "prioridade": "P1",
+   "modulo": "DB",
+   "secao": "08. PostgreSQL, SQL, integridade e concorrência",
+   "bug": "Soft delete",
+   "como_provocar": "Excluir lógico e procurar dados em relatórios, joins e índices.",
+   "esperado": "Registros excluídos não reaparecem fora das regras definidas."
+  },
+  {
+   "id": "SUP-001",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "RLS SELECT cruzado",
+   "como_provocar": "Com JWT de tenant A consultar linha pertencente a B.",
+   "esperado": "Nenhuma linha privada de B retorna."
+  },
+  {
+   "id": "SUP-002",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "RLS INSERT cruzado",
+   "como_provocar": "Criar registro com user_id/tenant_id de outro usuário.",
+   "esperado": "Inserção negada pela policy e grants."
+  },
+  {
+   "id": "SUP-003",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "RLS UPDATE cruzado",
+   "como_provocar": "Alterar PK, owner ou tenant_id de linha própria para B.",
+   "esperado": "Atualização negada; propriedade permanece consistente."
+  },
+  {
+   "id": "SUP-004",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "RLS DELETE cruzado",
+   "como_provocar": "Excluir linha de B usando token de A.",
+   "esperado": "Exclusão negada."
+  },
+  {
+   "id": "SUP-005",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "Tabela nova sem RLS",
+   "como_provocar": "Criar tabela em schema exposto e rodar inspeção automatizada.",
+   "esperado": "Deploy bloqueia falta de política/grants adequados."
+  },
+  {
+   "id": "SUP-006",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "View ignora RLS",
+   "como_provocar": "Consultar views que fazem join de dados privados.",
+   "esperado": "Views e definer/invoker não vazam linhas entre tenants."
+  },
+  {
+   "id": "SUP-007",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "Função SECURITY DEFINER",
+   "como_provocar": "Invocar função SQL de teste com role de baixo privilégio.",
+   "esperado": "Permissões, search_path e autorização interna adequadas."
+  },
+  {
+   "id": "SUP-008",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "Chave de servidor vazada",
+   "como_provocar": "Inspecionar bundle e variáveis públicas de staging.",
+   "esperado": "Chave secret/service_role ausente do cliente."
+  },
+  {
+   "id": "SUP-009",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "Storage listagem cruzada",
+   "como_provocar": "Listar prefixos privados com JWT de outra organização.",
+   "esperado": "Objetos externos não aparecem."
+  },
+  {
+   "id": "SUP-010",
+   "prioridade": "P1",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "URL assinada longa",
+   "como_provocar": "Gerar link privado e avaliar escopo/validade/cancelamento.",
+   "esperado": "Acesso dura somente o necessário e segue política estabelecida."
+  },
+  {
+   "id": "SUP-011",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "Realtime canal privado",
+   "como_provocar": "Inscrever cliente A em canal privado de B.",
+   "esperado": "Assinatura rejeitada; sem eventos cruzados."
+  },
+  {
+   "id": "SUP-012",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "Edge Function sem JWT",
+   "como_provocar": "Invocar função diretamente sem sessão ou assinatura exigida.",
+   "esperado": "Função valida autenticidade e autorização necessárias."
+  },
+  {
+   "id": "SUP-013",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "Tokens SSR stale",
+   "como_provocar": "Abrir SSR com sessão expirada e chamar API.",
+   "esperado": "Identidade verificada, não apenas dados de cookie."
+  },
+  {
+   "id": "SUP-014",
+   "prioridade": "P1",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "Trigger falha",
+   "como_provocar": "Inserir registro que aciona trigger com erro simulado.",
+   "esperado": "Transação e estado final ficam consistentes."
+  },
+  {
+   "id": "SUP-015",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "Migração de policy",
+   "como_provocar": "Atualizar regras RLS e rodar testes pgTAP/cliente.",
+   "esperado": "Nenhuma regressão entre perfis/tenants."
+  },
+  {
+   "id": "SUP-016",
+   "prioridade": "P0",
+   "modulo": "SUP",
+   "secao": "09. Supabase: Auth, RLS, Realtime e Storage",
+   "bug": "Restore de Storage",
+   "como_provocar": "Restaurar banco e simular objeto privado ausente.",
+   "esperado": "Processo inclui estratégia de restauração dos objetos separadamente."
+  },
+  {
+   "id": "AWS-001",
+   "prioridade": "P0",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "RDS indisponível",
+   "como_provocar": "Negar temporariamente conexão em staging.",
+   "esperado": "Aplicação informa falha e preserva transações; reconecta."
+  },
+  {
+   "id": "AWS-002",
+   "prioridade": "P1",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "Failover de banco",
+   "como_provocar": "Testar troca de instância/endpoint em ambiente adequado.",
+   "esperado": "Pool recupera sem duplicar operações."
+  },
+  {
+   "id": "AWS-003",
+   "prioridade": "P1",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "Lambda timeout",
+   "como_provocar": "Forçar função a superar timeout com dados sintéticos.",
+   "esperado": "Reentrega e limpeza respeitam idempotência."
+  },
+  {
+   "id": "AWS-004",
+   "prioridade": "P1",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "Cold start",
+   "como_provocar": "Medir primeiras invocações e rajadas.",
+   "esperado": "Latência dentro dos objetivos; timeout de cliente adequado."
+  },
+  {
+   "id": "AWS-005",
+   "prioridade": "P1",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "ECS reiniciado",
+   "como_provocar": "Interromper uma tarefa com requisições ativas.",
+   "esperado": "Sem perda de jobs; recuperação dentro do SLO."
+  },
+  {
+   "id": "AWS-006",
+   "prioridade": "P0",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "S3 acesso bloqueado",
+   "como_provocar": "Remover permissão temporariamente em staging.",
+   "esperado": "Falha tratada, sem publicar bucket nem expor chaves."
+  },
+  {
+   "id": "AWS-007",
+   "prioridade": "P1",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "S3 objeto faltante",
+   "como_provocar": "Apagar objeto de teste referenciado no banco.",
+   "esperado": "Erro controlado; registros órfãos detectáveis e reconciliáveis."
+  },
+  {
+   "id": "AWS-008",
+   "prioridade": "P1",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "Credencial rotacionada",
+   "como_provocar": "Substituir segredo de teste durante tráfego.",
+   "esperado": "Aplicação atualiza credencial sem indisponibilidade indevida."
+  },
+  {
+   "id": "AWS-009",
+   "prioridade": "P0",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "IAM negado",
+   "como_provocar": "Remover permissão de API de serviço em staging.",
+   "esperado": "Erro observável, sem fallback para credenciais privilegiadas."
+  },
+  {
+   "id": "AWS-010",
+   "prioridade": "P1",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "Quota cloud",
+   "como_provocar": "Simular limite de conexões ou concorrência.",
+   "esperado": "Degradação controlada e alerta disparado."
+  },
+  {
+   "id": "AWS-011",
+   "prioridade": "P0",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "Fila SQS redelivery",
+   "como_provocar": "Reentregar evento de teste e variar ordem.",
+   "esperado": "Processamento consistente e DLQ configurada conforme política."
+  },
+  {
+   "id": "AWS-012",
+   "prioridade": "P0",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "CloudFront cache",
+   "como_provocar": "Testar resposta autenticada e alternância de usuários.",
+   "esperado": "Nenhum dado pessoal armazenado e entregue a outra sessão."
+  },
+  {
+   "id": "AWS-013",
+   "prioridade": "P1",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "DNS fail",
+   "como_provocar": "Simular falha de resolução em ambiente de teste.",
+   "esperado": "Retries controlados e comunicação útil para o usuário."
+  },
+  {
+   "id": "AWS-014",
+   "prioridade": "P1",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "Custo inesperado",
+   "como_provocar": "Gerar consumo sintético acima de quota em sandbox.",
+   "esperado": "Proteção de custos/alertas detecta abuso sem interromper outros tenants."
+  },
+  {
+   "id": "AWS-015",
+   "prioridade": "P1",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "Região indisponível",
+   "como_provocar": "Executar tabletop e testes de recuperação regional previstos.",
+   "esperado": "RTO/RPO documentados e realistas."
+  },
+  {
+   "id": "AWS-016",
+   "prioridade": "P1",
+   "modulo": "AWS",
+   "secao": "10. AWS e cloud: falhas, resiliência e custos",
+   "bug": "Logs inoperantes",
+   "como_provocar": "Simular falha de envio de telemetria.",
+   "esperado": "Serviço mantém política segura de buffers e não perde eventos críticos silenciosamente."
+  },
+  {
+   "id": "AND-001",
+   "prioridade": "P1",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "Process death",
+   "como_provocar": "Ativar app, ir ao fundo e matar processo pelo sistema/testes.",
+   "esperado": "Retomada sem dados incoerentes ou operação duplicada."
+  },
+  {
+   "id": "AND-002",
+   "prioridade": "P1",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "Rotação de tela",
+   "como_provocar": "Girar durante preenchimento, upload e navegação.",
+   "esperado": "Estado recuperável e nenhum envio repetido."
+  },
+  {
+   "id": "AND-003",
+   "prioridade": "P1",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "ANR por I/O",
+   "como_provocar": "Executar consulta/sincronização pesada na tela inicial.",
+   "esperado": "Thread principal não fica bloqueada."
+  },
+  {
+   "id": "AND-004",
+   "prioridade": "P1",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "Permissão negada",
+   "como_provocar": "Recusar câmera, microfone, fotos e localização.",
+   "esperado": "Fluxo alternativo ou explicação sem crash."
+  },
+  {
+   "id": "AND-005",
+   "prioridade": "P1",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "Permissão revogada",
+   "como_provocar": "Aceitar permissão, abrir recurso, revogar em configurações.",
+   "esperado": "App reage sem crash ou acesso indevido."
+  },
+  {
+   "id": "AND-006",
+   "prioridade": "P1",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "Bateria restrita",
+   "como_provocar": "Habilitar otimização agressiva e suspender app.",
+   "esperado": "Jobs sobrevivem dentro das garantias Android."
+  },
+  {
+   "id": "AND-007",
+   "prioridade": "P0",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "Network handoff",
+   "como_provocar": "Alternar Wi-Fi/dados durante post crítico.",
+   "esperado": "Retry sem duplicidade; sessão consistente."
+  },
+  {
+   "id": "AND-008",
+   "prioridade": "P1",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "Low-memory kill",
+   "como_provocar": "Submeter app a pressão de memória e voltar.",
+   "esperado": "Estado restaurado sem corrupção."
+  },
+  {
+   "id": "AND-009",
+   "prioridade": "P1",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "Notificação duplicada",
+   "como_provocar": "Enviar mesma push/evento mais de uma vez.",
+   "esperado": "Ação idempotente e sem notificações indevidas."
+  },
+  {
+   "id": "AND-010",
+   "prioridade": "P0",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "Deep link inválido",
+   "como_provocar": "Abrir app link com IDs de outro tenant ou parâmetros quebrados.",
+   "esperado": "Rota rejeitada ou autorizada corretamente."
+  },
+  {
+   "id": "AND-011",
+   "prioridade": "P0",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "Intent externo",
+   "como_provocar": "Enviar intent sintético a componente exportado próprio.",
+   "esperado": "Sem operações privilegiadas por entrada não confiável."
+  },
+  {
+   "id": "AND-012",
+   "prioridade": "P0",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "WebView bridge",
+   "como_provocar": "Carregar conteúdo controlado não confiável na WebView de teste.",
+   "esperado": "JS sem capacidade não autorizada de chamar funções nativas."
+  },
+  {
+   "id": "AND-013",
+   "prioridade": "P0",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "Android backup/restore",
+   "como_provocar": "Restaurar app em outro aparelho de teste.",
+   "esperado": "Credenciais e dados restaurados conforme política segura."
+  },
+  {
+   "id": "AND-014",
+   "prioridade": "P1",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "APK antigo vs API",
+   "como_provocar": "Usar última versão suportada com API atual.",
+   "esperado": "Compatível ou bloqueio de atualização claro."
+  },
+  {
+   "id": "AND-015",
+   "prioridade": "P1",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "Teclado e acessibilidade",
+   "como_provocar": "Usar TalkBack, fontes ampliadas e teclado alternativo.",
+   "esperado": "Fluxo principal utilizável sem campos ocultos."
+  },
+  {
+   "id": "AND-016",
+   "prioridade": "P0",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "SQLite migração",
+   "como_provocar": "Atualizar de versão antiga com DB local pré-populado.",
+   "esperado": "Dados íntegros e schema migrado corretamente."
+  },
+  {
+   "id": "AND-017",
+   "prioridade": "P2",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "App em tela dividida",
+   "como_provocar": "Alternar foco e dimensões continuamente.",
+   "esperado": "Sem perda de contexto ou botões inacessíveis."
+  },
+  {
+   "id": "AND-018",
+   "prioridade": "P0",
+   "modulo": "AND",
+   "secao": "11. Android: lifecycle, ANR, crashes e dispositivos",
+   "bug": "Abrir via notificação",
+   "como_provocar": "Tocar push com app encerrado/conta deslogada.",
+   "esperado": "Roteamento e autenticação corretos."
+  },
+  {
+   "id": "IOS-001",
+   "prioridade": "P1",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Jetsam",
+   "como_provocar": "Provocar pressão de memória com app em uso/fundo.",
+   "esperado": "Retorno recupera estado; nenhuma perda silenciosa."
+  },
+  {
+   "id": "IOS-002",
+   "prioridade": "P0",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Face ID falha",
+   "como_provocar": "Cancelar autenticação e testar fallback permitido.",
+   "esperado": "Sem bypass; recuperação de acesso prevista."
+  },
+  {
+   "id": "IOS-003",
+   "prioridade": "P1",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Biometria alterada",
+   "como_provocar": "Adicionar/remover rosto/digital no aparelho de teste.",
+   "esperado": "Credenciais protegidas respeitam política de invalidação."
+  },
+  {
+   "id": "IOS-004",
+   "prioridade": "P1",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Arquivo protegido bloqueado",
+   "como_provocar": "Executar tarefa offline com iPhone bloqueado.",
+   "esperado": "App trata indisponibilidade de dados protegidos corretamente."
+  },
+  {
+   "id": "IOS-005",
+   "prioridade": "P0",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Background suspension",
+   "como_provocar": "Suspender app durante escrita ou upload.",
+   "esperado": "Operação é concluída ou recuperada sem duplicidade."
+  },
+  {
+   "id": "IOS-006",
+   "prioridade": "P0",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Universal Link",
+   "como_provocar": "Abrir link autorizado, expirado, malformado e de outro tenant.",
+   "esperado": "Destino correto; permissão revalidada no servidor."
+  },
+  {
+   "id": "IOS-007",
+   "prioridade": "P0",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Keychain ao reinstalar",
+   "como_provocar": "Excluir/reinstalar app e tentar recuperar credenciais antigas.",
+   "esperado": "Comportamento explícito de limpeza/reuso conforme política."
+  },
+  {
+   "id": "IOS-008",
+   "prioridade": "P0",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Push lockscreen",
+   "como_provocar": "Enviar notificação de cenário sensível com aparelho bloqueado.",
+   "esperado": "Sem vazamento de conteúdo privado na prévia."
+  },
+  {
+   "id": "IOS-009",
+   "prioridade": "P1",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Rotação iPad",
+   "como_provocar": "Redimensionar Split View/Stage Manager quando aplicável.",
+   "esperado": "Layout funcional e estado persistente."
+  },
+  {
+   "id": "IOS-010",
+   "prioridade": "P1",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Dynamic Type",
+   "como_provocar": "Aplicar tamanhos de fonte máximos suportados.",
+   "esperado": "Botões e erros críticos acessíveis."
+  },
+  {
+   "id": "IOS-011",
+   "prioridade": "P1",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "VoiceOver",
+   "como_provocar": "Navegar formulários somente pelo leitor de tela.",
+   "esperado": "Rótulos, ordens e alertas adequados."
+  },
+  {
+   "id": "IOS-012",
+   "prioridade": "P1",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Cancelamento async",
+   "como_provocar": "Sair da tela durante Task/async com resposta atrasada.",
+   "esperado": "Sem atualização de modelo inválido ou crash."
+  },
+  {
+   "id": "IOS-013",
+   "prioridade": "P1",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Crash simbolicado",
+   "como_provocar": "Provocar exceção de teste em build de distribuição.",
+   "esperado": "Stack simbólica e versão recuperáveis sem dados sensíveis."
+  },
+  {
+   "id": "IOS-014",
+   "prioridade": "P0",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "SwiftData/Core Data upgrade",
+   "como_provocar": "Abrir versão nova com armazenamento local legado.",
+   "esperado": "Migração íntegra e verificável."
+  },
+  {
+   "id": "IOS-015",
+   "prioridade": "P0",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Mudança de conta",
+   "como_provocar": "Alternar Apple ID/app account conforme cenário suportado.",
+   "esperado": "Dados e sessões do usuário anterior não reaparecem."
+  },
+  {
+   "id": "IOS-016",
+   "prioridade": "P0",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Modo avião no pagamento",
+   "como_provocar": "Desconectar após confirmação local, antes da resposta remota.",
+   "esperado": "Nenhuma aprovação falsa nem duplicidade em retry."
+  },
+  {
+   "id": "IOS-017",
+   "prioridade": "P1",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Notificação abre app morto",
+   "como_provocar": "Tocar alerta quando app não está em memória.",
+   "esperado": "Fluxo respeita login e contexto correto."
+  },
+  {
+   "id": "IOS-018",
+   "prioridade": "P1",
+   "modulo": "IOS",
+   "secao": "12. iOS e iPadOS: crash, memória e ciclo de vida",
+   "bug": "Falha TestFlight",
+   "como_provocar": "Testar build de distribuição, não apenas debug no Xcode.",
+   "esperado": "Mesmas funcionalidades críticas operam em release."
+  },
+  {
+   "id": "WIN-001",
+   "prioridade": "P1",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "Instalação sem admin",
+   "como_provocar": "Instalar como usuário padrão no caminho suportado.",
+   "esperado": "Funciona ou explica necessidade de elevação legítima."
+  },
+  {
+   "id": "WIN-002",
+   "prioridade": "P0",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "Instalador interrompido",
+   "como_provocar": "Encerrar instalação no meio em VM descartável.",
+   "esperado": "Sistema permanece recuperável; sem restos privilegiados inseguros."
+  },
+  {
+   "id": "WIN-003",
+   "prioridade": "P1",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "Desinstalação interrompida",
+   "como_provocar": "Interromper remoção e reinstalar.",
+   "esperado": "Sem registro corrompido que impeça reparo."
+  },
+  {
+   "id": "WIN-004",
+   "prioridade": "P0",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "EXE assinado alterado",
+   "como_provocar": "Corromper cópia de binário em laboratório.",
+   "esperado": "Verificação de integridade falha; não executa atualização."
+  },
+  {
+   "id": "WIN-005",
+   "prioridade": "P1",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "DLL ausente",
+   "como_provocar": "Remover dependência não essencial em instalação de teste.",
+   "esperado": "Erro orienta reparação; não trava sem diagnóstico."
+  },
+  {
+   "id": "WIN-006",
+   "prioridade": "P0",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "DLL hijacking",
+   "como_provocar": "Colocar DLL de teste em caminho não confiável permitido no laboratório.",
+   "esperado": "Carregamento é restrito a locais esperados."
+  },
+  {
+   "id": "WIN-007",
+   "prioridade": "P0",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "Named pipe acesso",
+   "como_provocar": "Conectar processo local não autorizado a pipe de teste.",
+   "esperado": "Pipe rejeita ações privadas ou privilegiadas."
+  },
+  {
+   "id": "WIN-008",
+   "prioridade": "P0",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "Servidor localhost",
+   "como_provocar": "Enviar requests simulados de origem/processo não autorizado.",
+   "esperado": "Endpoints locais autenticados e com proteção contra abuse."
+  },
+  {
+   "id": "WIN-009",
+   "prioridade": "P0",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "Duas instâncias",
+   "como_provocar": "Abrir mesmo app simultaneamente e editar documento.",
+   "esperado": "Bloqueios/controle de concorrência evitam corrupção."
+  },
+  {
+   "id": "WIN-010",
+   "prioridade": "P1",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "Registro sem permissão",
+   "como_provocar": "Executar app com HKLM somente leitura.",
+   "esperado": "Operações de usuário não exigem gravação privilegiada."
+  },
+  {
+   "id": "WIN-011",
+   "prioridade": "P1",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "DPI 200%",
+   "como_provocar": "Testar 100/125/150/200% e dois monitores com escalas diferentes.",
+   "esperado": "Textos e controles íntegros e acionáveis."
+  },
+  {
+   "id": "WIN-012",
+   "prioridade": "P1",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "Sleep/hibernate",
+   "como_provocar": "Suspender notebook durante sync/upload e retomar.",
+   "esperado": "Conexões e estado se recuperam de modo consistente."
+  },
+  {
+   "id": "WIN-013",
+   "prioridade": "P1",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "Antivírus quarantena",
+   "como_provocar": "Simular arquivo dependente bloqueado em VM de teste.",
+   "esperado": "Erro recuperável e sem recomendação de desativar AV."
+  },
+  {
+   "id": "WIN-014",
+   "prioridade": "P0",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "Atualização com app aberto",
+   "como_provocar": "Atualizar versão com janelas e serviços ativos.",
+   "esperado": "Transição segura, sem mistura de versões."
+  },
+  {
+   "id": "WIN-015",
+   "prioridade": "P0",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "Multiusuário Windows",
+   "como_provocar": "Alternar contas locais e ler caches/configs por usuário.",
+   "esperado": "Dados privados e credenciais isolados por conta."
+  },
+  {
+   "id": "WIN-016",
+   "prioridade": "P0",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "Crash dump",
+   "como_provocar": "Provocar crash controlado e inspecionar dump/logs.",
+   "esperado": "Dados confidenciais não expostos sem necessidade."
+  },
+  {
+   "id": "WIN-017",
+   "prioridade": "P1",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "Tray encerramento",
+   "como_provocar": "Fechar janela e verificar processos que permanecem ativos.",
+   "esperado": "Comportamento claro; logout/saída corretos."
+  },
+  {
+   "id": "WIN-018",
+   "prioridade": "P1",
+   "modulo": "WIN",
+   "secao": "13. Windows EXE: processos, instaladores e ambiente",
+   "bug": "File locking",
+   "como_provocar": "Editar arquivo enquanto antivírus ou outro processo o mantém aberto.",
+   "esperado": "Erro tratado sem corrupção ou loop infinito."
+  },
+  {
+   "id": "MAC-001",
+   "prioridade": "P0",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Notarização",
+   "como_provocar": "Distribuir build de teste sem/ com notarização conforme canal.",
+   "esperado": "Processo de distribuição e Gatekeeper comportam-se como esperado."
+  },
+  {
+   "id": "MAC-002",
+   "prioridade": "P0",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Assinatura quebrada",
+   "como_provocar": "Alterar um arquivo do .app assinado em cópia de teste.",
+   "esperado": "Verificação de assinatura detecta adulteração."
+  },
+  {
+   "id": "MAC-003",
+   "prioridade": "P0",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Keychain bloqueado",
+   "como_provocar": "Negar acesso a item seguro em conta de teste.",
+   "esperado": "App pede autenticação ou falha de modo controlado."
+  },
+  {
+   "id": "MAC-004",
+   "prioridade": "P1",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Permissão de arquivos",
+   "como_provocar": "Revogar acesso à pasta Documentos durante importação.",
+   "esperado": "Operação aborta sem corromper arquivo."
+  },
+  {
+   "id": "MAC-005",
+   "prioridade": "P1",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Microfone negado",
+   "como_provocar": "Negar gravação de áudio em fluxo suportado.",
+   "esperado": "Interface orienta; app não entra em crash loop."
+  },
+  {
+   "id": "MAC-006",
+   "prioridade": "P1",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Sleep/wake",
+   "como_provocar": "Suspender Mac durante conexão e retomar.",
+   "esperado": "Sockets/sessões reconectam sem duplicar ações."
+  },
+  {
+   "id": "MAC-007",
+   "prioridade": "P1",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Múltiplos Spaces",
+   "como_provocar": "Mover janela entre áreas de trabalho e monitores.",
+   "esperado": "Foco, modais e coordenadas permanecem funcionais."
+  },
+  {
+   "id": "MAC-008",
+   "prioridade": "P1",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Menu bar fechada",
+   "como_provocar": "Fechar janela principal com helper/menu bar ativo.",
+   "esperado": "Estado e processos cumprem política de saída."
+  },
+  {
+   "id": "MAC-009",
+   "prioridade": "P0",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Atualização notarizada",
+   "como_provocar": "Instalar atualização assinada em máquina de teste.",
+   "esperado": "Binário final mantém assinatura/entitlements e abre corretamente."
+  },
+  {
+   "id": "MAC-010",
+   "prioridade": "P0",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "App sandbox diretório",
+   "como_provocar": "Tentar importar/exportar arquivo fora do escopo concedido.",
+   "esperado": "Acesso pede autorização, sem bypass."
+  },
+  {
+   "id": "MAC-011",
+   "prioridade": "P1",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Migração Intel->ARM",
+   "como_provocar": "Transferir base local de uma versão para outra arquitetura.",
+   "esperado": "Dados e plugins compatíveis, sem perda."
+  },
+  {
+   "id": "MAC-012",
+   "prioridade": "P1",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Crash em release",
+   "como_provocar": "Provocar falha controlada no build assinado.",
+   "esperado": "Relatório simbolicado com versão e contexto disponíveis."
+  },
+  {
+   "id": "MAC-013",
+   "prioridade": "P1",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Quick Look/preview",
+   "como_provocar": "Pré-visualizar arquivo malformado suportado.",
+   "esperado": "Parser isolado, sem execução ou travamento prolongado."
+  },
+  {
+   "id": "MAC-014",
+   "prioridade": "P0",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Logout e re-login",
+   "como_provocar": "Trocar usuário da aplicação mantendo app aberto.",
+   "esperado": "Sem reaproveitar Keychain/cache incorretamente."
+  },
+  {
+   "id": "MAC-015",
+   "prioridade": "P0",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Deep link macOS",
+   "como_provocar": "Abrir custom URL com IDs inválidos e esquemas inesperados.",
+   "esperado": "Nenhuma ação de alto privilégio sem validação."
+  },
+  {
+   "id": "MAC-016",
+   "prioridade": "P1",
+   "modulo": "MAC",
+   "secao": "14. macOS: apps, permissões e distribuição",
+   "bug": "Desinstalação",
+   "como_provocar": "Remover app e verificar arquivos residuais conforme política.",
+   "esperado": "Dados/credenciais tratados de forma documentada."
+  },
+  {
+   "id": "LNX-001",
+   "prioridade": "P1",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Dependência ausente",
+   "como_provocar": "Executar pacote em distro mínima suportada.",
+   "esperado": "Dependência declarada ou erro de instalação acionável."
+  },
+  {
+   "id": "LNX-002",
+   "prioridade": "P0",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Pacote quebrado",
+   "como_provocar": "Interromper instalação apt/rpm em VM.",
+   "esperado": "Gerenciador consegue reparar; sem scripts perigosos persistentes."
+  },
+  {
+   "id": "LNX-003",
+   "prioridade": "P1",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Executar sem root",
+   "como_provocar": "Abrir app como usuário padrão em ambiente limpo.",
+   "esperado": "Fluxos normais funcionam sem sudo."
+  },
+  {
+   "id": "LNX-004",
+   "prioridade": "P1",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Diretório read-only",
+   "como_provocar": "Revogar permissão temporária sobre pasta de dados de teste.",
+   "esperado": "Aplicação avisa e preserva dados anteriores."
+  },
+  {
+   "id": "LNX-005",
+   "prioridade": "P0",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Symlink manipulado",
+   "como_provocar": "Apontar arquivo de entrada para caminho fora de diretório de teste.",
+   "esperado": "App valida destino e escopo antes de manipular arquivo."
+  },
+  {
+   "id": "LNX-006",
+   "prioridade": "P0",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Socket Unix",
+   "como_provocar": "Criar cliente local não autorizado e conectar ao socket.",
+   "esperado": "Permissões/autorização impedem acesso indevido."
+  },
+  {
+   "id": "LNX-007",
+   "prioridade": "P1",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Wayland/X11",
+   "como_provocar": "Executar os dois backends de janela quando suportados.",
+   "esperado": "Teclado, clipboard, resize e captura funcionam conforme política."
+  },
+  {
+   "id": "LNX-008",
+   "prioridade": "P1",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "DPI/font fallback",
+   "como_provocar": "Testar escalas e fontes ausentes.",
+   "esperado": "UI não some nem perde legibilidade."
+  },
+  {
+   "id": "LNX-009",
+   "prioridade": "P1",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Biblioteca incompatível",
+   "como_provocar": "Testar versões glibc/OpenSSL suportadas.",
+   "esperado": "Build informa limites e funciona em ambientes declarados."
+  },
+  {
+   "id": "LNX-010",
+   "prioridade": "P1",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "systemd restart",
+   "como_provocar": "Reiniciar serviço de apoio durante operação pendente.",
+   "esperado": "Fila e estado se recuperam corretamente."
+  },
+  {
+   "id": "LNX-011",
+   "prioridade": "P1",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Flatpak permission",
+   "como_provocar": "Revogar portal de pasta/câmera e repetir ação.",
+   "esperado": "App lida com recusa sem forçar bypass."
+  },
+  {
+   "id": "LNX-012",
+   "prioridade": "P0",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Atualização no pacote",
+   "como_provocar": "Instalar versão nova com cache da versão antiga.",
+   "esperado": "Migração e operação consistentes."
+  },
+  {
+   "id": "LNX-013",
+   "prioridade": "P0",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Espaço em disco cheio",
+   "como_provocar": "Limitar filesystem de teste e iniciar escrita.",
+   "esperado": "Arquivo atual permanece íntegro; falha explícita."
+  },
+  {
+   "id": "LNX-014",
+   "prioridade": "P1",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Signals de término",
+   "como_provocar": "Enviar SIGTERM ao processo de teste durante atividade.",
+   "esperado": "Shutdown respeita grace period e persistência."
+  },
+  {
+   "id": "LNX-015",
+   "prioridade": "P0",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Múltiplas sessões",
+   "como_provocar": "Abrir app com dois usuários Linux separados.",
+   "esperado": "Dados privados e configs não ficam compartilhados."
+  },
+  {
+   "id": "LNX-016",
+   "prioridade": "P1",
+   "modulo": "LNX",
+   "secao": "15. Linux: permissões, pacotes e dependências",
+   "bug": "Crash report",
+   "como_provocar": "Provocar crash em build de teste e coletar coredump restrito.",
+   "esperado": "Símbolos e telemetria adequados sem expor segredos."
+  },
+  {
+   "id": "HYBRID-001",
+   "prioridade": "P0",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "Electron preload amplo",
+   "como_provocar": "Inspecionar funções expostas pelo contextBridge e invocá-las com dados inválidos.",
+   "esperado": "Somente operações necessárias; argumentos e origem validados."
+  },
+  {
+   "id": "HYBRID-002",
+   "prioridade": "P0",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "Electron nodeIntegration",
+   "como_provocar": "Carregar conteúdo remoto em janela de teste.",
+   "esperado": "Node desabilitado e isolamento/sandbox ativos conforme política."
+  },
+  {
+   "id": "HYBRID-003",
+   "prioridade": "P0",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "IPC sem validação",
+   "como_provocar": "Enviar mensagem IPC sintética a handler usando renderer de teste.",
+   "esperado": "Remetente e payload validados antes da ação."
+  },
+  {
+   "id": "HYBRID-004",
+   "prioridade": "P0",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "Window.open externo",
+   "como_provocar": "Solicitar criação de janela ou protocolo externo não confiável.",
+   "esperado": "Navegação bloqueada ou destino validado."
+  },
+  {
+   "id": "HYBRID-005",
+   "prioridade": "P0",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "Electron autoUpdater",
+   "como_provocar": "Servir manifesto assinado inválido em staging.",
+   "esperado": "Instalação rejeitada; app atual preservado."
+  },
+  {
+   "id": "HYBRID-006",
+   "prioridade": "P0",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "Tauri capability ampla",
+   "como_provocar": "Chamar comando fora das permissões da janela de teste.",
+   "esperado": "Operação negada conforme capability configurada."
+  },
+  {
+   "id": "HYBRID-007",
+   "prioridade": "P1",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "Tauri command panic",
+   "como_provocar": "Chamar comando Rust com argumentos extremos.",
+   "esperado": "Erro controlado, sem crash do processo principal."
+  },
+  {
+   "id": "HYBRID-008",
+   "prioridade": "P1",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "Plugin nativo não disponível",
+   "como_provocar": "Desabilitar permissão ou retirar plugin em build de teste.",
+   "esperado": "App reage com fallback ou erro claro."
+  },
+  {
+   "id": "HYBRID-009",
+   "prioridade": "P1",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "WebView diferenciado",
+   "como_provocar": "Comparar Windows WebView2, macOS WKWebView e Linux WebKit.",
+   "esperado": "Funcionalidades e layout compatíveis por plataforma."
+  },
+  {
+   "id": "HYBRID-010",
+   "prioridade": "P0",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "CSP rígida",
+   "como_provocar": "Ativar política mínima e navegar fluxos críticos.",
+   "esperado": "Funciona sem autorizar script arbitrário."
+  },
+  {
+   "id": "HYBRID-011",
+   "prioridade": "P0",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "Bundled secret",
+   "como_provocar": "Inspecionar arquivos ASAR/bundle e configuração de release.",
+   "esperado": "Nenhuma credencial privilegiada embutida."
+  },
+  {
+   "id": "HYBRID-012",
+   "prioridade": "P0",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "Arquivo drop/drag",
+   "como_provocar": "Arrastar arquivo não permitido ou atalho/symlink controlado.",
+   "esperado": "Tratamento respeita extensão, assinatura e caminho."
+  },
+  {
+   "id": "HYBRID-013",
+   "prioridade": "P0",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "Menu nativo e UI",
+   "como_provocar": "Disparar mesma operação por menu, atalho e botão simultaneamente.",
+   "esperado": "Uma única mutação lógica acontece."
+  },
+  {
+   "id": "HYBRID-014",
+   "prioridade": "P1",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "Crash processo renderer",
+   "como_provocar": "Encerrar processo de renderização durante edição.",
+   "esperado": "App preserva dados e recupera janela sem duplicar tarefa."
+  },
+  {
+   "id": "HYBRID-015",
+   "prioridade": "P1",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "Crash processo main",
+   "como_provocar": "Encerrar processo principal no meio de operação.",
+   "esperado": "Recuperação consistente na próxima abertura."
+  },
+  {
+   "id": "HYBRID-016",
+   "prioridade": "P0",
+   "modulo": "HYBRID",
+   "secao": "16. Electron, Tauri e clientes híbridos",
+   "bug": "Protocolo customizado",
+   "como_provocar": "Invocar custom protocol de instalação com parâmetros inválidos.",
+   "esperado": "Roteamento seguro e nenhuma elevação indevida."
+  },
+  {
+   "id": "INSTALL-001",
+   "prioridade": "P0",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Manifest inválido",
+   "como_provocar": "Servir manifesto com versão ou hash incorreto em ambiente de teste.",
+   "esperado": "Atualizador rejeita manifesto inválido."
+  },
+  {
+   "id": "INSTALL-002",
+   "prioridade": "P0",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Pacote adulterado",
+   "como_provocar": "Modificar byte de instalador/cópia de atualização de teste.",
+   "esperado": "Assinatura/hash inválidos impedem aplicação."
+  },
+  {
+   "id": "INSTALL-003",
+   "prioridade": "P0",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Download interrompido",
+   "como_provocar": "Derrubar conexão no meio do download.",
+   "esperado": "Retomada ou reinício controlado; pacote parcial nunca executado."
+  },
+  {
+   "id": "INSTALL-004",
+   "prioridade": "P1",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Disco sem espaço",
+   "como_provocar": "Reduzir espaço e iniciar instalação.",
+   "esperado": "Aviso antecipado ou rollback limpo sem corrupção."
+  },
+  {
+   "id": "INSTALL-005",
+   "prioridade": "P0",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Instalação parcial",
+   "como_provocar": "Interromper processo entre cópia e ativação de executável.",
+   "esperado": "Versão antiga ainda abre ou mecanismo de reparo é funcional."
+  },
+  {
+   "id": "INSTALL-006",
+   "prioridade": "P0",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Atualização com DB local",
+   "como_provocar": "Atualizar app com milhões de linhas sintéticas offline.",
+   "esperado": "Migração preserva integridade e é recuperável."
+  },
+  {
+   "id": "INSTALL-007",
+   "prioridade": "P0",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Upgrade de N-2",
+   "como_provocar": "Atualizar de versão antiga suportada diretamente para a atual.",
+   "esperado": "Todas as migrações necessárias executadas."
+  },
+  {
+   "id": "INSTALL-008",
+   "prioridade": "P0",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Downgrade incompatível",
+   "como_provocar": "Tentar voltar versão após schema irreversível.",
+   "esperado": "Downgrade bloqueado claramente ou migração reversa segura."
+  },
+  {
+   "id": "INSTALL-009",
+   "prioridade": "P1",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Canal beta/estável",
+   "como_provocar": "Instalar beta e depois versão estável.",
+   "esperado": "Dados não são migrados incorretamente entre canais."
+  },
+  {
+   "id": "INSTALL-010",
+   "prioridade": "P0",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Rollback de serviço",
+   "como_provocar": "Reverter backend enquanto clientes atuais continuam ativos.",
+   "esperado": "Contrato e schema suportam a transição."
+  },
+  {
+   "id": "INSTALL-011",
+   "prioridade": "P0",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Update em duas instâncias",
+   "como_provocar": "Abrir app em duas instâncias enquanto atualiza.",
+   "esperado": "Nenhum processo executa combinação inválida de arquivos."
+  },
+  {
+   "id": "INSTALL-012",
+   "prioridade": "P1",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Permissão negada no destino",
+   "como_provocar": "Retirar permissão de escrita durante upgrade.",
+   "esperado": "Falha segura e instalação íntegra."
+  },
+  {
+   "id": "INSTALL-013",
+   "prioridade": "P1",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Certificado expirado",
+   "como_provocar": "Testar pacote assinado com configuração de validação apropriada.",
+   "esperado": "Regras de assinatura/carimbo de tempo interpretadas corretamente."
+  },
+  {
+   "id": "INSTALL-014",
+   "prioridade": "P0",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Update obrigatório",
+   "como_provocar": "Abrir app antigo vulnerável sem conectividade.",
+   "esperado": "Política de acesso explicita e executável pelo backend."
+  },
+  {
+   "id": "INSTALL-015",
+   "prioridade": "P1",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Desinstalar após upgrade",
+   "como_provocar": "Instalar várias versões e remover a atual.",
+   "esperado": "Sem serviços órfãos nem dados indevidamente removidos."
+  },
+  {
+   "id": "INSTALL-016",
+   "prioridade": "P0",
+   "modulo": "INSTALL",
+   "secao": "17. Instalação, atualização, distribuição e rollback",
+   "bug": "Dispositivo reinicia",
+   "como_provocar": "Reiniciar VM durante fase controlada do upgrade.",
+   "esperado": "Recuperação consistente na próxima inicialização."
+  },
+  {
+   "id": "OFF-001",
+   "prioridade": "P0",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Fila perdida",
+   "como_provocar": "Criar cinco operações offline e matar processo antes de sincronizar.",
+   "esperado": "Fila persiste e retoma sem perder intenções válidas."
+  },
+  {
+   "id": "OFF-002",
+   "prioridade": "P0",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Duplo replay",
+   "como_provocar": "Reconectar com timeout após servidor já confirmar operação.",
+   "esperado": "Idempotência impede aplicação duplicada."
+  },
+  {
+   "id": "OFF-003",
+   "prioridade": "P0",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Conflito mesma linha",
+   "como_provocar": "Editar registro em dois dispositivos offline.",
+   "esperado": "Conflito detectado e resolvido conforme regra documentada."
+  },
+  {
+   "id": "OFF-004",
+   "prioridade": "P0",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Mudança de tenant offline",
+   "como_provocar": "Enfileirar A, entrar B e reconectar.",
+   "esperado": "Eventos de A não são executados como B."
+  },
+  {
+   "id": "OFF-005",
+   "prioridade": "P0",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Token offline vencido",
+   "como_provocar": "Criar operações antes de expiração e retornar após dias.",
+   "esperado": "Autenticação renovada e autorização atual reavaliada."
+  },
+  {
+   "id": "OFF-006",
+   "prioridade": "P0",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Registro excluído remotamente",
+   "como_provocar": "Editar offline item já excluído em outro dispositivo.",
+   "esperado": "Tombstone/conflito evita ressuscitação indevida."
+  },
+  {
+   "id": "OFF-007",
+   "prioridade": "P1",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Horário de dispositivo errado",
+   "como_provocar": "Avançar/recuar relógio local durante edição offline.",
+   "esperado": "Ordenação/versão não depende cegamente de horário controlável."
+  },
+  {
+   "id": "OFF-008",
+   "prioridade": "P1",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Foto parcialmente enviada",
+   "como_provocar": "Interromper upload multipart no meio.",
+   "esperado": "Retoma ou reinicia sem arquivo corrupto público."
+  },
+  {
+   "id": "OFF-009",
+   "prioridade": "P1",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Fila sem limite",
+   "como_provocar": "Gerar milhares de ações offline sintéticas.",
+   "esperado": "Limites de armazenamento e UX preservados."
+  },
+  {
+   "id": "OFF-010",
+   "prioridade": "P0",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Falha após upload",
+   "como_provocar": "Servidor recebe arquivo, mas banco não recebe referência.",
+   "esperado": "Processo reconcilia órfãos e informa estado correto."
+  },
+  {
+   "id": "OFF-011",
+   "prioridade": "P1",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Sync em background",
+   "como_provocar": "Bloquear app/desktop durante sincronização.",
+   "esperado": "Tarefas persistem conforme garantias do SO; sem falsa confirmação."
+  },
+  {
+   "id": "OFF-012",
+   "prioridade": "P0",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Dados locais corrompidos",
+   "como_provocar": "Modificar cópia descartável do cache local.",
+   "esperado": "Detecção e reconstrução sem propagação de corrupção remota."
+  },
+  {
+   "id": "OFF-013",
+   "prioridade": "P0",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Reordenação de fila",
+   "como_provocar": "Alterar ordem dos eventos de edição e exclusão.",
+   "esperado": "Regras de dependência preservam resultado final."
+  },
+  {
+   "id": "OFF-014",
+   "prioridade": "P1",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Rede flapping",
+   "como_provocar": "Alternar online/offline repetidamente a cada poucos segundos.",
+   "esperado": "Sem tempestade de requisições ou duplicação."
+  },
+  {
+   "id": "OFF-015",
+   "prioridade": "P0",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Versão de schema offline",
+   "como_provocar": "Voltar online com cliente cuja base local é antiga.",
+   "esperado": "Migração e sync controlados ou atualização exigida."
+  },
+  {
+   "id": "OFF-016",
+   "prioridade": "P0",
+   "modulo": "OFF",
+   "secao": "18. Offline, reconexão e sincronização",
+   "bug": "Sessão encerrada remotamente",
+   "como_provocar": "Fazer logout remoto com outro dispositivo ainda offline.",
+   "esperado": "Conteúdo e operações locais respeitam política de bloqueio e retenção."
+  },
+  {
+   "id": "FILE-001",
+   "prioridade": "P0",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "Extensão disfarçada",
+   "como_provocar": "Enviar conteúdo de formato A com extensão B em staging.",
+   "esperado": "Tipo real validado; processamento inadequado recusado."
+  },
+  {
+   "id": "FILE-002",
+   "prioridade": "P1",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "Arquivo enorme",
+   "como_provocar": "Enviar arquivo acima do limite e diversos arquivos simultâneos.",
+   "esperado": "Quota aplicada antes de esgotar recursos."
+  },
+  {
+   "id": "FILE-003",
+   "prioridade": "P0",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "ZIP bomb sintético",
+   "como_provocar": "Usar arquivo compactado de teste com alta taxa de expansão.",
+   "esperado": "Limites de extração e CPU/memória aplicados."
+  },
+  {
+   "id": "FILE-004",
+   "prioridade": "P0",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "Path traversal",
+   "como_provocar": "Carregar arquivo com nome incluindo ../ e separadores alternativos.",
+   "esperado": "Destino permanece dentro da área autorizada."
+  },
+  {
+   "id": "FILE-005",
+   "prioridade": "P0",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "Symlink import",
+   "como_provocar": "Selecionar link para arquivo externo em sandbox autorizado.",
+   "esperado": "Aplicação valida caminhos reais e permissões."
+  },
+  {
+   "id": "FILE-006",
+   "prioridade": "P1",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "PDF malformado",
+   "como_provocar": "Processar corpus de PDFs de teste truncados/malformados.",
+   "esperado": "Parser isolado; falha sem crash global."
+  },
+  {
+   "id": "FILE-007",
+   "prioridade": "P1",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "Imagem danificada",
+   "como_provocar": "Carregar JPEG/PNG truncado, dimensões extremas ou metadados inválidos.",
+   "esperado": "Sem travamento, corrupção ou consumo ilimitado de memória."
+  },
+  {
+   "id": "FILE-008",
+   "prioridade": "P1",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "Upload duplicado",
+   "como_provocar": "Enviar mesmo arquivo duas vezes com retry automático.",
+   "esperado": "Política clara de deduplicação, versionamento ou duas cópias."
+  },
+  {
+   "id": "FILE-009",
+   "prioridade": "P0",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "Permissão de download",
+   "como_provocar": "Usar link de arquivo de outro tenant.",
+   "esperado": "Download privado negado."
+  },
+  {
+   "id": "FILE-010",
+   "prioridade": "P0",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "URL assinada expirada",
+   "como_provocar": "Solicitar arquivo após expiração.",
+   "esperado": "Acesso negado e renovação autorizada quando aplicável."
+  },
+  {
+   "id": "FILE-011",
+   "prioridade": "P1",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "Arquivo órfão",
+   "como_provocar": "Simular falha do banco após gravação de objeto.",
+   "esperado": "Limpeza ou reconciliação com auditoria."
+  },
+  {
+   "id": "FILE-012",
+   "prioridade": "P0",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "Concorrência de nome",
+   "como_provocar": "Dois usuários salvam arquivo com mesmo nome lógico.",
+   "esperado": "Não sobrescreve conteúdo de outro usuário."
+  },
+  {
+   "id": "FILE-013",
+   "prioridade": "P1",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "Arquivo em uso",
+   "como_provocar": "Editar/exportar arquivo bloqueado por outro processo.",
+   "esperado": "Erro manejado; conteúdo existente íntegro."
+  },
+  {
+   "id": "FILE-014",
+   "prioridade": "P1",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "Exportação longa",
+   "como_provocar": "Exportar dados volumosos com cancelamento no meio.",
+   "esperado": "Job cancelado e artefato parcial não publicado."
+  },
+  {
+   "id": "FILE-015",
+   "prioridade": "P1",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "Metadados privados",
+   "como_provocar": "Exportar imagem/documento com EXIF e dados de teste.",
+   "esperado": "Dados sensíveis removidos quando política exigir."
+  },
+  {
+   "id": "FILE-016",
+   "prioridade": "P1",
+   "modulo": "FILE",
+   "secao": "19. Arquivos, armazenamento e mídia",
+   "bug": "Antimalware em falso positivo",
+   "como_provocar": "Simular rejeição de arquivo aparentemente válido.",
+   "esperado": "Estado do upload e comunicação apropriados sem bypass automático."
+  },
+  {
+   "id": "PAY-001",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Webhook pagamento duplicado",
+   "como_provocar": "Reentregar mesmo evento confirmado duas vezes.",
+   "esperado": "Uma única baixa/crédito no ledger."
+  },
+  {
+   "id": "PAY-002",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Evento fora de ordem",
+   "como_provocar": "Entregar cancelamento antes de confirmação no sandbox.",
+   "esperado": "Máquina de estados mantém resultado consistente."
+  },
+  {
+   "id": "PAY-003",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Timeout após cobrança",
+   "como_provocar": "Simular ausência de resposta após captura autorizada em sandbox.",
+   "esperado": "Retry consulta evento por ID e não captura novamente."
+  },
+  {
+   "id": "PAY-004",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Preço no client",
+   "como_provocar": "Alterar preço enviado pelo frontend em teste.",
+   "esperado": "Servidor recalcula usando catálogo/política confiável."
+  },
+  {
+   "id": "PAY-005",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Desconto inválido",
+   "como_provocar": "Aplicar cupom vencido e simultâneo em contas de teste.",
+   "esperado": "Regras verificadas atomicamente."
+  },
+  {
+   "id": "PAY-006",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Troca de plano simultânea",
+   "como_provocar": "Executar upgrade e cancelamento ao mesmo tempo.",
+   "esperado": "Estado final definido e cobranças consistentes."
+  },
+  {
+   "id": "PAY-007",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Reembolso parcial",
+   "como_provocar": "Testar cenários de reembolso parcial em sandbox.",
+   "esperado": "Saldo, invoice e direitos atualizados corretamente."
+  },
+  {
+   "id": "PAY-008",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Moeda e centavos",
+   "como_provocar": "Comparar BRL e outras moedas simuladas com frações.",
+   "esperado": "Precisão e arredondamento corretos por moeda."
+  },
+  {
+   "id": "PAY-009",
+   "prioridade": "P1",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Falha na emissão fiscal",
+   "como_provocar": "Pagamento aprovado e emissão de documento falha.",
+   "esperado": "Fluxo de compensação/retry rastreável."
+  },
+  {
+   "id": "PAY-010",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Renovação atrasada",
+   "como_provocar": "Receber evento de cobrança horas depois do vencimento.",
+   "esperado": "Direitos do assinante obedecem política documentada."
+  },
+  {
+   "id": "PAY-011",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Pagamento recusado",
+   "como_provocar": "Simular cartão recusado e retry automático do provedor.",
+   "esperado": "Sem concessão indevida de acesso."
+  },
+  {
+   "id": "PAY-012",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Falha de conciliação",
+   "como_provocar": "Inserir cenário de evento faltante em ambiente de homologação.",
+   "esperado": "Reconciliação identifica desvio e evita estado silencioso."
+  },
+  {
+   "id": "PAY-013",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Alterar recebedor",
+   "como_provocar": "Usuário tenta modificar destinatário de pagamento fora de permissão.",
+   "esperado": "Mudança negada e auditada."
+  },
+  {
+   "id": "PAY-014",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Fuso de assinatura",
+   "como_provocar": "Testar datas de corte em UTC e timezone local.",
+   "esperado": "Cobrança e renovação no instante contratado."
+  },
+  {
+   "id": "PAY-015",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Crédito sem pagamento",
+   "como_provocar": "Criar tentativa de acesso com retorno de UI falso positivo.",
+   "esperado": "Backend não libera benefício sem confirmação verificável."
+  },
+  {
+   "id": "PAY-016",
+   "prioridade": "P0",
+   "modulo": "PAY",
+   "secao": "20. Pagamentos, assinaturas e faturamento",
+   "bug": "Transferência duplicada",
+   "como_provocar": "Executar duas requisições simultâneas com chave idempotente.",
+   "esperado": "Uma operação efetiva; status consistente para ambas."
+  },
+  {
+   "id": "NET-001",
+   "prioridade": "P1",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "DNS intermitente",
+   "como_provocar": "Bloquear resolução do host em staging por janelas curtas.",
+   "esperado": "Retries limitados e erros compreensíveis."
+  },
+  {
+   "id": "NET-002",
+   "prioridade": "P0",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "TLS expirado",
+   "como_provocar": "Apontar cliente de teste para certificado inválido.",
+   "esperado": "Conexão rejeitada sem bypass de segurança."
+  },
+  {
+   "id": "NET-003",
+   "prioridade": "P1",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "Proxy corporativo",
+   "como_provocar": "Executar no ambiente com proxy permitido e certificado gerenciado.",
+   "esperado": "Política de confiança e diagnósticos claros."
+  },
+  {
+   "id": "NET-004",
+   "prioridade": "P1",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "Latência 2-10 s",
+   "como_provocar": "Adicionar atrasos variáveis a endpoints com dados fictícios.",
+   "esperado": "Timeout/cancelamento e UI dentro de orçamentos."
+  },
+  {
+   "id": "NET-005",
+   "prioridade": "P1",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "Perda de pacotes",
+   "como_provocar": "Simular 5-20% de perda na rede de teste.",
+   "esperado": "Retentativas limitadas e idempotência preservada."
+  },
+  {
+   "id": "NET-006",
+   "prioridade": "P0",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "Interrupção após commit",
+   "como_provocar": "Cortar conexão após aplicação do comando no servidor.",
+   "esperado": "Cliente consulta status e evita reexecutar ação."
+  },
+  {
+   "id": "NET-007",
+   "prioridade": "P1",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "Resposta truncada",
+   "como_provocar": "Interromper streaming JSON/arquivo antes do fim.",
+   "esperado": "Parser rejeita incompleto; sem dados finais falsos."
+  },
+  {
+   "id": "NET-008",
+   "prioridade": "P1",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "HTTP 429",
+   "como_provocar": "Impor limitação temporária da API.",
+   "esperado": "Cliente respeita Retry-After quando fornecido e orçamento de retries."
+  },
+  {
+   "id": "NET-009",
+   "prioridade": "P1",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "HTTP 503 prolongado",
+   "como_provocar": "Manter dependência indisponível durante fluxo sensível.",
+   "esperado": "Circuit breaker/degradação e alerta funcionam."
+  },
+  {
+   "id": "NET-010",
+   "prioridade": "P0",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "Redirecionamento inesperado",
+   "como_provocar": "Responder 30x para domínio não previsto no cliente de teste.",
+   "esperado": "Credenciais não vazam para destino não autorizado."
+  },
+  {
+   "id": "NET-011",
+   "prioridade": "P1",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "WebSocket sem ping",
+   "como_provocar": "Simular conexão aparentemente ativa sem troca de mensagens.",
+   "esperado": "Heartbeat detecta e recupera conexão."
+  },
+  {
+   "id": "NET-012",
+   "prioridade": "P1",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "Mudança de IP",
+   "como_provocar": "Alternar rede durante upload/login.",
+   "esperado": "Sessões e operações seguem política de segurança sem duplicidade."
+  },
+  {
+   "id": "NET-013",
+   "prioridade": "P1",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "API dependência lenta",
+   "como_provocar": "Simular latência de fornecedor externo acima do SLO.",
+   "esperado": "Isolamento e timeout evitam bloqueio total da aplicação."
+  },
+  {
+   "id": "NET-014",
+   "prioridade": "P1",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "Requisição cancelada",
+   "como_provocar": "Cancelar navegação enquanto backend processa.",
+   "esperado": "Servidor mantém semântica transacional definida."
+  },
+  {
+   "id": "NET-015",
+   "prioridade": "P0",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "Relógio cliente divergente",
+   "como_provocar": "Alterar fuso/hora do dispositivo e validar expiração.",
+   "esperado": "Decisões críticas usam tempo confiável do servidor."
+  },
+  {
+   "id": "NET-016",
+   "prioridade": "P0",
+   "modulo": "NET",
+   "secao": "21. Rede, DNS, latência e falhas de dependências",
+   "bug": "Cache HTTP privado",
+   "como_provocar": "Forçar proxy a armazenar respostas de contas de teste.",
+   "esperado": "Headers e chaves impedem distribuição cruzada de dados."
+  },
+  {
+   "id": "PERF-001",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "Memória cresce por navegação",
+   "como_provocar": "Abrir/fechar tela 300 vezes sob profiler.",
+   "esperado": "Heap retorna a patamar estável aceitável."
+  },
+  {
+   "id": "PERF-002",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "Alto uso de CPU",
+   "como_provocar": "Repetir busca ou renderização com muitos dados.",
+   "esperado": "CPU e responsividade dentro dos orçamentos."
+  },
+  {
+   "id": "PERF-003",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "Banco com volume realista",
+   "como_provocar": "Carregar registros sintéticos com distribuição parecida com produção.",
+   "esperado": "Consultas mantêm SLO definido."
+  },
+  {
+   "id": "PERF-004",
+   "prioridade": "P0",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "1000 requisições concorrentes",
+   "como_provocar": "Fazer rampa controlada com tráfego sintético autorizado.",
+   "esperado": "Sem corrupção; limites e falha controlada."
+  },
+  {
+   "id": "PERF-005",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "Upload paralelo",
+   "como_provocar": "Enviar múltiplos arquivos grandes com quotas.",
+   "esperado": "Uso de memória e disco controlado."
+  },
+  {
+   "id": "PERF-006",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "ANR/hang",
+   "como_provocar": "Executar tarefa pesada na thread principal e coletar trace.",
+   "esperado": "UI permanece responsiva; trabalho pesado isolado."
+  },
+  {
+   "id": "PERF-007",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "Gargalo de conexão",
+   "como_provocar": "Estourar pool de teste de maneira controlada.",
+   "esperado": "Fila, timeouts e alertas adequados."
+  },
+  {
+   "id": "PERF-008",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "Bateria Android/iOS",
+   "como_provocar": "Executar sessão prolongada com GPS/network em dispositivo real.",
+   "esperado": "Consumo dentro de orçamento de produto."
+  },
+  {
+   "id": "PERF-009",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "GPU e rendering",
+   "como_provocar": "Animar listas e gráficos grandes em aparelhos fracos.",
+   "esperado": "Frames e UI seguem metas de fluidez."
+  },
+  {
+   "id": "PERF-010",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "Cold start desktop",
+   "como_provocar": "Iniciar app a frio e quente com perfil limpo.",
+   "esperado": "Tempo e atividade de inicialização monitorados."
+  },
+  {
+   "id": "PERF-011",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "Startup mobile",
+   "como_provocar": "Medir primeiro frame e tela utilizável em aparelhos suportados.",
+   "esperado": "SLO de inicialização cumprido."
+  },
+  {
+   "id": "PERF-012",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "Crash após horas",
+   "como_provocar": "Executar soak test 8-24h com eventos reais sintéticos.",
+   "esperado": "Sem crescimento de recursos, deadlock ou crash crítico."
+  },
+  {
+   "id": "PERF-013",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "Cancelamento de job",
+   "como_provocar": "Cancelar tarefa longa antes e após fase irreversível.",
+   "esperado": "Recursos liberados e estado final correto."
+  },
+  {
+   "id": "PERF-014",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "Fila sob surto",
+   "como_provocar": "Adicionar rajada de mensagens de teste maior que vazão normal.",
+   "esperado": "Backpressure evita colapso; DLQ operacional."
+  },
+  {
+   "id": "PERF-015",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "Corpo gigante",
+   "como_provocar": "Enviar payload máximo contratado e logo acima do limite.",
+   "esperado": "Processamento controlado; excesso rejeitado."
+  },
+  {
+   "id": "PERF-016",
+   "prioridade": "P1",
+   "modulo": "PERF",
+   "secao": "22. Performance, uso de recursos e estabilidade prolongada",
+   "bug": "Métrica falsa positiva",
+   "como_provocar": "Simular perda de telemetria com serviço saudável.",
+   "esperado": "Monitoramento distingue dados ausentes de performance boa."
+  },
+  {
+   "id": "I18N-001",
+   "prioridade": "P0",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Número decimal BR",
+   "como_provocar": "Digitar 1.234,56 e 1234.56 em locale PT-BR sob regras definidas.",
+   "esperado": "Parsing não interpreta milhar como decimal indevido."
+  },
+  {
+   "id": "I18N-002",
+   "prioridade": "P0",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Moedas múltiplas",
+   "como_provocar": "Trocar moeda de conta e comparar símbolos/precisão.",
+   "esperado": "Cálculos não dependem do símbolo exibido."
+  },
+  {
+   "id": "I18N-003",
+   "prioridade": "P0",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Timezone viagem",
+   "como_provocar": "Alterar timezone com assinatura ativa e dados agendados.",
+   "esperado": "Instantes permanecem corretos."
+  },
+  {
+   "id": "I18N-004",
+   "prioridade": "P1",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "DST mudança",
+   "como_provocar": "Testar data/hora ambígua e inexistente no fuso aplicável.",
+   "esperado": "Regras explícitas sem expiração dupla."
+  },
+  {
+   "id": "I18N-005",
+   "prioridade": "P1",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Texto grande",
+   "como_provocar": "Ativar acessibilidade 200%-300% e navegar telas.",
+   "esperado": "Controles principais acessíveis e sem sobreposição."
+  },
+  {
+   "id": "I18N-006",
+   "prioridade": "P1",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Leitor de tela",
+   "como_provocar": "Navegar login, compra e erro sem visão.",
+   "esperado": "Ordem, nomes e mensagens compreensíveis."
+  },
+  {
+   "id": "I18N-007",
+   "prioridade": "P1",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Teclado somente",
+   "como_provocar": "Usar Tab, Enter, Escape em fluxos complexos.",
+   "esperado": "Sem armadilhas ou ações impossíveis pelo teclado."
+  },
+  {
+   "id": "I18N-008",
+   "prioridade": "P1",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Zoom browser",
+   "como_provocar": "Aumentar zoom até 400% conforme contexto de teste.",
+   "esperado": "Conteúdo central permanece acessível."
+  },
+  {
+   "id": "I18N-009",
+   "prioridade": "P2",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Direção RTL",
+   "como_provocar": "Testar idioma RTL caso produto declare suporte.",
+   "esperado": "Ícones, ordem e números corretos sem confusão."
+  },
+  {
+   "id": "I18N-010",
+   "prioridade": "P1",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Texto longo traduzido",
+   "como_provocar": "Inserir traduções 2-3x maiores em labels de teste.",
+   "esperado": "Sem truncar informações obrigatórias."
+  },
+  {
+   "id": "I18N-011",
+   "prioridade": "P1",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Erro de layout 16:9",
+   "como_provocar": "Testar monitores ultrawide e smartphones estreitos.",
+   "esperado": "Nada crítico sai da área clicável."
+  },
+  {
+   "id": "I18N-012",
+   "prioridade": "P2",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Preferência de movimento",
+   "como_provocar": "Ativar reduced motion e percorrer fluxos animados.",
+   "esperado": "Redução de movimento respeitada onde suportada."
+  },
+  {
+   "id": "I18N-013",
+   "prioridade": "P1",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Toque pequeno",
+   "como_provocar": "Testar controles próximos e zoom em aparelho real.",
+   "esperado": "Alvos acionáveis sem toques acidentais críticos."
+  },
+  {
+   "id": "I18N-014",
+   "prioridade": "P1",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Feedback multimodal",
+   "como_provocar": "Remover áudio/vibração e concluir fluxo.",
+   "esperado": "Estado não depende exclusivamente de um canal sensorial."
+  },
+  {
+   "id": "I18N-015",
+   "prioridade": "P0",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Visualização numérica",
+   "como_provocar": "Comparar subtotal, descontos, frete, taxas e total.",
+   "esperado": "Valores exibidos reconciliam com backend."
+  },
+  {
+   "id": "I18N-016",
+   "prioridade": "P0",
+   "modulo": "I18N",
+   "secao": "23. Acessibilidade, idiomas, datas e UX avançada",
+   "bug": "Erro de formatação CSV",
+   "como_provocar": "Exportar e reimportar CSV com acentos, aspas e quebra de linha.",
+   "esperado": "Linhas e campos preservados sem execução de fórmulas indevidas."
+  },
+  {
+   "id": "AI-001",
+   "prioridade": "P0",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Prompt injection indireta",
+   "como_provocar": "Incluir instrução adversarial em documento sintético de RAG.",
+   "esperado": "Agente não executa ação fora das permissões do usuário."
+  },
+  {
+   "id": "AI-002",
+   "prioridade": "P0",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Acesso RAG cruzado",
+   "como_provocar": "Perguntar por documento de tenant B usando conta A.",
+   "esperado": "Nenhum trecho privado externo ao escopo é recuperado."
+  },
+  {
+   "id": "AI-003",
+   "prioridade": "P0",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Loop de ferramentas",
+   "como_provocar": "Criar cenário com ferramenta que sempre falha.",
+   "esperado": "Limites de passos, tempo e custo interrompem execução."
+  },
+  {
+   "id": "AI-004",
+   "prioridade": "P0",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Ferramenta perigosa",
+   "como_provocar": "Pedir alteração financeira sem autorização fora do modelo.",
+   "esperado": "Backend recusa sem confirmação independente."
+  },
+  {
+   "id": "AI-005",
+   "prioridade": "P1",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "JSON malformado do LLM",
+   "como_provocar": "Retornar objeto com campos ausentes, tipos incorretos e lixo.",
+   "esperado": "Schema rejeita e sistema tenta recuperação limitada."
+  },
+  {
+   "id": "AI-006",
+   "prioridade": "P0",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Alucinação de ID",
+   "como_provocar": "Modelo retorna ID inexistente ou de outro usuário.",
+   "esperado": "Validação no backend impede mutação incorreta."
+  },
+  {
+   "id": "AI-007",
+   "prioridade": "P1",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Timeout de modelo",
+   "como_provocar": "Interromper stream da resposta com cobrança registrada.",
+   "esperado": "Status/custo reconciliado; cliente recebe erro apropriado."
+  },
+  {
+   "id": "AI-008",
+   "prioridade": "P0",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Conta sem quota",
+   "como_provocar": "Gerar solicitações paralelas acima do orçamento.",
+   "esperado": "Quota financeira e limites de tokens respeitados."
+  },
+  {
+   "id": "AI-009",
+   "prioridade": "P1",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Modelo não disponível",
+   "como_provocar": "Trocar modelo configurado por inexistente/descontinuado.",
+   "esperado": "Fallback permitido ou erro controlado, sem downgrade inseguro."
+  },
+  {
+   "id": "AI-010",
+   "prioridade": "P0",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "MCP tools alteradas",
+   "como_provocar": "Mudar schema de ferramenta em ambiente de teste.",
+   "esperado": "Agente detecta incompatibilidade, não executa com parâmetros errados."
+  },
+  {
+   "id": "AI-011",
+   "prioridade": "P0",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Output HTML",
+   "como_provocar": "Gerar resposta contendo tags/script de teste.",
+   "esperado": "UI sanitiza saída antes de renderizar."
+  },
+  {
+   "id": "AI-012",
+   "prioridade": "P0",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Histórico trocado",
+   "como_provocar": "Alternar tenant e reiniciar conversa de agente.",
+   "esperado": "Contexto, arquivos e memória isolados por identidade."
+  },
+  {
+   "id": "AI-013",
+   "prioridade": "P1",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Input arquivo gigante",
+   "como_provocar": "Enviar anexo acima de limite de extração/contexto.",
+   "esperado": "Sistema limita custo e memória."
+  },
+  {
+   "id": "AI-014",
+   "prioridade": "P0",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Tool call repetida",
+   "como_provocar": "Modelo chama mesma ferramenta transacional várias vezes.",
+   "esperado": "Idempotência no executor evita efeitos duplicados."
+  },
+  {
+   "id": "AI-015",
+   "prioridade": "P0",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Prompt contém segredo",
+   "como_provocar": "Inspecionar histórico, tracing e erro de ferramentas de teste.",
+   "esperado": "Tokens e segredos são mascarados e não persistidos indevidamente."
+  },
+  {
+   "id": "AI-016",
+   "prioridade": "P1",
+   "modulo": "AI",
+   "secao": "24. IA, agentes, MCP e automações",
+   "bug": "Streaming parcial",
+   "como_provocar": "Cortar streaming de tokens e enviar nova requisição.",
+   "esperado": "UI e histórico não apresentam resposta parcial como definitiva."
+  },
+  {
+   "id": "OBS-001",
+   "prioridade": "P1",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Trace sem correlação",
+   "como_provocar": "Reproduzir pedido atravessando frontend, API, worker e banco.",
+   "esperado": "Correlation ID permite seguir evento entre serviços."
+  },
+  {
+   "id": "OBS-002",
+   "prioridade": "P1",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Erro sem contexto",
+   "como_provocar": "Provocar exceção e abrir observabilidade.",
+   "esperado": "Registro inclui versão, rota, tenant pseudonimizado e ação."
+  },
+  {
+   "id": "OBS-003",
+   "prioridade": "P0",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "PII no stack trace",
+   "como_provocar": "Gerar erro com CPF/email fictícios em payload.",
+   "esperado": "Logs e ferramentas mascaram dados conforme política."
+  },
+  {
+   "id": "OBS-004",
+   "prioridade": "P1",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Alertas desabilitados",
+   "como_provocar": "Simular indisponibilidade sintética.",
+   "esperado": "Alerta atinge responsável em prazo definido."
+  },
+  {
+   "id": "OBS-005",
+   "prioridade": "P1",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Alerta ruidoso",
+   "como_provocar": "Disparar flapping intermitente durante teste.",
+   "esperado": "Deduplicação e escalonamento funcionam."
+  },
+  {
+   "id": "OBS-006",
+   "prioridade": "P1",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Crash sem símbolos",
+   "como_provocar": "Publicar build de teste e provocar crash.",
+   "esperado": "dSYM/sourcemap/PDB disponíveis para diagnóstico protegido."
+  },
+  {
+   "id": "OBS-007",
+   "prioridade": "P1",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Sourcemap público",
+   "como_provocar": "Verificar política de distribuição de maps e debug artifacts.",
+   "esperado": "Artefatos são acessíveis só conforme política de segurança."
+  },
+  {
+   "id": "OBS-008",
+   "prioridade": "P1",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Métricas sem versão",
+   "como_provocar": "Forçar regressão após atualização de app.",
+   "esperado": "Dashboards segmentam por build/OS/dispositivo."
+  },
+  {
+   "id": "OBS-009",
+   "prioridade": "P0",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Logs alteráveis",
+   "como_provocar": "Tentar apagar trilha com identidade operacional de teste.",
+   "esperado": "Eventos críticos preservados conforme controles de auditoria."
+  },
+  {
+   "id": "OBS-010",
+   "prioridade": "P1",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Perda de evento",
+   "como_provocar": "Induzir pane na pipeline de logs em staging.",
+   "esperado": "Buffer/fallback ou alarme identifica lacuna."
+  },
+  {
+   "id": "OBS-011",
+   "prioridade": "P1",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Bug marcado resolvido",
+   "como_provocar": "Reabrir fluxo após correção e disparar teste de regressão.",
+   "esperado": "Ticket registra verificação em build e ambiente exatos."
+  },
+  {
+   "id": "OBS-012",
+   "prioridade": "P2",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Bug duplicado",
+   "como_provocar": "Criar dois tickets com mesma assinatura de falha.",
+   "esperado": "Triagem agrupa mantendo evidências separadas."
+  },
+  {
+   "id": "OBS-013",
+   "prioridade": "P1",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Runbook de falha",
+   "como_provocar": "Simular dependência externa indisponível em tabletop.",
+   "esperado": "Equipe segue passos documentados de contenção/recuperação."
+  },
+  {
+   "id": "OBS-014",
+   "prioridade": "P0",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Rollback manual",
+   "como_provocar": "Ensaiar rollback de versão em staging sem acesso root direto.",
+   "esperado": "Procedimento atende RTO e preserva dados."
+  },
+  {
+   "id": "OBS-015",
+   "prioridade": "P0",
+   "modulo": "OBS",
+   "secao": "25. Logs, observabilidade, alertas e resposta",
+   "bug": "Métrica de sucesso errada",
+   "como_provocar": "Gerar requisição 200 com operação não persistida em teste.",
+   "esperado": "Instrumentação mede sucesso de negócio, não só HTTP 200."
+  },
+  {
+   "id": "CI-001",
+   "prioridade": "P1",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Teste flaky",
+   "como_provocar": "Executar suíte repetidas vezes com seeds anotados.",
+   "esperado": "Flakiness rastreada; não mascarada por retry indefinido."
+  },
+  {
+   "id": "CI-002",
+   "prioridade": "P1",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Fixture compartilhada",
+   "como_provocar": "Executar testes paralelos que manipulam mesmo usuário.",
+   "esperado": "Dados isolados por teste; resultado determinístico."
+  },
+  {
+   "id": "CI-003",
+   "prioridade": "P1",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Mock excessivo",
+   "como_provocar": "Comparar testes mockados com ambiente de integração real.",
+   "esperado": "Contratos e efeitos persistidos também validados."
+  },
+  {
+   "id": "CI-004",
+   "prioridade": "P0",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Teste só happy path",
+   "como_provocar": "Incluir entrada inválida, negação e falha de dependência.",
+   "esperado": "Cenários negativos cobertos para ações críticas."
+  },
+  {
+   "id": "CI-005",
+   "prioridade": "P0",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Schema alterado",
+   "como_provocar": "Aplicar migration em build e rodar testes automáticos.",
+   "esperado": "Falha de RLS, grant ou constraint bloqueia pipeline."
+  },
+  {
+   "id": "CI-006",
+   "prioridade": "P1",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Dependência vulnerável",
+   "como_provocar": "Introduzir dependência de teste com CVE conhecido controlado.",
+   "esperado": "SCA detecta e aplica política de risco."
+  },
+  {
+   "id": "CI-007",
+   "prioridade": "P0",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Segredo no commit",
+   "como_provocar": "Adicionar token sintético em branch descartável.",
+   "esperado": "Secret scanning bloqueia ou sinaliza imediatamente."
+  },
+  {
+   "id": "CI-008",
+   "prioridade": "P1",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Teste móvel só emulador",
+   "como_provocar": "Executar suíte crítica também em dispositivos físicos.",
+   "esperado": "Falhas exclusivas de hardware detectáveis."
+  },
+  {
+   "id": "CI-009",
+   "prioridade": "P0",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Windows só debug",
+   "como_provocar": "Executar smoke no EXE assinado e instalador final.",
+   "esperado": "Build de produção validado, não apenas dev server."
+  },
+  {
+   "id": "CI-010",
+   "prioridade": "P1",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Release com versão errada",
+   "como_provocar": "Publicar build com versão incompatível no ambiente de teste.",
+   "esperado": "Versionamento e artefatos vinculados ao commit correto."
+  },
+  {
+   "id": "CI-011",
+   "prioridade": "P1",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Feature flag revertida",
+   "como_provocar": "Ligar/desligar flag em runtime durante fluxo.",
+   "esperado": "Ambos estados são testados e reversão segura."
+  },
+  {
+   "id": "CI-012",
+   "prioridade": "P0",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Migration irreversível",
+   "como_provocar": "Avaliar publicação com downgrade do serviço.",
+   "esperado": "Estratégia expand/contract ou recuperação validada."
+  },
+  {
+   "id": "CI-013",
+   "prioridade": "P0",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Teste de backup esquecido",
+   "como_provocar": "Validar restore trimestral em ambiente isolado.",
+   "esperado": "Evidência de integridade e RTO/RPO documentada."
+  },
+  {
+   "id": "CI-014",
+   "prioridade": "P1",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Aprovação sem owner",
+   "como_provocar": "Tentar liberar alteração crítica sem responsável designado.",
+   "esperado": "Pipeline exige aprovação definida."
+  },
+  {
+   "id": "CI-015",
+   "prioridade": "P1",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Smoke pós-deploy",
+   "como_provocar": "Injetar erro crítico em ambiente de homologação.",
+   "esperado": "Canary/monitoramento detecta e bloqueia expansão."
+  },
+  {
+   "id": "CI-016",
+   "prioridade": "P0",
+   "modulo": "CI",
+   "secao": "26. Automação de QA, CI/CD e portões de release",
+   "bug": "Pentest sem autorização",
+   "como_provocar": "Tentar iniciar varredura fora do escopo autorizado.",
+   "esperado": "Procedimento exige aprovação, limites de carga e alvo permitido."
+  }
+ ]
+}
